@@ -209,6 +209,35 @@ def create_regulatory_requirements():
 		doc.insert(ignore_permissions=True)
 
 
+def create_law_sections():
+	for section_number, section_title, summary in seed.LAW_SECTIONS_ITO:
+		if frappe.db.exists("Law Section", {"applicable_law": "Income Tax Ordinance, 2001", "section_number": section_number}):
+			continue
+		frappe.get_doc({
+			"doctype": "Law Section",
+			"applicable_law": "Income Tax Ordinance, 2001",
+			"section_number": section_number,
+			"section_title": section_title,
+			"summary": summary,
+			"is_active": 1,
+		}).insert(ignore_permissions=True)
+
+
+def create_rate_schedules():
+	for applies_to, condition, rate_percent, effective_from, remarks in seed.RATE_SCHEDULES_ITO:
+		if frappe.db.exists("Rate Schedule", {"applicable_law": "Income Tax Ordinance, 2001", "applies_to": applies_to}):
+			continue
+		frappe.get_doc({
+			"doctype": "Rate Schedule",
+			"applicable_law": "Income Tax Ordinance, 2001",
+			"applies_to": applies_to,
+			"condition_description": condition,
+			"rate_percent": rate_percent,
+			"effective_from": effective_from,
+			"remarks": remarks,
+		}).insert(ignore_permissions=True)
+
+
 def create_all():
 	steps = [
 		create_simple_masters,
@@ -224,6 +253,8 @@ def create_all():
 		create_audit_program_templates,
 		create_fs_line_items,
 		create_coa_heads,
+		create_law_sections,
+		create_rate_schedules,
 		create_audit_opinion_paragraphs,
 		create_audit_report_templates,
 		create_regulatory_requirements,

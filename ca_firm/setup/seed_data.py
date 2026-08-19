@@ -817,4 +817,165 @@ REGULATORY_REQUIREMENTS = [   (   'Statutory Audit Requirement - Companies Act 2
         False,
         False,
         'Applicable where the client falls within a Designated Non-Financial Business or Profession (DNFBP) '
-        'category or the engagement otherwise triggers AML customer due diligence obligations.')]
+        'category or the engagement otherwise triggers AML customer due diligence obligations.'),
+    (   'Tax Audit Selection Risk - Section 214C',
+        'Income Tax Ordinance, 2001',
+        None,
+        None,
+        None,
+        False,
+        False,
+        False,
+        'Every taxpayer is exposed to random computer-ballot selection for audit under section 214C (or '
+        "specific selection under section 177). Relevant to the auditor's assessment of tax contingencies "
+        'and disclosure of contingent liabilities.'),
+    (   'Minimum Tax Applicability - Section 113',
+        'Income Tax Ordinance, 2001',
+        'Private Limited Company',
+        None,
+        None,
+        False,
+        False,
+        True,
+        'Companies are liable to minimum tax on turnover under section 113 where no tax is payable or tax '
+        'payable is less than the minimum tax threshold -- relevant to the current tax provision working and '
+        'to going concern / cash flow assessment for companies in a loss position.')]
+
+LAW_SECTIONS_ITO = [   (   'Section 4',
+        'Charge of Tax',
+        "Charges tax for a tax year on every person's taxable income at the rates specified in the First "
+        'Schedule.'),
+    (   'Section 4B',
+        'Super Tax for Rehabilitation of Temporarily Displaced Persons',
+        'Levies super tax on income of certain persons above specified thresholds, in addition to normal '
+        'tax.'),
+    (   'Section 18',
+        'Income from Business',
+        "Defines amounts chargeable to tax under the head 'Income from Business', including profits, trading "
+        'liabilities remitted, and compensation received on account of business.'),
+    (   'Section 20',
+        'Deductions',
+        'General rule allowing deduction of expenditure wholly and exclusively incurred in deriving income '
+        'from business, subject to sections 21-30.'),
+    (   'Section 21',
+        'Deductions Not Allowed',
+        'Lists expenditure not deductible in computing income from business, including cess/tax/duty not '
+        'paid, entertainment beyond prescribed limits, and payments to associates without withholding.'),
+    (   'Section 22',
+        'Depreciation',
+        'Allows deduction for depreciation of depreciable assets used in the business, computed on written '
+        'down value at rates in the Third Schedule.'),
+    (   'Section 23',
+        'Initial Allowance',
+        'Allows an initial allowance in the year an eligible depreciable asset is placed into service, in '
+        'addition to normal depreciation.'),
+    (   'Section 37',
+        'Capital Gains',
+        'Charges gains arising on disposal of a capital asset, computed as consideration received less cost, '
+        'subject to holding-period-based reductions.'),
+    (   'Section 100C',
+        'Tax Credit for Certain Persons',
+        'Provides 100% tax credit to specified non-profit/charitable organizations subject to conditions on '
+        'approval and application of income.'),
+    (   'Section 113',
+        'Minimum Tax on Income of Certain Persons',
+        'Charges minimum tax on the turnover of a company/certain persons where no tax is payable or tax '
+        'payable is less than the minimum tax for the year.'),
+    (   'Section 113C',
+        'Alternative Corporate Tax',
+        'Requires a company to pay the higher of normal tax payable or Alternative Corporate Tax computed on '
+        'accounting income, subject to specified adjustments.'),
+    (   'Section 122',
+        'Amendment of Assessments',
+        'Empowers the Commissioner to amend an assessment order where income has escaped assessment or has '
+        'been under-assessed/over-assessed.'),
+    (   'Section 147',
+        'Advance Tax',
+        'Requires companies and certain other taxpayers to pay advance tax quarterly based on the '
+        'turnover/income of the latest tax year.'),
+    (   'Section 148',
+        'Imports',
+        'Requires collection of advance tax by the Collector of Customs at the import stage, generally '
+        'treated as minimum/final tax depending on category.'),
+    (   'Section 149',
+        'Salary',
+        'Requires an employer to deduct tax from salary paid to an employee at the rates specified in '
+        'Division I, Part I of the First Schedule.'),
+    (   'Section 150',
+        'Dividends',
+        'Requires deduction of tax by the person paying a dividend, at rates that differ for filers and '
+        'non-filers.'),
+    (   'Section 151',
+        'Profit on Debt',
+        'Requires deduction of tax on payment of profit on debt (e.g. bank profit, government securities), '
+        'at rates that differ for filers and non-filers.'),
+    (   'Section 152',
+        'Payments to Non-Residents',
+        'Requires deduction of tax from payments to non-resident persons for royalty, fees for technical '
+        'services, contracts, and other specified payments.'),
+    (   'Section 153',
+        'Payments for Goods, Services and Contracts',
+        'Requires the prescribed person to deduct tax when making payments for sale of goods, rendering of '
+        'services, and execution of contracts -- one of the most frequently applicable withholding '
+        'provisions in an audit.'),
+    (   'Section 154',
+        'Exports',
+        'Requires collection/deduction of tax on export proceeds, generally treated as a final tax on export '
+        'income.'),
+    (   'Section 155',
+        'Income from Property',
+        'Requires deduction of tax by the prescribed person paying rent on immovable property.'),
+    (   'Section 165',
+        'Statements',
+        'Requires every withholding agent to furnish periodic withholding statements to the Commissioner, '
+        'and annual reconciliation.'),
+    (   'Section 177',
+        'Audit',
+        "Empowers the Commissioner to select a person's tax affairs for audit and call for records and "
+        'documents.'),
+    (   'Section 214C',
+        'Selection for Audit',
+        'Empowers the Board to select persons for audit through computer ballot, randomly or on the basis of '
+        'predetermined parameters.'),
+    (   'Section 236',
+        'Advance Tax at Time of Sale by Auction',
+        'Part of a broader group of advance-tax-collection provisions (section 236 and its sub-sections) '
+        'requiring collection of tax at source on specified transactions.')]
+
+RATE_SCHEDULES_ITO = [   (   'Section 4 - Company (other than banking)',
+        'Standard corporate tax rate on taxable income',
+        29.0,
+        '2019-07-01',
+        'ILLUSTRATIVE ONLY -- verify against the First Schedule as amended by the Finance Act for the '
+        'relevant tax year before use. This rate has historically been stable at 29% for non-banking '
+        'companies but is subject to change every Finance Act.'),
+    (   'Section 113 - Company (turnover-based minimum tax)',
+        'Minimum tax on turnover',
+        1.25,
+        '2019-07-01',
+        'ILLUSTRATIVE ONLY -- verify current rate and any sector-specific reduced rates (e.g. for '
+        'distributors, certain traders) against the current Finance Act and relevant SROs.'),
+    (   'Section 153(1)(a) - Sale of Goods, Company - Filer',
+        'Advance tax on sale of goods, filer',
+        4.0,
+        '2021-07-01',
+        'ILLUSTRATIVE ONLY -- verify against the current Finance Act. Rate typically differs for filers vs '
+        'non-filers and for companies vs other persons.'),
+    (   'Section 153(1)(b) - Services, Company - Filer',
+        'Advance tax on rendering of services, filer',
+        8.0,
+        '2021-07-01',
+        'ILLUSTRATIVE ONLY -- verify against the current Finance Act; several service categories carry '
+        'distinct rates (e.g. transport services, IT-enabled services).'),
+    (   'Section 150 - Dividend, Company - Filer',
+        'Withholding on dividend paid to a filer',
+        15.0,
+        '2021-07-01',
+        'ILLUSTRATIVE ONLY -- verify against the current Finance Act; rate differs for non-filers and for '
+        'dividends from certain categories of companies (e.g. power generation).'),
+    (   'Section 151 - Profit on Debt, Filer',
+        'Withholding on profit on debt paid to a filer',
+        15.0,
+        '2021-07-01',
+        'ILLUSTRATIVE ONLY -- verify against the current Finance Act; rate and threshold differ for '
+        'non-filers.')]
