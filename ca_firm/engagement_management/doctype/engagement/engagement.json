@@ -205,7 +205,8 @@
   {
    "fieldname": "fee_estimate",
    "fieldtype": "Currency",
-   "label": "Fee Estimate"
+   "label": "Fee Estimate",
+   "permlevel": 1
   },
   {
    "fieldtype": "Column Break",
@@ -375,6 +376,70 @@
    "share": 1,
    "print": 1,
    "email": 1
+  },
+  {
+   "role": "CA Firm Partner",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "CA Firm Admin",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1,
+   "permlevel": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1,
+   "permlevel": 1
   }
  ],
  "autoname": "naming_series:",

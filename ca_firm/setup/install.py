@@ -11,11 +11,15 @@ def after_migrate():
 
 
 def _run_setup():
-	from ca_firm.setup import custom_fields, dashboard, kanban, masters, roles, workspace
+	from ca_firm.setup import (
+		custom_fields, dashboard, kanban, masters, native_permissions, roles, workflow, workspace,
+	)
 
 	roles.create_roles()
 	custom_fields.create_all()
+	native_permissions.create_all()
 	masters.create_all()
 	workspace.create_workspace()
 	dashboard.create_all()
 	kanban.create_kanban_boards()
+	workflow.create_all()
