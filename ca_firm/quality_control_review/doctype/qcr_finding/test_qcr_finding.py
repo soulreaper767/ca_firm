@@ -2,5 +2,5 @@ import frappe
 from frappe.tests import IntegrationTestCase
 
 
-class TestIntegrationQcrFinding(IntegrationTestCase):
+class TestIntegrationQCRFinding(IntegrationTestCase):
 	pass

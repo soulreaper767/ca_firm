@@ -2,5 +2,5 @@ import frappe
 from frappe.tests import IntegrationTestCase
 
 
-class TestIntegrationCaFirmSettings(IntegrationTestCase):
+class TestIntegrationCAFirmSettings(IntegrationTestCase):
 	pass

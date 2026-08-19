@@ -2,5 +2,5 @@ import frappe
 from frappe.tests import IntegrationTestCase
 
 
-class TestIntegrationCaatRun(IntegrationTestCase):
+class TestIntegrationCAATRun(IntegrationTestCase):
 	pass

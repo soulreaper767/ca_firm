@@ -2,5 +2,5 @@ import frappe
 from frappe.tests import IntegrationTestCase
 
 
-class TestIntegrationUnderstandingOfTheEntity(IntegrationTestCase):
+class TestIntegrationUnderstandingoftheEntity(IntegrationTestCase):
 	pass

@@ -2,5 +2,5 @@ import frappe
 from frappe.tests import IntegrationTestCase
 
 
-class TestIntegrationClientAcceptanceAndContinuance(IntegrationTestCase):
+class TestIntegrationClientAcceptanceandContinuance(IntegrationTestCase):
 	pass
