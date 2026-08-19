@@ -1,0 +1,297 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "engagement",
+  "overall_strategy",
+  "scope_and_timing",
+  "section_break_1",
+  "reporting_deadlines",
+  "column_break_1",
+  "planned_audit_approach",
+  "resource_requirements",
+  "section_break_2",
+  "use_of_experts",
+  "expert_details",
+  "column_break_2",
+  "use_of_component_auditors",
+  "materiality_reference",
+  "significant_risks_summary",
+  "section_break_3",
+  "team_briefing_date",
+  "section_break_4",
+  "prepared_by",
+  "column_break_3",
+  "reviewed_by",
+  "approved_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "ASP-.YYYY.-.#####",
+   "default": "ASP-.YYYY.-.#####",
+   "hidden": 0,
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "Engagement",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "overall_strategy",
+   "fieldtype": "Text Editor",
+   "label": "Overall Strategy"
+  },
+  {
+   "fieldname": "scope_and_timing",
+   "fieldtype": "Text",
+   "label": "Scope And Timing"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "reporting_deadlines",
+   "fieldtype": "Date",
+   "label": "Reporting Deadlines"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "planned_audit_approach",
+   "fieldtype": "Select",
+   "label": "Planned Audit Approach",
+   "options": "Substantive Approach\nCombined Approach\nControls Reliance Approach"
+  },
+  {
+   "fieldname": "resource_requirements",
+   "fieldtype": "Text",
+   "label": "Resource Requirements"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "use_of_experts",
+   "fieldtype": "Check",
+   "label": "Use Of Experts"
+  },
+  {
+   "fieldname": "expert_details",
+   "fieldtype": "Small Text",
+   "label": "Expert Details",
+   "depends_on": "use_of_experts"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_2"
+  },
+  {
+   "fieldname": "use_of_component_auditors",
+   "fieldtype": "Check",
+   "label": "Use Of Component Auditors"
+  },
+  {
+   "fieldname": "materiality_reference",
+   "fieldtype": "Link",
+   "label": "Materiality Reference",
+   "options": "Materiality Workings"
+  },
+  {
+   "fieldname": "significant_risks_summary",
+   "fieldtype": "Text",
+   "label": "Significant Risks Summary"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "team_briefing_date",
+   "fieldtype": "Date",
+   "label": "Team Briefing Date"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Sign-off",
+   "fieldname": "section_break_4"
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Link",
+   "label": "Prepared By",
+   "options": "Staff Member"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_3"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "Staff Member"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Approved By",
+   "options": "Staff Member"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Audit Planning",
+ "name": "Audit Strategy and Plan",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "CA Firm Partner",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Job Incharge",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Supervisor",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Semi Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Article Assistant",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "autoname": "naming_series:",
+ "is_submittable": 1
+}

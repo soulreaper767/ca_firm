@@ -1,0 +1,317 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "staff_member",
+  "engagement",
+  "client",
+  "declaration_date",
+  "section_break_1",
+  "has_financial_interest",
+  "financial_interest_details",
+  "has_family_employment_relationship",
+  "family_relationship_details",
+  "has_prior_employment_with_client",
+  "prior_employment_details",
+  "provided_non_audit_services",
+  "non_audit_services_details",
+  "section_break_2",
+  "self_interest_threat",
+  "self_review_threat",
+  "advocacy_threat",
+  "column_break_1",
+  "familiarity_threat",
+  "intimidation_threat",
+  "section_break_3",
+  "safeguards_applied",
+  "overall_declaration",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "IND-.YYYY.-.#####",
+   "default": "IND-.YYYY.-.#####",
+   "hidden": 0,
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "staff_member",
+   "fieldtype": "Link",
+   "label": "Staff Member",
+   "options": "Staff Member",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "Engagement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Client",
+   "fetch_from": "engagement.client",
+   "read_only": 1
+  },
+  {
+   "fieldname": "declaration_date",
+   "fieldtype": "Date",
+   "label": "Declaration Date",
+   "default": "Today"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Threats Identified",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "has_financial_interest",
+   "fieldtype": "Check",
+   "label": "Has Financial Interest"
+  },
+  {
+   "fieldname": "financial_interest_details",
+   "fieldtype": "Small Text",
+   "label": "Financial Interest Details",
+   "depends_on": "has_financial_interest"
+  },
+  {
+   "fieldname": "has_family_employment_relationship",
+   "fieldtype": "Check",
+   "label": "Has Family Employment Relationship"
+  },
+  {
+   "fieldname": "family_relationship_details",
+   "fieldtype": "Small Text",
+   "label": "Family Relationship Details",
+   "depends_on": "has_family_employment_relationship"
+  },
+  {
+   "fieldname": "has_prior_employment_with_client",
+   "fieldtype": "Check",
+   "label": "Has Prior Employment With Client"
+  },
+  {
+   "fieldname": "prior_employment_details",
+   "fieldtype": "Small Text",
+   "label": "Prior Employment Details",
+   "depends_on": "has_prior_employment_with_client"
+  },
+  {
+   "fieldname": "provided_non_audit_services",
+   "fieldtype": "Check",
+   "label": "Provided Non Audit Services"
+  },
+  {
+   "fieldname": "non_audit_services_details",
+   "fieldtype": "Small Text",
+   "label": "Non Audit Services Details",
+   "depends_on": "provided_non_audit_services"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Threat Categories (Code of Ethics)",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "self_interest_threat",
+   "fieldtype": "Check",
+   "label": "Self Interest Threat"
+  },
+  {
+   "fieldname": "self_review_threat",
+   "fieldtype": "Check",
+   "label": "Self Review Threat"
+  },
+  {
+   "fieldname": "advocacy_threat",
+   "fieldtype": "Check",
+   "label": "Advocacy Threat"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "familiarity_threat",
+   "fieldtype": "Check",
+   "label": "Familiarity Threat"
+  },
+  {
+   "fieldname": "intimidation_threat",
+   "fieldtype": "Check",
+   "label": "Intimidation Threat"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "safeguards_applied",
+   "fieldtype": "Small Text",
+   "label": "Safeguards Applied"
+  },
+  {
+   "fieldname": "overall_declaration",
+   "fieldtype": "Select",
+   "label": "Overall Declaration",
+   "options": "Independent\nIndependent with Safeguards\nNot Independent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Engagement Management",
+ "name": "Independence Declaration",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "CA Firm Partner",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Job Incharge",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Supervisor",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Semi Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Article Assistant",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "autoname": "naming_series:",
+ "is_submittable": 1
+}

@@ -1,0 +1,69 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "engagement",
+  "audit_procedure",
+  "fs_area",
+  "hours",
+  "is_billable",
+  "narration"
+ ],
+ "fields": [
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "Engagement",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "audit_procedure",
+   "fieldtype": "Link",
+   "label": "Audit Procedure",
+   "options": "Audit Procedure"
+  },
+  {
+   "fieldname": "fs_area",
+   "fieldtype": "Link",
+   "label": "FS Area",
+   "options": "Financial Statement Area"
+  },
+  {
+   "fieldname": "hours",
+   "fieldtype": "Float",
+   "label": "Hours",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_billable",
+   "fieldtype": "Check",
+   "label": "Is Billable",
+   "default": "1",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Small Text",
+   "label": "Narration",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Team and Timesheet",
+ "name": "Timesheet Entry",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

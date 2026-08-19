@@ -1,0 +1,71 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "staff_member",
+  "designation",
+  "role_in_engagement",
+  "allocated_hours_budget",
+  "date_assigned",
+  "is_independence_confirmed"
+ ],
+ "fields": [
+  {
+   "fieldname": "staff_member",
+   "fieldtype": "Link",
+   "label": "Staff Member",
+   "options": "Staff Member",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "designation",
+   "fieldtype": "Link",
+   "label": "Designation",
+   "options": "Designation",
+   "fetch_from": "staff_member.designation",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "role_in_engagement",
+   "fieldtype": "Select",
+   "label": "Role In Engagement",
+   "options": "Engagement Partner\nEQCR Partner\nManager\nJob Incharge\nSupervisor\nSenior\nSemi Senior\nArticle Assistant",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "allocated_hours_budget",
+   "fieldtype": "Float",
+   "label": "Allocated Hours Budget",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "date_assigned",
+   "fieldtype": "Date",
+   "label": "Date Assigned"
+  },
+  {
+   "fieldname": "is_independence_confirmed",
+   "fieldtype": "Check",
+   "label": "Is Independence Confirmed"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Engagement Management",
+ "name": "Engagement Team Member",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

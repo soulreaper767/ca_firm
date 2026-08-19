@@ -1,0 +1,63 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "engagement",
+  "client",
+  "selected_reason",
+  "file_rating",
+  "reviewer_comments"
+ ],
+ "fields": [
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "Engagement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Client",
+   "fetch_from": "engagement.client",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "selected_reason",
+   "fieldtype": "Small Text",
+   "label": "Selected Reason"
+  },
+  {
+   "fieldname": "file_rating",
+   "fieldtype": "Select",
+   "label": "File Rating",
+   "options": "Satisfactory\nNeeds Improvement\nUnsatisfactory",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "reviewer_comments",
+   "fieldtype": "Small Text",
+   "label": "Reviewer Comments"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Quality Control Review",
+ "name": "QCR Engagement File Sample",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

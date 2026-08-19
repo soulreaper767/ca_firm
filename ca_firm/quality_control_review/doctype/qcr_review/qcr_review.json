@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "review_category",
+  "column_break_1",
+  "review_period_from",
+  "review_period_to",
+  "section_break_1",
+  "inspecting_body",
+  "column_break_2",
+  "reviewed_by",
+  "review_start_date",
+  "review_end_date",
+  "section_break_2",
+  "engagement_files_reviewed",
+  "section_break_3",
+  "overall_rating",
+  "column_break_3",
+  "report_received_date",
+  "summary_of_observations",
+  "root_cause_analysis",
+  "section_break_4",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "QCR-.YYYY.-.#####",
+   "default": "QCR-.YYYY.-.#####",
+   "hidden": 0,
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "review_category",
+   "fieldtype": "Select",
+   "label": "Review Category",
+   "options": "ICAP Quality Control Review\nInternal Annual Monitoring Review\nEngagement File Inspection - Cold Review\nEngagement File Inspection - Hot Review",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "review_period_from",
+   "fieldtype": "Date",
+   "label": "Review Period From"
+  },
+  {
+   "fieldname": "review_period_to",
+   "fieldtype": "Date",
+   "label": "Review Period To"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "inspecting_body",
+   "fieldtype": "Data",
+   "label": "Inspecting Body",
+   "default": "ICAP Quality Assurance Board",
+   "depends_on": "eval:doc.review_category=='ICAP Quality Control Review'"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_2"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "Staff Member",
+   "description": "Independent partner/reviewer for internal reviews"
+  },
+  {
+   "fieldname": "review_start_date",
+   "fieldtype": "Date",
+   "label": "Review Start Date"
+  },
+  {
+   "fieldname": "review_end_date",
+   "fieldtype": "Date",
+   "label": "Review End Date"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Engagement Files Reviewed",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "engagement_files_reviewed",
+   "fieldtype": "Table",
+   "label": "Engagement Files Reviewed",
+   "options": "QCR Engagement File Sample"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Outcome",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "overall_rating",
+   "fieldtype": "Select",
+   "label": "Overall Rating",
+   "options": "Satisfactory\nSatisfactory Subject to Compliance\nUnsatisfactory"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_3"
+  },
+  {
+   "fieldname": "report_received_date",
+   "fieldtype": "Date",
+   "label": "Report Received Date"
+  },
+  {
+   "fieldname": "summary_of_observations",
+   "fieldtype": "Text",
+   "label": "Summary Of Observations"
+  },
+  {
+   "fieldname": "root_cause_analysis",
+   "fieldtype": "Text",
+   "label": "Root Cause Analysis"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_4"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Planned\nIn Progress\nReport Received\nAction Plan Submitted\nClosed",
+   "default": "Planned",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Quality Control Review",
+ "name": "QCR Review",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "CA Firm Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Partner",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Job Incharge",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "autoname": "naming_series:",
+ "is_submittable": 1
+}
