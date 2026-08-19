@@ -149,11 +149,13 @@ def create_workspace():
 		doc.append("shortcuts", sc)
 	doc.insert(ignore_permissions=True)
 
-	# Workspace.on_update() already clears the bootinfo cache key, but that
-	# only affects *new* sessions/reloads -- browsers that logged in before
-	# this migrate keep the old sidebar list cached client-side until a hard
-	# refresh or re-login. Also clear any leftover "Workspace Sidebar" pin
-	# (the private-workspace pinning mechanism) that might reference the old
-	# name, and do a full cache clear as a defensive measure.
-	frappe.delete_doc_if_exists("Workspace Sidebar", WORKSPACE_NAME, force=True)
-	frappe.clear_cache()
+	# Best-effort cache/sidebar-pin cleanup -- must never be allowed to raise
+	# past this point, since the caller commits per-step and a failure here
+	# would roll back the doc.insert() above along with it (which is exactly
+	# what happened when this was unguarded: the workspace briefly existed
+	# then vanished because a later line in this same function threw).
+	try:
+		frappe.delete_doc_if_exists("Workspace Sidebar", WORKSPACE_NAME, force=True)
+		frappe.clear_cache()
+	except Exception:
+		frappe.log_error(title="CA Firm: workspace cache/sidebar cleanup failed (workspace itself was created)")
