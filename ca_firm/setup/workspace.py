@@ -24,6 +24,7 @@ SECTIONS = [
 		("Client Contact", "Client Contact"),
 		("Related Party", "Related Party"),
 		("Client Team Assignment", "Client Team Assignment"),
+		("Client Fee Arrangement", "Client Fee Arrangement"),
 	]),
 	("Engagement Management", [
 		("Engagement", "Engagement"),

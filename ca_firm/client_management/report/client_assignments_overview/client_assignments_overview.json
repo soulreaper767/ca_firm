@@ -6,11 +6,11 @@
  "doctype": "Report",
  "is_standard": "Yes",
  "module": "Client Management",
- "name": "Client Engagement History",
+ "name": "Client Assignments Overview",
  "owner": "Administrator",
  "prepared_report": 0,
  "ref_doctype": "Customer",
- "report_name": "Client Engagement History",
+ "report_name": "Client Assignments Overview",
  "report_type": "Script Report",
  "roles": [
   {"role": "CA Firm Partner"},

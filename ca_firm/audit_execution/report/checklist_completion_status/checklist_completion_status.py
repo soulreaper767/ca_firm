@@ -13,7 +13,7 @@ def get_columns():
 		{"label": "Checklist", "fieldname": "name", "fieldtype": "Link", "options": "Checklist Instance", "width": 130},
 		{"label": "Template", "fieldname": "checklist_template", "fieldtype": "Link", "options": "Checklist Template", "width": 220},
 		{"label": "Engagement", "fieldname": "engagement", "fieldtype": "Link", "options": "Engagement", "width": 150},
-		{"label": "Client", "fieldname": "client", "fieldtype": "Link", "options": "Client", "width": 150},
+		{"label": "Client", "fieldname": "client", "fieldtype": "Link", "options": "Customer", "width": 150},
 		{"label": "Total Items", "fieldname": "total_items", "fieldtype": "Int", "width": 90},
 		{"label": "Completed Items", "fieldname": "completed_items", "fieldtype": "Int", "width": 110},
 		{"label": "% Complete", "fieldname": "percent_complete", "fieldtype": "Percent", "width": 100},

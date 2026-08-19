@@ -8,7 +8,7 @@ class Engagement(Document):
 		self.validate_eqcr()
 
 	def set_engagement_name(self):
-		client_name = frappe.db.get_value("Client", self.client, "client_name") if self.client else None
+		client_name = frappe.db.get_value("Customer", self.client, "customer_name") if self.client else None
 		parts = [client_name or self.client, self.financial_year, self.engagement_type]
 		self.engagement_name = " - ".join([p for p in parts if p])
 

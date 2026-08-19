@@ -5,16 +5,15 @@
  "disabled": 0,
  "doctype": "Report",
  "is_standard": "Yes",
- "module": "Client Management",
- "name": "Client Engagement History",
+ "module": "Engagement Management",
+ "name": "Independence Conflict Check",
  "owner": "Administrator",
  "prepared_report": 0,
- "ref_doctype": "Customer",
- "report_name": "Client Engagement History",
+ "ref_doctype": "Independence Declaration",
+ "report_name": "Independence Conflict Check",
  "report_type": "Script Report",
  "roles": [
   {"role": "CA Firm Partner"},
-  {"role": "CA Firm Manager"},
-  {"role": "CA Firm Job Incharge"}
+  {"role": "CA Firm Manager"}
  ]
 }

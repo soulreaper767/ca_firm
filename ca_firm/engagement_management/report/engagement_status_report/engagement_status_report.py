@@ -12,7 +12,7 @@ def execute(filters=None):
 def get_columns():
 	return [
 		{"label": "Engagement", "fieldname": "name", "fieldtype": "Link", "options": "Engagement", "width": 140},
-		{"label": "Client", "fieldname": "client", "fieldtype": "Link", "options": "Client", "width": 160},
+		{"label": "Client", "fieldname": "client", "fieldtype": "Link", "options": "Customer", "width": 160},
 		{"label": "Financial Year", "fieldname": "financial_year", "fieldtype": "Data", "width": 110},
 		{"label": "Engagement Type", "fieldname": "engagement_type", "fieldtype": "Data", "width": 120},
 		{"label": "Partner", "fieldname": "engagement_partner", "fieldtype": "Link", "options": "Staff Member", "width": 130},

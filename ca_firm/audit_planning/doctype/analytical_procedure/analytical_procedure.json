@@ -19,17 +19,21 @@
   "expected_amount",
   "threshold_percent",
   "section_break_2",
-  "variance_amount",
+  "industry_benchmark",
   "column_break_3",
+  "financial_metric",
+  "section_break_3",
+  "variance_amount",
+  "column_break_4",
   "variance_percent",
   "exceeds_threshold",
-  "section_break_3",
+  "section_break_4",
   "explanation_obtained",
   "corroborating_evidence",
   "conclusion",
-  "section_break_4",
+  "section_break_5",
   "prepared_by",
-  "column_break_4",
+  "column_break_5",
   "reviewed_by"
  ],
  "fields": [
@@ -60,9 +64,9 @@
   },
   {
    "fieldname": "procedure_stage",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Procedure Stage",
-   "options": "Planning\nSubstantive\nFinal Review",
+   "options": "Procedure Stage",
    "reqd": 1
   },
   {
@@ -107,8 +111,30 @@
   },
   {
    "fieldtype": "Section Break",
-   "label": "",
+   "label": "Comparison Basis",
    "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "industry_benchmark",
+   "fieldtype": "Link",
+   "label": "Industry Benchmark",
+   "options": "Industry Benchmark",
+   "description": "Optional: base the expected amount/ratio on an industry benchmark instead of (or alongside) prior year"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_3"
+  },
+  {
+   "fieldname": "financial_metric",
+   "fieldtype": "Link",
+   "label": "Financial Metric",
+   "options": "Financial Metric"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_3"
   },
   {
    "fieldname": "variance_amount",
@@ -118,7 +144,7 @@
   },
   {
    "fieldtype": "Column Break",
-   "fieldname": "column_break_3"
+   "fieldname": "column_break_4"
   },
   {
    "fieldname": "variance_percent",
@@ -135,7 +161,7 @@
   {
    "fieldtype": "Section Break",
    "label": "Follow-up",
-   "fieldname": "section_break_3"
+   "fieldname": "section_break_4"
   },
   {
    "fieldname": "explanation_obtained",
@@ -156,7 +182,7 @@
   {
    "fieldtype": "Section Break",
    "label": "",
-   "fieldname": "section_break_4"
+   "fieldname": "section_break_5"
   },
   {
    "fieldname": "prepared_by",
@@ -166,7 +192,7 @@
   },
   {
    "fieldtype": "Column Break",
-   "fieldname": "column_break_4"
+   "fieldname": "column_break_5"
   },
   {
    "fieldname": "reviewed_by",
