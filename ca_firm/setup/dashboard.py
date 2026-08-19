@@ -23,6 +23,11 @@ NUMBER_CARDS = [
 		"document_type": "Deliverable",
 		"filters": [["Deliverable", "status", "!=", "Delivered"]],
 	},
+	{
+		"name": "Client Onboardings In Progress",
+		"document_type": "Client Onboarding",
+		"filters": [["Client Onboarding", "status", "not in", ["Onboarded", "Rejected"]]],
+	},
 ]
 
 GROUP_BY_CHARTS = [

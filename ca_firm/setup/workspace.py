@@ -19,8 +19,9 @@ SECTIONS = [
 		("Audit Procedure Type", "Audit Procedure Type"),
 	]),
 	("Clients", [
-		("Customer", "Customer"),
-		("Customer Group", "Customer Group"),
+		("Client Onboarding", "Client Onboarding"),
+		("Clients", "Customer"),
+		("Client Groups", "Customer Group"),
 		("Client Contact", "Client Contact"),
 		("Related Party", "Related Party"),
 		("Client Team Assignment", "Client Team Assignment"),

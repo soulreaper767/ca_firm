@@ -1,0 +1,579 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "existing_client",
+  "section_break_1",
+  "client_name",
+  "column_break_1",
+  "entity_type",
+  "section_break_2",
+  "industry",
+  "column_break_2",
+  "entity_size_category",
+  "section_break_3",
+  "ntn",
+  "cuin",
+  "column_break_3",
+  "strn",
+  "date_of_incorporation",
+  "section_break_4",
+  "financial_year_end",
+  "column_break_4",
+  "is_listed_entity",
+  "is_public_interest_entity",
+  "section_break_5",
+  "contact_name",
+  "contact_designation",
+  "column_break_5",
+  "contact_email",
+  "contact_phone",
+  "section_break_6",
+  "registered_address",
+  "city",
+  "column_break_6",
+  "state",
+  "country",
+  "pincode",
+  "section_break_7",
+  "assignment_types",
+  "section_break_8",
+  "has_previous_auditor",
+  "column_break_7",
+  "previous_auditor_firm",
+  "reason_for_change",
+  "section_break_9",
+  "noc_required",
+  "column_break_8",
+  "noc_obtained",
+  "noc_document",
+  "predecessor_communication_date",
+  "section_break_10",
+  "agreement_addressee",
+  "section_break_11",
+  "agreement_date",
+  "column_break_9",
+  "billing_frequency",
+  "section_break_12",
+  "fee_amount",
+  "column_break_10",
+  "target_start_date",
+  "section_break_13",
+  "target_completion_date",
+  "column_break_11",
+  "engagement_partner",
+  "relationship_manager",
+  "agreement_terms",
+  "agreement_document",
+  "section_break_14",
+  "status",
+  "onboarded_client",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "CONB-.YYYY.-.#####",
+   "default": "CONB-.YYYY.-.#####",
+   "hidden": 0,
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "existing_client",
+   "fieldtype": "Link",
+   "label": "Existing Client",
+   "options": "Customer",
+   "description": "Link an existing client here if this is an additional assignment for a client already on file -- otherwise fill in the details below and a new Client record will be created automatically on approval."
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "client_name",
+   "fieldtype": "Data",
+   "label": "Client Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "entity_type",
+   "fieldtype": "Link",
+   "label": "Entity Type",
+   "options": "Entity Type"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Link",
+   "label": "Industry",
+   "options": "Industry Type"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_2"
+  },
+  {
+   "fieldname": "entity_size_category",
+   "fieldtype": "Link",
+   "label": "Entity Size Category",
+   "options": "Entity Size Category"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Statutory Details",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "ntn",
+   "fieldtype": "Data",
+   "label": "NTN"
+  },
+  {
+   "fieldname": "cuin",
+   "fieldtype": "Data",
+   "label": "CUIN (SECP Incorporation No)"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_3"
+  },
+  {
+   "fieldname": "strn",
+   "fieldtype": "Data",
+   "label": "STRN"
+  },
+  {
+   "fieldname": "date_of_incorporation",
+   "fieldtype": "Date",
+   "label": "Date Of Incorporation"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_4"
+  },
+  {
+   "fieldname": "financial_year_end",
+   "fieldtype": "Link",
+   "label": "Financial Year End",
+   "options": "Financial Year End Pattern"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_4"
+  },
+  {
+   "fieldname": "is_listed_entity",
+   "fieldtype": "Check",
+   "label": "Is Listed Entity"
+  },
+  {
+   "fieldname": "is_public_interest_entity",
+   "fieldtype": "Check",
+   "label": "Public Interest Entity (PIE)"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Primary Contact",
+   "fieldname": "section_break_5"
+  },
+  {
+   "fieldname": "contact_name",
+   "fieldtype": "Data",
+   "label": "Contact Name"
+  },
+  {
+   "fieldname": "contact_designation",
+   "fieldtype": "Data",
+   "label": "Contact Designation"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_5"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email"
+  },
+  {
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Contact Phone"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Registered Address",
+   "fieldname": "section_break_6"
+  },
+  {
+   "fieldname": "registered_address",
+   "fieldtype": "Small Text",
+   "label": "Registered Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_6"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "default": "Pakistan"
+  },
+  {
+   "fieldname": "pincode",
+   "fieldtype": "Data",
+   "label": "Pincode"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Assignment Types",
+   "description": "Select every service line this client is being onboarded for -- one Engagement record is created per assignment type selected, once this record is approved.",
+   "fieldname": "section_break_7"
+  },
+  {
+   "fieldname": "assignment_types",
+   "fieldtype": "Table MultiSelect",
+   "label": "Assignment Types",
+   "options": "Client Onboarding Assignment Type"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Previous Auditor / History",
+   "fieldname": "section_break_8"
+  },
+  {
+   "fieldname": "has_previous_auditor",
+   "fieldtype": "Check",
+   "label": "Has Previous Auditor"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_7"
+  },
+  {
+   "fieldname": "previous_auditor_firm",
+   "fieldtype": "Data",
+   "label": "Previous Auditor Firm",
+   "depends_on": "has_previous_auditor"
+  },
+  {
+   "fieldname": "reason_for_change",
+   "fieldtype": "Small Text",
+   "label": "Reason For Change",
+   "depends_on": "has_previous_auditor"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_9"
+  },
+  {
+   "fieldname": "noc_required",
+   "fieldtype": "Check",
+   "label": "Noc Required",
+   "depends_on": "has_previous_auditor"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_8"
+  },
+  {
+   "fieldname": "noc_obtained",
+   "fieldtype": "Check",
+   "label": "Noc Obtained",
+   "depends_on": "noc_required"
+  },
+  {
+   "fieldname": "noc_document",
+   "fieldtype": "Attach",
+   "label": "Noc Document",
+   "depends_on": "noc_obtained"
+  },
+  {
+   "fieldname": "predecessor_communication_date",
+   "fieldtype": "Date",
+   "label": "Predecessor Communication Date",
+   "depends_on": "has_previous_auditor",
+   "description": "Date communication was sent to the predecessor auditor (SA/ISA 210)"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Engagement Terms and Agreement",
+   "fieldname": "section_break_10"
+  },
+  {
+   "fieldname": "agreement_addressee",
+   "fieldtype": "Data",
+   "label": "Agreement Addressee",
+   "read_only": 1,
+   "description": "Auto-filled in standard format"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_11"
+  },
+  {
+   "fieldname": "agreement_date",
+   "fieldtype": "Date",
+   "label": "Agreement Date"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_9"
+  },
+  {
+   "fieldname": "billing_frequency",
+   "fieldtype": "Link",
+   "label": "Billing Frequency",
+   "options": "Billing Frequency"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_12"
+  },
+  {
+   "fieldname": "fee_amount",
+   "fieldtype": "Currency",
+   "label": "Fee Amount"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_10"
+  },
+  {
+   "fieldname": "target_start_date",
+   "fieldtype": "Date",
+   "label": "Target Start Date"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_13"
+  },
+  {
+   "fieldname": "target_completion_date",
+   "fieldtype": "Date",
+   "label": "Target Completion Date"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_11"
+  },
+  {
+   "fieldname": "engagement_partner",
+   "fieldtype": "Link",
+   "label": "Engagement Partner",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "relationship_manager",
+   "fieldtype": "Link",
+   "label": "Relationship Manager",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "agreement_terms",
+   "fieldtype": "Text Editor",
+   "label": "Agreement Terms"
+  },
+  {
+   "fieldname": "agreement_document",
+   "fieldtype": "Attach",
+   "label": "Agreement Document"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Status",
+   "fieldname": "section_break_14"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nDocuments Pending\nIndependence Check Pending\nAgreement Pending\nApproved\nOnboarded\nRejected",
+   "default": "Draft",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "onboarded_client",
+   "fieldtype": "Link",
+   "label": "Onboarded Client",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Client Management",
+ "name": "Client Onboarding",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "CA Firm Partner",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Job Incharge",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Supervisor",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Semi Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Article Assistant",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "autoname": "naming_series:",
+ "title_field": "client_name",
+ "is_submittable": 1
+}

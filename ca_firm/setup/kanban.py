@@ -6,6 +6,7 @@ BOARDS = [
 	("Review Note", "Review Notes Board", "status"),
 	("Audit Finding", "Audit Findings Board", "status"),
 	("QCR Finding", "QCR Findings Board", "status"),
+	("Client Onboarding", "Client Onboarding Pipeline", "status"),
 ]
 
 
