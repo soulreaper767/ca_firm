@@ -148,3 +148,12 @@ def create_workspace():
 	for sc in shortcuts:
 		doc.append("shortcuts", sc)
 	doc.insert(ignore_permissions=True)
+
+	# Workspace.on_update() already clears the bootinfo cache key, but that
+	# only affects *new* sessions/reloads -- browsers that logged in before
+	# this migrate keep the old sidebar list cached client-side until a hard
+	# refresh or re-login. Also clear any leftover "Workspace Sidebar" pin
+	# (the private-workspace pinning mechanism) that might reference the old
+	# name, and do a full cache clear as a defensive measure.
+	frappe.delete_doc_if_exists("Workspace Sidebar", WORKSPACE_NAME, force=True)
+	frappe.clear_cache()
