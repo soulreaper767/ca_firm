@@ -28,7 +28,7 @@
    "fieldname": "client",
    "fieldtype": "Link",
    "label": "Client",
-   "options": "Client",
+   "options": "Customer",
    "reqd": 1,
    "in_list_view": 1,
    "in_standard_filter": 1
@@ -42,9 +42,9 @@
   },
   {
    "fieldname": "relationship_nature",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Relationship Nature",
-   "options": "Holding Company\nSubsidiary\nFellow Subsidiary\nAssociate\nKey Management Personnel\nRelative of KMP\nEntity under Common Control\nOther",
+   "options": "Relationship Nature",
    "reqd": 1
   },
   {

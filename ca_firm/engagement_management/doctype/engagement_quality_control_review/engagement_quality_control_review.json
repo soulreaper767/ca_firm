@@ -46,7 +46,7 @@
    "fieldname": "eqcr_partner",
    "fieldtype": "Link",
    "label": "EQCR Partner",
-   "options": "Staff Member",
+   "options": "Employee",
    "reqd": 1,
    "in_list_view": 1
   },

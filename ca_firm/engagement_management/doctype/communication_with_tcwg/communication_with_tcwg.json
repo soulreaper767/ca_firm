@@ -44,9 +44,9 @@
   },
   {
    "fieldname": "communication_mode",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Communication Mode",
-   "options": "Meeting\nLetter\nEmail\nPresentation"
+   "options": "Communication Mode"
   },
   {
    "fieldname": "attendees",

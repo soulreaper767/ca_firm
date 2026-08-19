@@ -71,9 +71,9 @@
   },
   {
    "fieldname": "analysis_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Analysis Type",
-   "options": "Trend Analysis\nRatio Analysis\nReasonableness Test\nRegression Analysis"
+   "options": "Analysis Type"
   },
   {
    "fieldtype": "Section Break",
@@ -162,7 +162,7 @@
    "fieldname": "prepared_by",
    "fieldtype": "Link",
    "label": "Prepared By",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldtype": "Column Break",
@@ -172,7 +172,7 @@
    "fieldname": "reviewed_by",
    "fieldtype": "Link",
    "label": "Reviewed By",
-   "options": "Staff Member"
+   "options": "Employee"
   }
  ],
  "index_web_pages_for_search": 1,

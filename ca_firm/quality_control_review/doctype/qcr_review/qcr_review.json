@@ -82,7 +82,7 @@
    "fieldname": "reviewed_by",
    "fieldtype": "Link",
    "label": "Reviewed By",
-   "options": "Staff Member",
+   "options": "Employee",
    "description": "Independent partner/reviewer for internal reviews"
   },
   {

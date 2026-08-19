@@ -23,9 +23,9 @@
   },
   {
    "fieldname": "test_category",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Test Category",
-   "options": "Duplicate Detection\nSequence Gap Test\nBenford's Law\nRound Sum Test\nThree-Way Match\nJournal Entry Testing\nOutlier Detection\nSegregation of Duties\nOther",
+   "options": "CAAT Test Category",
    "in_list_view": 1
   },
   {

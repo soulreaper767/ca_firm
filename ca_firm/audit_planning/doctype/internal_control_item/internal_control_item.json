@@ -23,16 +23,16 @@
   },
   {
    "fieldname": "control_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Control Type",
-   "options": "Preventive\nDetective",
+   "options": "Control Type",
    "in_list_view": 1
   },
   {
    "fieldname": "frequency",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Frequency",
-   "options": "Transaction-level\nDaily\nWeekly\nMonthly\nQuarterly\nAnnual"
+   "options": "Control Frequency"
   },
   {
    "fieldname": "tested",

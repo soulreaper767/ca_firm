@@ -83,9 +83,9 @@
   },
   {
    "fieldname": "inherent_risk",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Inherent Risk",
-   "options": "Low\nMedium\nHigh",
+   "options": "Rating Scale",
    "reqd": 1
   },
   {
@@ -94,16 +94,16 @@
   },
   {
    "fieldname": "control_risk",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Control Risk",
-   "options": "Low\nMedium\nHigh",
+   "options": "Rating Scale",
    "reqd": 1
   },
   {
    "fieldname": "risk_of_material_misstatement",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "RMM",
-   "options": "Low\nMedium\nHigh",
+   "options": "Rating Scale",
    "read_only": 1
   },
   {
@@ -150,7 +150,7 @@
    "fieldname": "identified_by",
    "fieldtype": "Link",
    "label": "Identified By",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldtype": "Column Break",

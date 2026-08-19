@@ -47,7 +47,7 @@
    "fieldname": "assigned_to",
    "fieldtype": "Link",
    "label": "Assigned To",
-   "options": "Staff Member",
+   "options": "Employee",
    "in_list_view": 1
   },
   {

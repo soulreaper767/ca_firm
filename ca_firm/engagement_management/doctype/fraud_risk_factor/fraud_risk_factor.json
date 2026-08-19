@@ -28,9 +28,9 @@
   },
   {
    "fieldname": "likelihood",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Likelihood",
-   "options": "Low\nMedium\nHigh",
+   "options": "Rating Scale",
    "in_list_view": 1
   },
   {

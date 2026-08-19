@@ -63,17 +63,16 @@
    "fieldname": "client",
    "fieldtype": "Link",
    "label": "Client",
-   "options": "Client",
+   "options": "Customer",
    "reqd": 1,
    "in_list_view": 1,
    "in_standard_filter": 1
   },
   {
    "fieldname": "engagement_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Engagement Type",
-   "options": "Statutory Audit\nTax Audit\nInternal Audit\nLimited Review\nCertification\nOther",
-   "default": "Statutory Audit",
+   "options": "Engagement Type",
    "reqd": 1,
    "in_standard_filter": 1
   },
@@ -117,7 +116,7 @@
    "fieldname": "engagement_partner",
    "fieldtype": "Link",
    "label": "Engagement Partner",
-   "options": "Staff Member",
+   "options": "Employee",
    "reqd": 1,
    "in_list_view": 1
   },
@@ -129,13 +128,13 @@
    "fieldname": "engagement_manager",
    "fieldtype": "Link",
    "label": "Engagement Manager",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldname": "job_incharge",
    "fieldtype": "Link",
    "label": "Job Incharge",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldtype": "Section Break",
@@ -151,7 +150,7 @@
    "fieldname": "eqcr_partner",
    "fieldtype": "Link",
    "label": "EQCR Partner",
-   "options": "Staff Member",
+   "options": "Employee",
    "depends_on": "is_eqcr_required"
   },
   {
@@ -174,9 +173,9 @@
   },
   {
    "fieldname": "overall_audit_risk",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Overall Audit Risk",
-   "options": "Low\nMedium\nHigh"
+   "options": "Rating Scale"
   },
   {
    "fieldtype": "Section Break",

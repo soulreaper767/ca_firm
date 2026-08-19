@@ -46,7 +46,7 @@
    "fieldname": "responsible_partner",
    "fieldtype": "Link",
    "label": "Responsible Partner",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldtype": "Column Break",

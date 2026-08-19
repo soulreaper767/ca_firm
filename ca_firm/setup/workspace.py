@@ -6,9 +6,9 @@ WORKSPACE_NAME = "CA Firm"
 
 # (section header, [(label, doctype), ...])
 SECTIONS = [
-	("Firm Setup", [
-		("CA Firm Settings", "CA Firm Settings"),
-		("Staff Member", "Staff Member"),
+	("Firm & People", [
+		("Company", "Company"),
+		("Employee", "Employee"),
 		("Designation", "Designation"),
 		("Audit Standard", "Audit Standard"),
 		("Financial Statement Area", "Financial Statement Area"),
@@ -19,8 +19,8 @@ SECTIONS = [
 		("Audit Procedure Type", "Audit Procedure Type"),
 	]),
 	("Clients", [
-		("Client", "Client"),
-		("Client Group", "Client Group"),
+		("Customer", "Customer"),
+		("Customer Group", "Customer Group"),
 		("Client Contact", "Client Contact"),
 		("Related Party", "Related Party"),
 		("Client Team Assignment", "Client Team Assignment"),
@@ -60,6 +60,13 @@ SECTIONS = [
 		("Audit Query", "Audit Query"),
 		("Audit Finding", "Audit Finding"),
 	]),
+	("Financial Statement Grouping", [
+		("Trial Balance", "Trial Balance"),
+		("Client Chart of Accounts Mapping", "Client Chart of Accounts Mapping"),
+		("Chart of Accounts Head", "Chart of Accounts Head"),
+		("FS Line Item", "FS Line Item"),
+		("Client Financial Statement Template", "Client Financial Statement Template"),
+	]),
 	("Review and Quality Control", [
 		("Review Note", "Review Note"),
 	]),
@@ -67,6 +74,8 @@ SECTIONS = [
 		("Management Letter", "Management Letter"),
 		("Key Audit Matter", "Key Audit Matter"),
 		("Audit Report", "Audit Report"),
+		("Audit Report Template", "Audit Report Template"),
+		("Audit Opinion Paragraph", "Audit Opinion Paragraph"),
 		("Deliverable", "Deliverable"),
 	]),
 	("Team and Timesheet", [
@@ -76,6 +85,23 @@ SECTIONS = [
 		("Firm Quality Control Policy", "Firm Quality Control Policy"),
 		("QCR Review", "QCR Review"),
 		("QCR Finding", "QCR Finding"),
+	]),
+	("Regulatory Compliance", [
+		("Regulatory Requirement", "Regulatory Requirement"),
+		("Law Section", "Law Section"),
+		("Rate Schedule", "Rate Schedule"),
+		("Financial Metric", "Financial Metric"),
+		("Industry Benchmark", "Industry Benchmark"),
+	]),
+	("Configurable Lists", [
+		("Rating Scale", "Rating Scale"),
+		("Priority Level", "Priority Level"),
+		("Entity Type", "Entity Type"),
+		("Entity Size Category", "Entity Size Category"),
+		("Engagement Type", "Engagement Type"),
+		("Opinion Type", "Opinion Type"),
+		("Finding Category", "Finding Category"),
+		("Deliverable Type", "Deliverable Type"),
 	]),
 ]
 
@@ -91,7 +117,6 @@ def _build_content_and_shortcuts():
 			"type": "header",
 			"data": {"text": f"<span class=\"h4\"><b>{header}</b></span>", "col": 12},
 		})
-		row = []
 		for label, doctype in items:
 			idx += 1
 			content.append({"id": f"shortcut-{idx}", "type": "shortcut", "data": {"shortcut_name": label, "col": 3}})
@@ -102,8 +127,11 @@ def _build_content_and_shortcuts():
 
 
 def create_workspace():
+	# Rebuilt on every install/migrate so the workspace always matches the
+	# app's current module structure, rather than drifting from source once
+	# created (unlike master data, a stale workspace has no way to "catch up").
 	if frappe.db.exists("Workspace", WORKSPACE_NAME):
-		return
+		frappe.delete_doc("Workspace", WORKSPACE_NAME, force=True, ignore_permissions=True)
 	content, shortcuts = _build_content_and_shortcuts()
 	doc = frappe.new_doc("Workspace")
 	doc.name = WORKSPACE_NAME

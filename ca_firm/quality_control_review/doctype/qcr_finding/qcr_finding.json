@@ -65,9 +65,9 @@
   },
   {
    "fieldname": "severity",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Severity",
-   "options": "Minor\nMajor\nSignificant Deficiency",
+   "options": "Rating Scale",
    "in_list_view": 1,
    "in_standard_filter": 1
   },
@@ -90,7 +90,7 @@
    "fieldname": "responsible_partner",
    "fieldtype": "Link",
    "label": "Responsible Partner",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldtype": "Column Break",

@@ -369,3 +369,449 @@ AUDIT_PROGRAM_TEMPLATES = [   {   'fs_area': 'Revenue',
                          'Reperformance',
                          0)],
         'template_name': 'Taxation - Standard Audit Program'}]
+
+SIMPLE_MASTERS = {   'Account Classification': [   'Asset - Non Current',
+                                  'Asset - Current',
+                                  'Liability - Non Current',
+                                  'Liability - Current',
+                                  'Equity',
+                                  'Income',
+                                  'Expense'],
+    'Analysis Type': ['Trend Analysis', 'Ratio Analysis', 'Reasonableness Test', 'Regression Analysis'],
+    'CAAT Test Category': [   'Duplicate Detection',
+                              'Sequence Gap Test',
+                              "Benford's Law",
+                              'Round Sum Test',
+                              'Three-Way Match',
+                              'Journal Entry Testing',
+                              'Outlier Detection',
+                              'Segregation of Duties',
+                              'Other'],
+    'Checklist Category': [   'Client Onboarding',
+                              'Engagement Acceptance',
+                              'Engagement Completion',
+                              'Statutory Compliance',
+                              'PBC - Documents Required',
+                              'Quality Review',
+                              'Other'],
+    'Client Relationship Status': ['Prospect', 'Active', 'Inactive', 'Terminated'],
+    'Communication Mode': ['Meeting', 'Letter', 'Email', 'Presentation'],
+    'Concern Level': ['Low Concern', 'Medium Concern', 'High Concern'],
+    'Confirmation Type': [   'Bank Balance',
+                             'Trade Receivable',
+                             'Trade Payable',
+                             'Legal Confirmation from Lawyer',
+                             'Investment',
+                             'Loan',
+                             'Other'],
+    'Control Frequency': ['Transaction-level', 'Daily', 'Weekly', 'Monthly', 'Quarterly', 'Annual'],
+    'Control Type': ['Preventive', 'Detective'],
+    'Deliverable Type': [   'Audit Report',
+                            'Management Letter',
+                            'Statutory Reporting Annexure',
+                            'Financial Statements',
+                            'Tax Audit Report',
+                            'Other'],
+    'Delivery Mode': ['Email', 'Physical', 'Portal'],
+    'Engagement Type': [   'Statutory Audit',
+                           'Tax Audit',
+                           'Internal Audit',
+                           'Limited Review',
+                           'Certification',
+                           'Other'],
+    'Entity Size Category': [   'Public Interest Company',
+                                'Large-Sized Company',
+                                'Medium-Sized Company',
+                                'Small-Sized Company'],
+    'Entity Type': [   'Private Limited Company',
+                       'Public Limited Company (Unlisted)',
+                       'Public Limited Company (Listed)',
+                       'Single Member Company',
+                       'Company Limited by Guarantee',
+                       'Not-for-Profit Company (Section 42)',
+                       'Limited Liability Partnership',
+                       'Partnership Firm',
+                       'Sole Proprietorship',
+                       'Trust',
+                       'Society',
+                       'Branch Office of Foreign Company',
+                       'NGO / NPO',
+                       'Individual',
+                       'Government Entity'],
+    'Financial Statement Type': [   'Balance Sheet',
+                                    'Profit and Loss',
+                                    'Cash Flow Statement',
+                                    'Statement of Changes in Equity'],
+    'Finding Category': [   'Control Deficiency',
+                            'Compliance Issue',
+                            'Accounting Error',
+                            'Fraud Indicator',
+                            'Disclosure Gap',
+                            'Other'],
+    'ICAP Firm Category': ['Category A', 'Category B', 'Category C', 'Category D'],
+    'Materiality Benchmark': [   'Total Revenue',
+                                 'Profit Before Tax',
+                                 'Total Assets',
+                                 'Total Equity',
+                                 'Total Expenses',
+                                 'Net Profit',
+                                 'Gross Profit',
+                                 'Other'],
+    'Opinion Type': ['Unmodified', 'Qualified', 'Adverse', 'Disclaimer'],
+    'Priority Level': ['Low', 'Medium', 'High', 'Urgent'],
+    'Rating Scale': ['Low', 'Medium', 'High', 'Critical'],
+    'Relationship Nature': [   'Holding Company',
+                               'Subsidiary',
+                               'Fellow Subsidiary',
+                               'Associate',
+                               'Key Management Personnel',
+                               'Relative of KMP',
+                               'Entity under Common Control',
+                               'Other'],
+    'Report Paragraph Type': [   'Opinion - Unmodified',
+                                 'Opinion - Qualified',
+                                 'Opinion - Adverse',
+                                 'Opinion - Disclaimer',
+                                 'Basis for Opinion',
+                                 'Basis for Qualified Opinion',
+                                 'Basis for Adverse Opinion',
+                                 'Basis for Disclaimer of Opinion',
+                                 'Emphasis of Matter',
+                                 'Material Uncertainty Related to Going Concern',
+                                 'Other Matter',
+                                 'Key Audit Matters Introduction',
+                                 'Responsibilities of Management',
+                                 'Responsibilities of Auditor',
+                                 'Other Reporting Requirements (Fourth Schedule)'],
+    'Reporting Framework': [   'IFRS as Adopted in Pakistan',
+                               'IFRS for SMEs',
+                               'Accounting and Financial Reporting Standards for Small-Sized Entities (AFRS '
+                               'for SSEs)',
+                               'Other'],
+    'Sampling Method': [   'Statistical - Random',
+                           'Statistical - Monetary Unit Sampling',
+                           'Systematic',
+                           'Judgmental',
+                           'Haphazard'],
+    'TCWG Matter Type': [   'Audit Scope and Timing',
+                            'Significant Findings',
+                            'Independence',
+                            'Internal Control Deficiencies',
+                            'Fraud or Suspected Fraud',
+                            'Non-Compliance with Laws',
+                            'Other'],
+    'Verification Type': ['Fixed Assets', 'Inventory', 'Cash']}
+
+FS_LINE_ITEMS = [   (   'Property, Plant and Equipment',
+        'Balance Sheet',
+        'Asset - Non Current',
+        None,
+        10,
+        False,
+        'Property, Plant and Equipment'),
+    ('Intangible Assets', 'Balance Sheet', 'Asset - Non Current', None, 20, False, 'Intangible Assets'),
+    ('Long-term Investments', 'Balance Sheet', 'Asset - Non Current', None, 30, False, 'Investments'),
+    ('Long-term Loans and Deposits', 'Balance Sheet', 'Asset - Non Current', None, 40, False, None),
+    ('Stock-in-Trade', 'Balance Sheet', 'Asset - Current', None, 110, False, 'Inventory'),
+    ('Trade Debts', 'Balance Sheet', 'Asset - Current', None, 120, False, 'Trade Receivables'),
+    ('Loans and Advances', 'Balance Sheet', 'Asset - Current', None, 130, False, None),
+    ('Trade Deposits and Short-term Prepayments', 'Balance Sheet', 'Asset - Current', None, 140, False, None),
+    ('Other Receivables', 'Balance Sheet', 'Asset - Current', None, 150, False, 'Trade Receivables'),
+    (   'Cash and Bank Balances',
+        'Balance Sheet',
+        'Asset - Current',
+        None,
+        160,
+        False,
+        'Cash and Bank Balances'),
+    ('Share Capital', 'Balance Sheet', 'Equity', None, 210, False, 'Equity and Reserves'),
+    ('Reserves', 'Balance Sheet', 'Equity', None, 220, False, 'Equity and Reserves'),
+    ('Unappropriated Profit', 'Balance Sheet', 'Equity', None, 230, False, 'Equity and Reserves'),
+    (   'Long-term Borrowings',
+        'Balance Sheet',
+        'Liability - Non Current',
+        None,
+        310,
+        False,
+        'Loans and Borrowings'),
+    (   'Deferred Taxation',
+        'Balance Sheet',
+        'Liability - Non Current',
+        None,
+        320,
+        False,
+        'Taxation - Current and Deferred'),
+    (   'Long-term Provisions',
+        'Balance Sheet',
+        'Liability - Non Current',
+        None,
+        330,
+        False,
+        'Provisions and Contingent Liabilities'),
+    ('Trade and Other Payables', 'Balance Sheet', 'Liability - Current', None, 410, False, 'Trade Payables'),
+    ('Accrued Mark-up', 'Balance Sheet', 'Liability - Current', None, 420, False, None),
+    (   'Short-term Borrowings',
+        'Balance Sheet',
+        'Liability - Current',
+        None,
+        430,
+        False,
+        'Loans and Borrowings'),
+    (   'Current Portion of Long-term Borrowings',
+        'Balance Sheet',
+        'Liability - Current',
+        None,
+        440,
+        False,
+        'Loans and Borrowings'),
+    (   'Provision for Taxation',
+        'Balance Sheet',
+        'Liability - Current',
+        None,
+        450,
+        False,
+        'Taxation - Current and Deferred'),
+    ('Revenue from Contracts with Customers', 'Profit and Loss', 'Income', None, 510, False, 'Revenue'),
+    ('Cost of Sales', 'Profit and Loss', 'Expense', None, 520, False, 'Purchases and Expenses'),
+    ('Gross Profit', 'Profit and Loss', 'Income', None, 530, True, None),
+    ('Distribution Costs', 'Profit and Loss', 'Expense', None, 540, False, 'Purchases and Expenses'),
+    ('Administrative Expenses', 'Profit and Loss', 'Expense', None, 550, False, 'Purchases and Expenses'),
+    ('Other Income', 'Profit and Loss', 'Income', None, 560, False, 'Other Income and Other Expenses'),
+    ('Other Expenses', 'Profit and Loss', 'Expense', None, 570, False, 'Other Income and Other Expenses'),
+    ('Finance Costs', 'Profit and Loss', 'Expense', None, 580, False, 'Other Income and Other Expenses'),
+    ('Profit Before Taxation', 'Profit and Loss', 'Income', None, 590, True, None),
+    ('Taxation', 'Profit and Loss', 'Expense', None, 600, False, 'Taxation - Current and Deferred'),
+    ('Profit After Taxation', 'Profit and Loss', 'Income', None, 610, True, None)]
+
+COA_HEADS = [   ('Local Sales', 'Revenue from Contracts with Customers', 'Revenue', 'Credit'),
+    ('Export Sales', 'Revenue from Contracts with Customers', 'Revenue', 'Credit'),
+    ('Sales Returns and Discounts', 'Revenue from Contracts with Customers', 'Revenue', 'Debit'),
+    ('Raw Material Consumed', 'Cost of Sales', 'Purchases and Expenses', 'Debit'),
+    ('Direct Labour', 'Cost of Sales', 'Purchases and Expenses', 'Debit'),
+    ('Factory Overheads', 'Cost of Sales', 'Purchases and Expenses', 'Debit'),
+    (   'Salaries, Wages and Benefits - Admin',
+        'Administrative Expenses',
+        'Employee Benefits and Payroll',
+        'Debit'),
+    ('Rent, Rates and Taxes', 'Administrative Expenses', 'Purchases and Expenses', 'Debit'),
+    ('Depreciation - Owned Assets', 'Administrative Expenses', 'Property, Plant and Equipment', 'Debit'),
+    ('Freight and Distribution Expenses', 'Distribution Costs', 'Purchases and Expenses', 'Debit'),
+    ('Advertisement and Sales Promotion', 'Distribution Costs', 'Purchases and Expenses', 'Debit'),
+    ('Mark-up on Long-term Borrowings', 'Finance Costs', 'Loans and Borrowings', 'Debit'),
+    ('Bank Charges', 'Finance Costs', 'Cash and Bank Balances', 'Debit'),
+    ('Gain / Loss on Disposal of Fixed Assets', 'Other Income', 'Property, Plant and Equipment', 'Credit'),
+    (   'Property, Plant and Equipment - Cost',
+        'Property, Plant and Equipment',
+        'Property, Plant and Equipment',
+        'Debit'),
+    ('Accumulated Depreciation', 'Property, Plant and Equipment', 'Property, Plant and Equipment', 'Credit'),
+    ('Raw Material and Packing Stock', 'Stock-in-Trade', 'Inventory', 'Debit'),
+    ('Finished Goods Stock', 'Stock-in-Trade', 'Inventory', 'Debit'),
+    ('Trade Debtors - Local', 'Trade Debts', 'Trade Receivables', 'Debit'),
+    ('Trade Debtors - Export', 'Trade Debts', 'Trade Receivables', 'Debit'),
+    ('Cash in Hand', 'Cash and Bank Balances', 'Cash and Bank Balances', 'Debit'),
+    ('Bank Accounts - Current', 'Cash and Bank Balances', 'Cash and Bank Balances', 'Debit'),
+    ('Trade Creditors', 'Trade and Other Payables', 'Trade Payables', 'Credit'),
+    ('Accrued Liabilities', 'Trade and Other Payables', 'Trade Payables', 'Credit'),
+    ('Long-term Loan from Bank', 'Long-term Borrowings', 'Loans and Borrowings', 'Credit'),
+    ('Running Finance / Short-term Borrowing', 'Short-term Borrowings', 'Loans and Borrowings', 'Credit'),
+    (   'Provision for Taxation - Current Year',
+        'Provision for Taxation',
+        'Taxation - Current and Deferred',
+        'Credit'),
+    ('Issued, Subscribed and Paid-up Capital', 'Share Capital', 'Equity and Reserves', 'Credit'),
+    ('Unappropriated Profit', 'Unappropriated Profit', 'Equity and Reserves', 'Credit')]
+
+AUDIT_OPINION_PARAGRAPHS = [   (   'Unmodified Opinion - Standard',
+        'Opinion - Unmodified',
+        'We have audited the annexed financial statements of {{ client_name }} (the Company), which comprise '
+        'the statement of financial position as at {{ period_end }}, and the statement of profit or loss, '
+        'statement of comprehensive income, statement of changes in equity, statement of cash flows for the '
+        'year then ended, and notes to the financial statements, including a summary of significant '
+        'accounting policies.\n'
+        '\n'
+        'In our opinion, the accompanying financial statements give a true and fair view of the state of the '
+        "Company's affairs as at {{ period_end }}, and of the profit, comprehensive income, changes in "
+        'equity, and cash flows for the year then ended in accordance with {{ framework }}.',
+        True),
+    (   'Basis for Opinion - Standard',
+        'Basis for Opinion',
+        'We conducted our audit in accordance with International Standards on Auditing (ISAs) as applicable '
+        "in Pakistan. Our responsibilities under those standards are further described in the Auditor's "
+        'Responsibilities for the Audit of the Financial Statements section of our report. We are '
+        'independent of the Company in accordance with the International Ethics Standards Board for '
+        "Accountants' Code of Ethics for Professional Accountants as adopted by ICAP (the Code), and we have "
+        'fulfilled our other ethical responsibilities in accordance with the Code. We believe that the audit '
+        'evidence we have obtained is sufficient and appropriate to provide a basis for our opinion.',
+        True),
+    (   'Qualified Opinion - Standard',
+        'Opinion - Qualified',
+        'We have audited the annexed financial statements of {{ client_name }}, which comprise the statement '
+        'of financial position as at {{ period_end }}, and the statement of profit or loss, statement of '
+        'comprehensive income, statement of changes in equity and statement of cash flows for the year then '
+        'ended, and notes to the financial statements, including a summary of significant accounting '
+        'policies.\n'
+        '\n'
+        'In our opinion, except for the effects of the matter described in the Basis for Qualified Opinion '
+        'section of our report, the accompanying financial statements give a true and fair view of the state '
+        "of the Company's affairs as at {{ period_end }}, and of the profit, comprehensive income, changes "
+        'in equity and cash flows for the year then ended in accordance with {{ framework }}.',
+        True),
+    (   'Basis for Qualified Opinion - Misstatement Template',
+        'Basis for Qualified Opinion',
+        '[Describe the matter giving rise to the qualification - e.g.] As disclosed in note [X] to the '
+        'financial statements, [description of departure from the applicable framework and its financial '
+        'effect, referencing amounts such as the overall materiality of {{ overall_materiality }} where '
+        'relevant].',
+        True),
+    (   'Adverse Opinion - Standard',
+        'Opinion - Adverse',
+        'We have audited the annexed financial statements of {{ client_name }}...\n'
+        '\n'
+        'In our opinion, because of the significance of the matter described in the Basis for Adverse '
+        'Opinion section of our report, the accompanying financial statements do not give a true and fair '
+        "view of the state of the Company's affairs as at {{ period_end }}, and of its profit, comprehensive "
+        'income, changes in equity and cash flows for the year then ended, in accordance with {{ framework '
+        '}}.',
+        True),
+    (   'Disclaimer of Opinion - Standard',
+        'Opinion - Disclaimer',
+        'We were engaged to audit the annexed financial statements of {{ client_name }}...\n'
+        '\n'
+        'We do not express an opinion on the accompanying financial statements of the Company. Because of '
+        'the significance of the matter described in the Basis for Disclaimer of Opinion section of our '
+        'report, we have not been able to obtain sufficient appropriate audit evidence to provide a basis '
+        'for an audit opinion on these financial statements.',
+        True),
+    (   'Material Uncertainty Related to Going Concern - Standard',
+        'Material Uncertainty Related to Going Concern',
+        'We draw attention to note [X] in the financial statements, which indicates that [describe the '
+        'principal conditions or events, individually or collectively, that give rise to significant doubt '
+        "on the Company's ability to continue as a going concern]. As stated in note [X], these events or "
+        'conditions, along with other matters as set forth in note [X], indicate that a material uncertainty '
+        "exists that may cast significant doubt on the Company's ability to continue as a going concern. Our "
+        'opinion is not modified in respect of this matter.',
+        True),
+    (   'Responsibilities of Management - Standard',
+        'Responsibilities of Management',
+        'Management is responsible for the preparation and fair presentation of the financial statements in '
+        'accordance with {{ framework }} and the requirements of the Companies Act, 2017 (XIX of 2017), and '
+        'for such internal control as management determines is necessary to enable the preparation of '
+        'financial statements that are free from material misstatement, whether due to fraud or error.\n'
+        '\n'
+        "In preparing the financial statements, management is responsible for assessing the Company's "
+        'ability to continue as a going concern, disclosing, as applicable, matters related to going concern '
+        'and using the going concern basis of accounting unless management either intends to liquidate the '
+        'Company or to cease operations, or has no realistic alternative but to do so.\n'
+        '\n'
+        "The Board of Directors is responsible for overseeing the Company's financial reporting process.",
+        True),
+    (   'Responsibilities of Auditor - Standard',
+        'Responsibilities of Auditor',
+        'Our objectives are to obtain reasonable assurance about whether the financial statements as a whole '
+        "are free from material misstatement, whether due to fraud or error, and to issue an auditor's "
+        'report that includes our opinion. Reasonable assurance is a high level of assurance but is not a '
+        'guarantee that an audit conducted in accordance with ISAs as applicable in Pakistan will always '
+        'detect a material misstatement when it exists. Misstatements can arise from fraud or error and are '
+        'considered material if, individually or in the aggregate, they could reasonably be expected to '
+        'influence the economic decisions of users taken on the basis of these financial statements.\n'
+        '\n'
+        'As part of an audit in accordance with ISAs as applicable in Pakistan, we exercise professional '
+        'judgment and maintain professional skepticism throughout the audit. We also identify and assess the '
+        'risks of material misstatement of the financial statements, whether due to fraud or error, design '
+        'and perform audit procedures responsive to those risks, obtain an understanding of internal control '
+        'relevant to the audit, evaluate the appropriateness of accounting policies used and the '
+        "reasonableness of accounting estimates, conclude on the appropriateness of management's use of the "
+        'going concern basis of accounting, and evaluate the overall presentation, structure and content of '
+        'the financial statements.',
+        True),
+    (   'Other Reporting Requirements - Fourth Schedule Standard',
+        'Other Reporting Requirements (Fourth Schedule)',
+        'Based on our audit, we further report that in our opinion:\n'
+        '\n'
+        'a) proper books of account have been kept by the Company as required by the Companies Act, 2017 '
+        '(XIX of 2017);\n'
+        '\n'
+        'b) the statement of financial position, the statement of profit or loss, the statement of '
+        'comprehensive income, the statement of changes in equity and the statement of cash flows together '
+        'with the notes thereon have been drawn up in conformity with the Companies Act, 2017 (XIX of 2017), '
+        'and are in agreement with the books of account;\n'
+        '\n'
+        'c) investments made, expenditure incurred and guarantees extended during the year were for the '
+        "purpose of the Company's business; and\n"
+        '\n'
+        'd) zakat deductible at source under the Zakat and Ushr Ordinance, 1980 (XVIII of 1980), was '
+        'deducted by the Company and deposited in the Central Zakat Fund within the prescribed time (where '
+        'applicable).',
+        True)]
+
+AUDIT_REPORT_TEMPLATES = [   (   'Standard Unmodified Report',
+        'Unmodified',
+        [   ('Opinion - Unmodified', 'Unmodified Opinion - Standard', 10),
+            ('Basis for Opinion', 'Basis for Opinion - Standard', 20),
+            ('Responsibilities of Management', 'Responsibilities of Management - Standard', 30),
+            ('Responsibilities of Auditor', 'Responsibilities of Auditor - Standard', 40),
+            (   'Other Reporting Requirements (Fourth Schedule)',
+                'Other Reporting Requirements - Fourth Schedule Standard',
+                50)]),
+    (   'Standard Qualified Report',
+        'Qualified',
+        [   ('Opinion - Qualified', 'Qualified Opinion - Standard', 10),
+            ('Basis for Qualified Opinion', 'Basis for Qualified Opinion - Misstatement Template', 20),
+            ('Responsibilities of Management', 'Responsibilities of Management - Standard', 30),
+            ('Responsibilities of Auditor', 'Responsibilities of Auditor - Standard', 40),
+            (   'Other Reporting Requirements (Fourth Schedule)',
+                'Other Reporting Requirements - Fourth Schedule Standard',
+                50)])]
+
+REGULATORY_REQUIREMENTS = [   (   'Statutory Audit Requirement - Companies Act 2017',
+        'Companies Act, 2017',
+        None,
+        None,
+        None,
+        False,
+        False,
+        True,
+        'Every company (other than a company qualifying for exemption under SECP thresholds) is required to '
+        'have its accounts audited by a chartered accountant in practice.'),
+    (   'Code of Corporate Governance Applicability',
+        'SECP Code of Corporate Governance Regulations, 2019',
+        'Public Limited Company (Listed)',
+        None,
+        None,
+        True,
+        False,
+        True,
+        'Listed companies are required to comply with the SECP Code of Corporate Governance Regulations, '
+        '2019, including composition of the Board, Audit Committee, and related disclosures, which the '
+        'auditor reports on separately.'),
+    (   'Reduced Disclosure - Small-Sized Company',
+        'SECP Companies (Accounting and Auditing Standards) Rules, 2015',
+        None,
+        None,
+        'Small-Sized Company',
+        False,
+        False,
+        False,
+        'Small-Sized Companies as classified by SECP may apply the Accounting and Financial Reporting '
+        'Standard for Small-Sized Entities (AFRS for SSEs) with reduced disclosure requirements.'),
+    (   'Public Interest Company - Full IFRS and EQCR',
+        'SECP Companies (Accounting and Auditing Standards) Rules, 2015',
+        None,
+        None,
+        'Public Interest Company',
+        False,
+        True,
+        True,
+        'Public Interest Companies must apply full IFRS as notified by SECP and the engagement is subject to '
+        "Engagement Quality Control Review (EQCR) under the firm's quality management system."),
+    (   'AML Customer Due Diligence',
+        'Anti-Money Laundering Act, 2010',
+        None,
+        None,
+        None,
+        False,
+        False,
+        False,
+        'Applicable where the client falls within a Designated Non-Financial Business or Profession (DNFBP) '
+        'category or the engagement otherwise triggers AML customer due diligence obligations.')]

@@ -8,8 +8,10 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "report_template",
   "report_date",
   "opinion_type",
+  "opinion_paragraph",
   "basis_for_opinion",
   "section_break_1",
   "key_audit_matters",
@@ -51,17 +53,28 @@
    "in_list_view": 1
   },
   {
+   "fieldname": "report_template",
+   "fieldtype": "Link",
+   "label": "Report Template",
+   "options": "Audit Report Template"
+  },
+  {
    "fieldname": "report_date",
    "fieldtype": "Date",
    "label": "Report Date"
   },
   {
    "fieldname": "opinion_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Opinion Type",
-   "options": "Unmodified\nQualified\nAdverse\nDisclaimer",
+   "options": "Opinion Type",
    "reqd": 1,
    "in_list_view": 1
+  },
+  {
+   "fieldname": "opinion_paragraph",
+   "fieldtype": "Text Editor",
+   "label": "Opinion Paragraph"
   },
   {
    "fieldname": "basis_for_opinion",
@@ -119,7 +132,7 @@
    "fieldname": "signing_partner",
    "fieldtype": "Link",
    "label": "Signing Partner",
-   "options": "Staff Member",
+   "options": "Employee",
    "reqd": 1
   },
   {

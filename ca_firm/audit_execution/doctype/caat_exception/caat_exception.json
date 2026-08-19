@@ -34,9 +34,9 @@
   },
   {
    "fieldname": "risk_level",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Risk Level",
-   "options": "Low\nMedium\nHigh",
+   "options": "Rating Scale",
    "in_list_view": 1
   },
   {

@@ -51,9 +51,9 @@
   },
   {
    "fieldname": "confirmation_type",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Confirmation Type",
-   "options": "Bank Balance\nTrade Receivable\nTrade Payable\nLegal Confirmation from Lawyer\nInvestment\nLoan\nOther",
+   "options": "Confirmation Type",
    "reqd": 1,
    "in_list_view": 1
   },

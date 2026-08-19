@@ -142,7 +142,7 @@
    "fieldname": "preparer",
    "fieldtype": "Link",
    "label": "Preparer",
-   "options": "Staff Member",
+   "options": "Employee",
    "reqd": 1
   },
   {
@@ -169,7 +169,7 @@
    "fieldname": "reviewer",
    "fieldtype": "Link",
    "label": "Reviewer",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldtype": "Column Break",

@@ -25,7 +25,7 @@
    "fieldname": "client",
    "fieldtype": "Link",
    "label": "Client",
-   "options": "Client",
+   "options": "Customer",
    "fetch_from": "engagement.client",
    "read_only": 1,
    "in_list_view": 1

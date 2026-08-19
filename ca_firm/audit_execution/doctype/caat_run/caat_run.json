@@ -83,7 +83,7 @@
    "fieldname": "run_by",
    "fieldtype": "Link",
    "label": "Run By",
-   "options": "Staff Member"
+   "options": "Employee"
   },
   {
    "fieldname": "parameters",

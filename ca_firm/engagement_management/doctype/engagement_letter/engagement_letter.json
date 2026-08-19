@@ -47,7 +47,7 @@
    "fieldname": "client",
    "fieldtype": "Link",
    "label": "Client",
-   "options": "Client",
+   "options": "Customer",
    "fetch_from": "engagement.client",
    "read_only": 1
   },
@@ -59,9 +59,9 @@
   },
   {
    "fieldname": "reporting_framework",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Reporting Framework",
-   "options": "IFRS as Adopted in Pakistan\nIFRS for SMEs\nAccounting and Financial Reporting Standards for Small-Sized Entities (AFRS for SSEs)\nOther"
+   "options": "Reporting Framework"
   },
   {
    "fieldtype": "Section Break",

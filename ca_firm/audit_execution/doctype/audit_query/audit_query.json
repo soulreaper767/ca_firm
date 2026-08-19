@@ -52,7 +52,7 @@
    "fieldname": "client",
    "fieldtype": "Link",
    "label": "Client",
-   "options": "Client",
+   "options": "Customer",
    "fetch_from": "engagement.client",
    "read_only": 1
   },
@@ -77,7 +77,7 @@
    "fieldname": "raised_by",
    "fieldtype": "Link",
    "label": "Raised By",
-   "options": "Staff Member",
+   "options": "Employee",
    "reqd": 1
   },
   {
@@ -103,10 +103,9 @@
   },
   {
    "fieldname": "priority",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Priority",
-   "options": "Low\nMedium\nHigh",
-   "default": "Medium"
+   "options": "Priority Level"
   },
   {
    "fieldtype": "Column Break",

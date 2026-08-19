@@ -7,3 +7,5 @@ Review and Quality Control
 Reporting
 Team and Timesheet
 Quality Control Review
+Financial Statement Grouping
+Regulatory Compliance

@@ -23,13 +23,14 @@ after_migrate = "ca_firm.setup.install.after_migrate"
 
 # Document Events
 # ----------------
-# Hook on document methods and events.
-#
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 	}
-# }
+# ca_firm doesn't own the Timesheet doctype (it's ERPNext's), so the
+# actual-hours rollup into Audit Procedure is wired in here instead of a
+# controller override.
+doc_events = {
+	"Timesheet": {
+		"on_submit": "ca_firm.native_hooks.timesheet_on_submit",
+	},
+}
 
 # Fixtures
 # --------
