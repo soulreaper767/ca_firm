@@ -5,7 +5,7 @@ DOCUMENT_TYPE = "Engagement"
 
 # (state, style)
 STATES = [
-	("Draft", "Standard"),
+	("Draft", ""),
 	("Acceptance Pending", "Warning"),
 	("Planning", "Warning"),
 	("Fieldwork", "Primary"),
