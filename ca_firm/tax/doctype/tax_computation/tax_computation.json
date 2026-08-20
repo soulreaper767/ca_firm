@@ -15,6 +15,8 @@
   "accounting_profit",
   "column_break_1",
   "add_backs",
+  "section_break_pl",
+  "pl_lines",
   "section_break_3",
   "less_allowances",
   "column_break_2",
@@ -92,6 +94,18 @@
    "fieldtype": "Text Editor",
    "label": "Add Backs",
    "description": "Inadmissible expenses / disallowances added back"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Full Profit and Loss Breakdown (optional)",
+   "fieldname": "section_break_pl",
+   "description": "Every Profit and Loss FS Line Item's amount from the linked audit, not just the single accounting-profit total -- so a preparer can see and adjust each element (revenue, cost of sales, each expense head) individually rather than working from one lump-sum figure."
+  },
+  {
+   "fieldname": "pl_lines",
+   "fieldtype": "Table",
+   "label": "P&L Lines",
+   "options": "Tax Computation PL Line"
   },
   {
    "fieldtype": "Section Break",

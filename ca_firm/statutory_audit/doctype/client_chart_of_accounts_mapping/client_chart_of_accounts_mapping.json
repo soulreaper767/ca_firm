@@ -10,7 +10,14 @@
   "client",
   "client_account_code",
   "client_account_name",
+  "parent_account",
+  "is_group",
+  "section_break_1",
+  "account_group",
   "mapped_head",
+  "column_break_1",
+  "account_currency",
+  "opening_balance",
   "is_active"
  ],
  "fields": [
@@ -47,12 +54,54 @@
    "in_list_view": 1
   },
   {
+   "fieldname": "parent_account",
+   "fieldtype": "Link",
+   "label": "Parent Account",
+   "options": "Client Chart of Accounts Mapping",
+   "description": "For grouping this client's own account structure, e.g. 'Trade Debtors' under a 'Current Assets' group account"
+  },
+  {
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Is Group",
+   "description": "A heading/group account with no balance of its own -- only leaf (non-group) accounts should be used on a Trial Balance"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "account_group",
+   "fieldtype": "Select",
+   "label": "Account Group",
+   "options": "Asset\nLiability\nEquity\nIncome\nExpense",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
    "fieldname": "mapped_head",
    "fieldtype": "Link",
    "label": "Mapped Head",
    "options": "Chart of Accounts Head",
    "reqd": 1,
-   "in_list_view": 1
+   "in_list_view": 1,
+   "description": "The standardized head this client account rolls up to for cross-client reporting and financial statement generation"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "account_currency",
+   "fieldtype": "Data",
+   "label": "Account Currency",
+   "default": "PKR"
+  },
+  {
+   "fieldname": "opening_balance",
+   "fieldtype": "Currency",
+   "label": "Opening Balance"
   },
   {
    "fieldname": "is_active",

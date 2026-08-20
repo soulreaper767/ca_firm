@@ -1,0 +1,221 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "engagement",
+  "client",
+  "tax_year",
+  "section_break_1",
+  "items",
+  "section_break_2",
+  "total_deferred_tax_asset",
+  "column_break_1",
+  "total_deferred_tax_liability",
+  "net_deferred_tax",
+  "section_break_3",
+  "opening_net_deferred_tax",
+  "column_break_2",
+  "movement_recognized_in_pl",
+  "movement_recognized_in_oci",
+  "section_break_4",
+  "recoverability_note",
+  "prepared_by",
+  "column_break_3",
+  "reviewed_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "DTX-.YYYY.-.#####",
+   "default": "DTX-.YYYY.-.#####",
+   "hidden": 0,
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "Tax Engagement",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "tax_year",
+   "fieldtype": "Data",
+   "label": "Tax Year",
+   "in_list_view": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Temporary Differences (IAS 12)",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Deferred Tax Item"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Summary",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "total_deferred_tax_asset",
+   "fieldtype": "Currency",
+   "label": "Total Deferred Tax Asset",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "total_deferred_tax_liability",
+   "fieldtype": "Currency",
+   "label": "Total Deferred Tax Liability",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "net_deferred_tax",
+   "fieldtype": "Currency",
+   "label": "Net Deferred Tax (Asset) / Liability",
+   "read_only": 1,
+   "description": "Gross figure -- offsetting a Deferred Tax Asset against a Deferred Tax Liability is only permitted where IAS 12.74's offset criteria are met (same taxable entity/authority, legal right of set-off)"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Movement",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "opening_net_deferred_tax",
+   "fieldtype": "Currency",
+   "label": "Opening Net Deferred Tax"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_2"
+  },
+  {
+   "fieldname": "movement_recognized_in_pl",
+   "fieldtype": "Currency",
+   "label": "Movement Recognized in P&L",
+   "read_only": 1,
+   "description": "Closing Net Deferred Tax less Opening, less any amount separately recognized in OCI"
+  },
+  {
+   "fieldname": "movement_recognized_in_oci",
+   "fieldtype": "Currency",
+   "label": "Movement Recognized in OCI",
+   "description": "e.g. deferred tax on a revaluation surplus or on remeasurement of a defined benefit plan -- IAS 12.61A"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_4"
+  },
+  {
+   "fieldname": "recoverability_note",
+   "fieldtype": "Text Editor",
+   "label": "Recoverability Assessment (Deferred Tax Assets)",
+   "description": "IAS 12.24/.34: a DTA is only recognized to the extent it is probable that future taxable profit will be available against which it can be utilized"
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Link",
+   "label": "Prepared By",
+   "options": "Employee"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_3"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "Employee"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Tax",
+ "name": "Deferred Tax Working",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "CA Firm Admin",
+   "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "CA Firm Partner",
+   "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1, "write": 1, "create": 1, "delete": 0, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "CA Firm Job Incharge",
+   "read": 1, "write": 1, "create": 1, "delete": 0, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "CA Firm Supervisor",
+   "read": 1, "write": 1, "create": 1, "delete": 0, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "CA Firm Senior",
+   "read": 1, "write": 1, "create": 1, "delete": 0, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "CA Firm Semi Senior",
+   "read": 1, "write": 1, "create": 1, "delete": 0, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "CA Firm Article Assistant",
+   "read": 1, "write": 1, "create": 1, "delete": 0, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1, "write": 1, "create": 1, "delete": 1, "submit": 0, "cancel": 0, "amend": 0,
+   "report": 1, "export": 1, "share": 1, "print": 1, "email": 1
+  }
+ ],
+ "autoname": "naming_series:"
+}

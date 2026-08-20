@@ -6,6 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "client_account",
   "client_account_code",
   "client_account_name",
   "mapped_head",
@@ -18,15 +19,25 @@
  ],
  "fields": [
   {
+   "fieldname": "client_account",
+   "fieldtype": "Link",
+   "label": "Client Account",
+   "options": "Client Chart of Accounts Mapping",
+   "in_list_view": 1,
+   "description": "Pick from the client's own Chart of Accounts to auto-fill the fields below; leave blank to enter this line manually"
+  },
+  {
    "fieldname": "client_account_code",
    "fieldtype": "Data",
    "label": "Client Account Code",
+   "fetch_from": "client_account.client_account_code",
    "in_list_view": 1
   },
   {
    "fieldname": "client_account_name",
    "fieldtype": "Data",
    "label": "Client Account Name",
+   "fetch_from": "client_account.client_account_name",
    "reqd": 1,
    "in_list_view": 1
   },
@@ -35,6 +46,7 @@
    "fieldtype": "Link",
    "label": "Mapped Head",
    "options": "Chart of Accounts Head",
+   "fetch_from": "client_account.mapped_head",
    "reqd": 1,
    "in_list_view": 1
   },

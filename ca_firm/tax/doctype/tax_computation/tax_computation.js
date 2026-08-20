@@ -5,6 +5,10 @@ frappe.ui.form.on("Tax Computation", {
 				frm.call("pull_accounting_profit_from_audit").then(() => frm.reload_doc());
 			}, __("Statutory Audit"));
 
+			frm.add_custom_button(__("Pull Full P&L Breakdown"), () => {
+				frm.call("pull_full_pl_breakdown").then(() => frm.reload_doc());
+			}, __("Statutory Audit"));
+
 			frm.add_custom_button(__("Flag Items to Audit"), () => {
 				frm.call("flag_items_to_audit");
 			}, __("Statutory Audit"));

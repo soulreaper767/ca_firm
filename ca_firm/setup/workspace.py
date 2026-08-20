@@ -58,6 +58,10 @@ CHILD_WORKSPACES = [
 			("Sampling Worksheet", "Sampling Worksheet"),
 			("Analytical Procedure", "Analytical Procedure"),
 		]),
+		("Financial Reporting", [
+			("Balance Sheet", "Balance Sheet", "Report"),
+			("Profit and Loss Statement", "Profit and Loss Statement", "Report"),
+		]),
 		("Execution", [
 			("Audit Working Paper", "Audit Working Paper"),
 			("Audit Procedure", "Audit Procedure"),
@@ -105,6 +109,7 @@ CHILD_WORKSPACES = [
 			("Tax Engagement", "Tax Engagement"),
 			("Tax Return", "Tax Return"),
 			("Tax Computation", "Tax Computation"),
+			("Deferred Tax Working", "Deferred Tax Working"),
 			("Tax Notice", "Tax Notice"),
 		]),
 		("Reports", [

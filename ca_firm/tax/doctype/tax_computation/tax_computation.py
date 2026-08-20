@@ -2,6 +2,7 @@ import frappe
 from frappe.model.document import Document
 
 from ca_firm.utils.cross_reference import create_cross_reference
+from ca_firm.utils.financial_statement import get_line_item_amounts
 
 
 class TaxComputation(Document):
@@ -12,21 +13,16 @@ class TaxComputation(Document):
 			- frappe.utils.flt(self.withholding_tax_credit)
 		)
 
-	@frappe.whitelist()
-	def pull_accounting_profit_from_audit(self):
-		"""Where the same client also has a statutory audit for the same
-		period, compute the accounting profit (before tax) from its Lead
-		Schedule instead of the figure being re-keyed by hand: sum every
-		Profit and Loss head classified Income, less every head classified
-		Expense, excluding the Taxation line itself (that's the tax
-		expense, not part of profit *before* tax)."""
+	def _pl_amounts_excluding_taxation(self):
+		"""(fs_line_item -> (classification, current_year_amount)) for every
+		Profit and Loss line except Taxation itself -- shared by both the
+		single-figure pull and the full-breakdown pull so they can never
+		disagree with each other."""
 		if not self.source_statutory_engagement:
-			frappe.throw("Link a Statutory Audit Engagement first.")
+			frappe.throw("Link a Source Statutory Engagement first.")
 
-		tb_name = frappe.db.get_value(
-			"Trial Balance", {"engagement": self.source_statutory_engagement}, "name"
-		)
-		if not tb_name:
+		amounts = get_line_item_amounts(self.source_statutory_engagement)
+		if not amounts:
 			frappe.throw("The linked engagement has no Trial Balance on file yet.")
 
 		pnl_lines = frappe.get_all(
@@ -36,40 +32,41 @@ class TaxComputation(Document):
 				"classification": ["in", ["Income", "Expense"]],
 				"line_item_name": ["!=", "Taxation"],
 			},
-			fields=["name", "classification"],
+			fields=["name", "line_item_name", "classification"],
 		)
-		line_classification = {l.name: l.classification for l in pnl_lines}
-		if not line_classification:
+		if not pnl_lines:
 			frappe.throw("No Profit and Loss FS Line Items found to aggregate from.")
 
-		heads = frappe.get_all(
-			"Chart of Accounts Head", filters={"fs_line_item": ["in", list(line_classification.keys())]},
-			fields=["name", "fs_line_item", "nature"],
+		return {l.name: (l.classification, amounts.get(l.name, (0.0, 0.0))[0]) for l in pnl_lines}
+
+	@frappe.whitelist()
+	def pull_accounting_profit_from_audit(self):
+		"""Where the same client also has a statutory audit for the same
+		period, compute the accounting profit (before tax) from its Trial
+		Balance instead of the figure being re-keyed by hand: sum every
+		Profit and Loss line classified Income, less every line classified
+		Expense, excluding the Taxation line itself (that's the tax
+		expense, not part of profit *before* tax)."""
+		lines = self._pl_amounts_excluding_taxation()
+		profit = sum(
+			amount if classification == "Income" else -amount
+			for classification, amount in lines.values()
 		)
-		if not heads:
-			frappe.throw("No Chart of Accounts Head is mapped to any Profit and Loss line item.")
-		head_info = {h.name: h for h in heads}
-
-		entries = frappe.get_all(
-			"Trial Balance Entry", filters={"parent": tb_name, "mapped_head": ["in", list(head_info.keys())]},
-			fields=["mapped_head", "current_year_debit", "current_year_credit"],
-		)
-
-		profit = 0.0
-		for e in entries:
-			head = head_info.get(e.mapped_head)
-			if not head:
-				continue
-			# Natural-balance amount: positive whenever the head sits on its
-			# own normal side (a Debit-nature expense with debit > credit,
-			# or a Credit-nature income with credit > debit both come out
-			# positive here) -- same convention the Lead Schedule report uses.
-			nature_sign = 1 if head.nature == "Debit" else -1
-			natural_amount = nature_sign * (frappe.utils.flt(e.current_year_debit) - frappe.utils.flt(e.current_year_credit))
-			classification = line_classification.get(head.fs_line_item)
-			profit += natural_amount if classification == "Income" else -natural_amount
-
 		self.accounting_profit = profit
+		self.save()
+
+	@frappe.whitelist()
+	def pull_full_pl_breakdown(self):
+		"""Not just the single accounting-profit total: every Profit and
+		Loss FS Line Item's amount from the linked audit, so the preparer
+		can see and adjust each element -- revenue, cost of sales, each
+		expense head -- individually. Replaces any existing P&L Lines."""
+		lines = self._pl_amounts_excluding_taxation()
+		self.set("pl_lines", [])
+		for fs_line, (classification, amount) in lines.items():
+			self.append("pl_lines", {
+				"fs_line_item": fs_line, "classification": classification, "amount": amount,
+			})
 		self.save()
 
 	@frappe.whitelist()

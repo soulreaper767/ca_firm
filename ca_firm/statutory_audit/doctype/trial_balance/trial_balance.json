@@ -8,6 +8,7 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "client",
   "tb_date",
   "currency",
   "section_break_1",
@@ -41,6 +42,16 @@
    "reqd": 1,
    "unique": 1,
    "in_list_view": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Used to filter each entry's Client Account to this client's own Chart of Accounts"
   },
   {
    "fieldname": "tb_date",

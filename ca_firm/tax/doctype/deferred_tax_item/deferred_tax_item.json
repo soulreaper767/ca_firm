@@ -1,0 +1,99 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "description",
+  "linked_account",
+  "carrying_value",
+  "tax_base",
+  "temporary_difference",
+  "classification",
+  "tax_rate",
+  "deferred_tax_asset",
+  "deferred_tax_liability"
+ ],
+ "fields": [
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "linked_account",
+   "fieldtype": "Link",
+   "label": "Linked Account",
+   "options": "Client Chart of Accounts Mapping",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "carrying_value",
+   "fieldtype": "Currency",
+   "label": "Carrying Value",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Carrying amount of the asset/liability per the financial statements"
+  },
+  {
+   "fieldname": "tax_base",
+   "fieldtype": "Currency",
+   "label": "Tax Base",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Amount attributed to the asset/liability for tax purposes (IAS 12.7-8)"
+  },
+  {
+   "fieldname": "temporary_difference",
+   "fieldtype": "Currency",
+   "label": "Temporary Difference",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "classification",
+   "fieldtype": "Select",
+   "label": "Classification",
+   "options": "Taxable Temporary Difference\nDeductible Temporary Difference",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "Taxable -> gives rise to a Deferred Tax Liability; Deductible -> gives rise to a Deferred Tax Asset (subject to IAS 12.24 recoverability assessment)"
+  },
+  {
+   "fieldname": "tax_rate",
+   "fieldtype": "Percent",
+   "label": "Tax Rate",
+   "reqd": 1
+  },
+  {
+   "fieldname": "deferred_tax_asset",
+   "fieldtype": "Currency",
+   "label": "Deferred Tax Asset",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "deferred_tax_liability",
+   "fieldtype": "Currency",
+   "label": "Deferred Tax Liability",
+   "read_only": 1,
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Tax",
+ "name": "Deferred Tax Item",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}
