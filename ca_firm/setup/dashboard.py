@@ -4,26 +4,6 @@ import frappe
 
 NUMBER_CARDS = [
 	{
-		"name": "Active Engagements",
-		"document_type": "Engagement",
-		"filters": [["Engagement", "status", "not in", ["Completed", "Archived", "Declined"]]],
-	},
-	{
-		"name": "Open Audit Findings",
-		"document_type": "Audit Finding",
-		"filters": [["Audit Finding", "status", "=", "Open"]],
-	},
-	{
-		"name": "Open Review Notes",
-		"document_type": "Review Note",
-		"filters": [["Review Note", "status", "=", "Open"]],
-	},
-	{
-		"name": "Pending Deliverables",
-		"document_type": "Deliverable",
-		"filters": [["Deliverable", "status", "!=", "Delivered"]],
-	},
-	{
 		"name": "Client Onboardings In Progress",
 		"document_type": "Client Onboarding",
 		"filters": [["Client Onboarding", "status", "not in", ["Onboarded", "Rejected"]]],
@@ -32,21 +12,9 @@ NUMBER_CARDS = [
 
 GROUP_BY_CHARTS = [
 	{
-		"name": "Engagements by Status",
-		"document_type": "Engagement",
+		"name": "Client Onboardings by Status",
+		"document_type": "Client Onboarding",
 		"group_by_based_on": "status",
-		"type": "Bar",
-	},
-	{
-		"name": "Audit Findings by Severity",
-		"document_type": "Audit Finding",
-		"group_by_based_on": "severity",
-		"type": "Donut",
-	},
-	{
-		"name": "Open Review Notes by Priority",
-		"document_type": "Review Note",
-		"group_by_based_on": "priority",
 		"type": "Bar",
 	},
 ]

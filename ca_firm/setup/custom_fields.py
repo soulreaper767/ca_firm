@@ -11,11 +11,14 @@ CUSTOM_FIELDS = {
 			"collapsible": 1,
 		},
 		{"fieldname": "strn", "label": "Firm STRN", "fieldtype": "Data", "insert_after": "ca_firm_section"},
-		{"fieldname": "icap_firm_category", "label": "ICAP Firm Category", "fieldtype": "Link",
-		 "options": "ICAP Firm Category", "insert_after": "strn"},
+		{"fieldname": "icap_firm_category", "label": "ICAP Firm Category", "fieldtype": "Select",
+		 "options": "Category A\nCategory B\nCategory C\nCategory D", "insert_after": "strn"},
 		{"fieldname": "ca_firm_cb1", "fieldtype": "Column Break", "insert_after": "icap_firm_category"},
 		{"fieldname": "default_materiality_benchmark", "label": "Default Materiality Benchmark",
-		 "fieldtype": "Link", "options": "Materiality Benchmark", "insert_after": "ca_firm_cb1"},
+		 "fieldtype": "Select",
+		 "options": "Total Revenue\nProfit Before Tax\nTotal Assets\nTotal Equity\nTotal Expenses\n"
+		            "Net Profit\nGross Profit\nOther",
+		 "insert_after": "ca_firm_cb1"},
 		{"fieldname": "enable_time_budget_alerts", "label": "Enable Time Budget Alerts", "fieldtype": "Check",
 		 "default": "1", "insert_after": "default_materiality_benchmark"},
 		{"fieldname": "time_budget_alert_threshold_percent", "label": "Time Budget Alert Threshold %",
@@ -88,14 +91,6 @@ CUSTOM_FIELDS = {
 		 "insert_after": "ca_firm_cb1"},
 		{"fieldname": "cost_rate_per_hour", "label": "Cost Rate per Hour", "fieldtype": "Currency",
 		 "insert_after": "chargeable_rate_per_hour"},
-	],
-	"Timesheet Detail": [
-		{"fieldname": "engagement", "label": "Engagement", "fieldtype": "Link", "options": "Engagement",
-		 "insert_after": "activity_type", "in_list_view": 1},
-		{"fieldname": "audit_procedure", "label": "Audit Procedure", "fieldtype": "Link",
-		 "options": "Audit Procedure", "insert_after": "engagement"},
-		{"fieldname": "fs_area", "label": "FS Area", "fieldtype": "Link", "options": "Financial Statement Area",
-		 "insert_after": "audit_procedure"},
 	],
 }
 

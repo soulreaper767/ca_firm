@@ -1,11 +1,6 @@
 import frappe
 
 BOARDS = [
-	("Engagement", "Engagement Pipeline", "status"),
-	("Audit Procedure", "Audit Procedure Board", "status"),
-	("Review Note", "Review Notes Board", "status"),
-	("Audit Finding", "Audit Findings Board", "status"),
-	("QCR Finding", "QCR Findings Board", "status"),
 	("Client Onboarding", "Client Onboarding Pipeline", "status"),
 ]
 

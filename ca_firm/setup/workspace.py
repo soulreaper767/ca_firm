@@ -6,104 +6,15 @@ WORKSPACE_NAME = "CA Firm"
 
 # (section header, [(label, doctype), ...])
 SECTIONS = [
-	("Firm & People", [
+	("Firm Profile", [
 		("Company", "Company"),
 		("Employee", "Employee"),
 		("Designation", "Designation"),
-		("Audit Standard", "Audit Standard"),
-		("Financial Statement Area", "Financial Statement Area"),
-		("Assertion", "Assertion"),
-		("Risk Category", "Risk Category"),
-		("Industry Type", "Industry Type"),
-		("Applicable Law", "Applicable Law"),
-		("Audit Procedure Type", "Audit Procedure Type"),
 	]),
-	("Clients", [
+	("Client Onboarding", [
 		("Client Onboarding", "Client Onboarding"),
 		("Clients", "Customer"),
-		("Client Groups", "Customer Group"),
-		("Client Contact", "Client Contact"),
-		("Related Party", "Related Party"),
-		("Client Team Assignment", "Client Team Assignment"),
 		("Client Fee Arrangement", "Client Fee Arrangement"),
-	]),
-	("Engagement Management", [
-		("Engagement", "Engagement"),
-		("Client Acceptance and Continuance", "Client Acceptance and Continuance"),
-		("Independence Declaration", "Independence Declaration"),
-		("Engagement Letter", "Engagement Letter"),
-		("Engagement Quality Control Review", "Engagement Quality Control Review"),
-		("Fraud Risk Assessment", "Fraud Risk Assessment"),
-		("Communication with TCWG", "Communication with TCWG"),
-	]),
-	("Audit Planning", [
-		("Materiality Workings", "Materiality Workings"),
-		("Understanding of the Entity", "Understanding of the Entity"),
-		("Internal Control Evaluation", "Internal Control Evaluation"),
-		("Risk Assessment", "Risk Assessment"),
-		("Audit Strategy and Plan", "Audit Strategy and Plan"),
-		("Audit Program Template", "Audit Program Template"),
-		("Audit Program", "Audit Program"),
-		("Sampling Worksheet", "Sampling Worksheet"),
-		("Analytical Procedure", "Analytical Procedure"),
-		("Going Concern Assessment", "Going Concern Assessment"),
-	]),
-	("Audit Execution", [
-		("Audit Working Paper", "Audit Working Paper"),
-		("Audit Procedure", "Audit Procedure"),
-		("CAAT Test Template", "CAAT Test Template"),
-		("CAAT Run", "CAAT Run"),
-		("Checklist Template", "Checklist Template"),
-		("Checklist Instance", "Checklist Instance"),
-		("Confirmation Request", "Confirmation Request"),
-		("Physical Verification", "Physical Verification"),
-		("Subsequent Events Review", "Subsequent Events Review"),
-		("Written Representation Letter", "Written Representation Letter"),
-		("Audit Query", "Audit Query"),
-		("Audit Finding", "Audit Finding"),
-	]),
-	("Financial Statement Grouping", [
-		("Trial Balance", "Trial Balance"),
-		("Client Chart of Accounts Mapping", "Client Chart of Accounts Mapping"),
-		("Chart of Accounts Head", "Chart of Accounts Head"),
-		("FS Line Item", "FS Line Item"),
-		("Client Financial Statement Template", "Client Financial Statement Template"),
-	]),
-	("Review and Quality Control", [
-		("Review Note", "Review Note"),
-	]),
-	("Reporting", [
-		("Management Letter", "Management Letter"),
-		("Key Audit Matter", "Key Audit Matter"),
-		("Audit Report", "Audit Report"),
-		("Audit Report Template", "Audit Report Template"),
-		("Audit Opinion Paragraph", "Audit Opinion Paragraph"),
-		("Deliverable", "Deliverable"),
-	]),
-	("Team and Timesheet", [
-		("Timesheet", "Timesheet"),
-	]),
-	("Quality Control Review (ICAP)", [
-		("Firm Quality Control Policy", "Firm Quality Control Policy"),
-		("QCR Review", "QCR Review"),
-		("QCR Finding", "QCR Finding"),
-	]),
-	("Regulatory Compliance", [
-		("Regulatory Requirement", "Regulatory Requirement"),
-		("Law Section", "Law Section"),
-		("Rate Schedule", "Rate Schedule"),
-		("Financial Metric", "Financial Metric"),
-		("Industry Benchmark", "Industry Benchmark"),
-	]),
-	("Configurable Lists", [
-		("Rating Scale", "Rating Scale"),
-		("Priority Level", "Priority Level"),
-		("Entity Type", "Entity Type"),
-		("Entity Size Category", "Entity Size Category"),
-		("Engagement Type", "Engagement Type"),
-		("Opinion Type", "Opinion Type"),
-		("Finding Category", "Finding Category"),
-		("Deliverable Type", "Deliverable Type"),
 	]),
 ]
 
@@ -152,9 +63,7 @@ def create_workspace():
 
 	# Best-effort cache/sidebar-pin cleanup -- must never be allowed to raise
 	# past this point, since the caller commits per-step and a failure here
-	# would roll back the doc.insert() above along with it (which is exactly
-	# what happened when this was unguarded: the workspace briefly existed
-	# then vanished because a later line in this same function threw).
+	# would roll back the doc.insert() above along with it.
 	try:
 		frappe.delete_doc_if_exists("Workspace Sidebar", WORKSPACE_NAME, force=True)
 		frappe.clear_cache()

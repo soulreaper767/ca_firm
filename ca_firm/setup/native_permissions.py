@@ -72,16 +72,6 @@ GRANTS = {
 		R_SEMI: {"read": 1},
 		R_JUNIOR: {"read": 1},
 	},
-	"Timesheet": {
-		R_PARTNER: {"read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1, "amend": 1},
-		R_ADMIN: {"read": 1, "write": 1, "create": 1, "delete": 1, "submit": 1, "cancel": 1, "amend": 1},
-		R_MANAGER: {"read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1, "amend": 1},
-		R_JIC: {"read": 1, "write": 1, "create": 1, "submit": 1, "cancel": 1},
-		R_SUPERVISOR: {"read": 1, "write": 1, "create": 1, "submit": 1},
-		R_SENIOR: {"read": 1, "write": 1, "create": 1},
-		R_SEMI: {"read": 1, "write": 1, "create": 1},
-		R_JUNIOR: {"read": 1, "write": 1, "create": 1},
-	},
 }
 
 # Employee permlevel-1 fields: only Partner/Manager/Admin can see or edit

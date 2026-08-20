@@ -9,7 +9,6 @@ class ClientOnboarding(Document):
 
 	def on_submit(self):
 		customer = self.get_or_create_customer()
-		self.create_engagements(customer)
 		self.create_fee_arrangement(customer)
 		self.db_set("onboarded_client", customer.name)
 		self.db_set("status", "Onboarded")
@@ -53,23 +52,6 @@ class ClientOnboarding(Document):
 		# just pass the link value straight through -- the option text is
 		# identical either way.
 		return self.financial_year_end
-
-	def create_engagements(self, customer):
-		# financial_year and engagement_partner are mandatory on Engagement
-		# normally, but onboarding may not have pinned those down yet -- these
-		# are meant as draft stubs the team fills in and moves through the
-		# workflow afterwards, so mandatory checks are deliberately skipped
-		# here rather than blocking submission of the onboarding record.
-		for row in self.assignment_types:
-			doc = frappe.get_doc({
-				"doctype": "Engagement",
-				"client": customer.name,
-				"engagement_type": row.engagement_type,
-				"engagement_partner": self.engagement_partner,
-				"financial_year": "",
-				"status": "Draft",
-			})
-			doc.insert(ignore_permissions=True, ignore_mandatory=True)
 
 	def create_fee_arrangement(self, customer):
 		if not self.fee_amount:
