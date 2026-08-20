@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "equity_component",
+  "opening_balance",
+  "profit_for_the_year",
+  "other_comprehensive_income",
+  "dividends_declared",
+  "share_capital_issued",
+  "other_movements",
+  "closing_balance",
+  "tb_closing_balance"
+ ],
+ "fields": [
+  {
+   "fieldname": "equity_component",
+   "fieldtype": "Data",
+   "label": "Equity Component",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "e.g. Share Capital, Share Premium, Retained Earnings, Revaluation Reserve"
+  },
+  {
+   "fieldname": "opening_balance",
+   "fieldtype": "Currency",
+   "label": "Opening Balance",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "profit_for_the_year",
+   "fieldtype": "Currency",
+   "label": "Profit for the Year",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "other_comprehensive_income",
+   "fieldtype": "Currency",
+   "label": "Other Comprehensive Income"
+  },
+  {
+   "fieldname": "dividends_declared",
+   "fieldtype": "Currency",
+   "label": "Dividends Declared",
+   "description": "Enter as a negative amount"
+  },
+  {
+   "fieldname": "share_capital_issued",
+   "fieldtype": "Currency",
+   "label": "Share Capital Issued"
+  },
+  {
+   "fieldname": "other_movements",
+   "fieldtype": "Currency",
+   "label": "Other Movements"
+  },
+  {
+   "fieldname": "closing_balance",
+   "fieldtype": "Currency",
+   "label": "Closing Balance",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Opening Balance + all movement columns -- computed automatically"
+  },
+  {
+   "fieldname": "tb_closing_balance",
+   "fieldtype": "Currency",
+   "label": "Trial Balance Closing Balance",
+   "read_only": 1,
+   "in_list_view": 1,
+   "description": "Reference only, pulled from the current year Trial Balance -- reconcile Closing Balance above to this by completing the movement columns"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "Equity Movement Item",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

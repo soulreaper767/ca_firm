@@ -61,6 +61,8 @@ CHILD_WORKSPACES = [
 		("Financial Reporting", [
 			("Balance Sheet", "Balance Sheet", "Report"),
 			("Profit and Loss Statement", "Profit and Loss Statement", "Report"),
+			("Cash Flow Statement", "Cash Flow Statement"),
+			("Statement of Changes in Equity", "Statement of Changes in Equity"),
 		]),
 		("Execution", [
 			("Audit Working Paper", "Audit Working Paper"),
