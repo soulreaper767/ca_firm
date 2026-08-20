@@ -72,6 +72,15 @@ GRANTS = {
 		R_SEMI: {"read": 1},
 		R_JUNIOR: {"read": 1},
 	},
+	# The desk sidebar only lists Workspace records the viewing user has read
+	# permission on -- public=1 on the document controls *whether* it's meant
+	# to be shared, not whether a given role can see it. Without this grant,
+	# only Administrator/System Manager (who bypass permission checks
+	# entirely) can see any of our workspaces; every other CA Firm role gets
+	# an empty sidebar no matter how the workspace content itself is set up.
+	# Read-only: workspace structure is managed centrally by
+	# setup/workspace.py on every migrate, not edited ad hoc from the UI.
+	"Workspace": {role: {"read": 1} for role in ALL_TEAM_ROLES},
 }
 
 # Employee permlevel-1 fields: only Partner/Manager/Admin can see or edit
