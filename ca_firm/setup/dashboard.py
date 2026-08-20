@@ -8,12 +8,23 @@ NUMBER_CARDS = [
 		"document_type": "Client Onboarding",
 		"filters": [["Client Onboarding", "status", "not in", ["Onboarded", "Rejected"]]],
 	},
+	{
+		"name": "Active Client Engagements",
+		"document_type": "Client Engagement",
+		"filters": [["Client Engagement", "status", "in", ["Signed", "Active"]]],
+	},
 ]
 
 GROUP_BY_CHARTS = [
 	{
 		"name": "Client Onboardings by Status",
 		"document_type": "Client Onboarding",
+		"group_by_based_on": "status",
+		"type": "Bar",
+	},
+	{
+		"name": "Client Engagements by Status",
+		"document_type": "Client Engagement",
 		"group_by_based_on": "status",
 		"type": "Bar",
 	},

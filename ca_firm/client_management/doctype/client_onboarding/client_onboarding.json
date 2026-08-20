@@ -73,6 +73,7 @@
   "section_break_14",
   "status",
   "onboarded_client",
+  "onboarded_engagement",
   "remarks"
  ],
  "fields": [
@@ -257,7 +258,7 @@
   {
    "fieldtype": "Section Break",
    "label": "Assignment Types",
-   "description": "Select every service line this client is being onboarded for -- one Engagement record is created per assignment type selected, once this record is approved.",
+   "description": "Select every service line this client is being onboarded for -- a single Client Engagement (agreement) is created on submit, covering all of them.",
    "fieldname": "section_break_7"
   },
   {
@@ -432,6 +433,13 @@
    "fieldtype": "Link",
    "label": "Onboarded Client",
    "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "onboarded_engagement",
+   "fieldtype": "Link",
+   "label": "Onboarded Engagement",
+   "options": "Client Engagement",
    "read_only": 1
   },
   {

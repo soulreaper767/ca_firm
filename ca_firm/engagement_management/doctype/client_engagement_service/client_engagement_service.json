@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "engagement_type",
+  "financial_year",
+  "section_break_1",
+  "period_start",
+  "column_break_1",
+  "period_end",
+  "stage",
+  "fee_amount",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "engagement_type",
+   "fieldtype": "Link",
+   "label": "Engagement Type",
+   "options": "Engagement Type",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "financial_year",
+   "fieldtype": "Data",
+   "label": "Financial Year",
+   "in_list_view": 1,
+   "description": "e.g. 2025-26"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "period_start",
+   "fieldtype": "Date",
+   "label": "Period Start"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "period_end",
+   "fieldtype": "Date",
+   "label": "Period End"
+  },
+  {
+   "fieldname": "stage",
+   "fieldtype": "Select",
+   "label": "Stage",
+   "options": "Not Started\nPlanning\nFieldwork\nReview\nCompleted",
+   "default": "Not Started",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "fee_amount",
+   "fieldtype": "Currency",
+   "label": "Fee Amount",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Engagement Management",
+ "name": "Client Engagement Service",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

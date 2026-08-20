@@ -10,7 +10,9 @@ class ClientOnboarding(Document):
 	def on_submit(self):
 		customer = self.get_or_create_customer()
 		self.create_fee_arrangement(customer)
+		engagement = self.create_client_engagement(customer)
 		self.db_set("onboarded_client", customer.name)
+		self.db_set("onboarded_engagement", engagement.name if engagement else None)
 		self.db_set("status", "Onboarded")
 
 	def get_or_create_customer(self):
@@ -66,3 +68,33 @@ class ClientOnboarding(Document):
 			"agreed_by": self.engagement_partner,
 			"notes": f"Created from Client Onboarding {self.name}",
 		}).insert(ignore_permissions=True)
+
+	def create_client_engagement(self, customer):
+		if not self.assignment_types:
+			return None
+		doc = frappe.new_doc("Client Engagement")
+		doc.client = customer.name
+		doc.agreement_date = self.agreement_date
+		doc.billing_frequency = self.billing_frequency
+		doc.agreement_terms = self.agreement_terms
+		doc.agreement_document = self.agreement_document
+		doc.engagement_partner = self.engagement_partner
+		doc.relationship_manager = self.relationship_manager
+		doc.status = "Draft"
+		# split the single onboarding fee evenly across services as a
+		# starting point -- the partner can rebalance per service afterwards.
+		per_service_fee = (frappe.utils.flt(self.fee_amount) / len(self.assignment_types)) if self.fee_amount else 0
+		for row in self.assignment_types:
+			doc.append("services", {
+				"engagement_type": row.engagement_type,
+				"stage": "Not Started",
+				"fee_amount": per_service_fee,
+			})
+		if self.engagement_partner:
+			doc.append("independence_checks", {
+				"staff_member": self.engagement_partner,
+				"declaration_date": frappe.utils.today(),
+				"declaration": "Independent",
+			})
+		doc.insert(ignore_permissions=True, ignore_mandatory=True)
+		return doc

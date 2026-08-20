@@ -16,6 +16,9 @@ SECTIONS = [
 		("Clients", "Customer"),
 		("Client Fee Arrangement", "Client Fee Arrangement"),
 	]),
+	("Client Engagement", [
+		("Client Engagement", "Client Engagement"),
+	]),
 ]
 
 

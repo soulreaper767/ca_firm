@@ -2,6 +2,7 @@ import frappe
 
 BOARDS = [
 	("Client Onboarding", "Client Onboarding Pipeline", "status"),
+	("Client Engagement", "Client Engagement Pipeline", "status"),
 ]
 
 
