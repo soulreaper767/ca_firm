@@ -101,6 +101,11 @@ def grant_doctype_permissions():
 
 def set_employee_field_permlevels():
 	for fieldname in EMPLOYEE_PERMLEVEL1_FIELDS:
+		# Property Setter's name is deterministic (Employee-<fieldname>-permlevel),
+		# so re-inserting on every migrate throws DuplicateEntryError once it
+		# exists from a prior run -- skip if already set.
+		if frappe.db.exists("Property Setter", f"Employee-{fieldname}-permlevel"):
+			continue
 		try:
 			frappe.make_property_setter({
 				"doctype": "Employee",

@@ -66,6 +66,7 @@ def create_charts():
 			doc.timespan = "Last Year"
 			doc.time_interval = "Monthly"
 			doc.is_public = 1
+			doc.filters_json = "{}"
 			doc.insert(ignore_permissions=True)
 		except Exception:
 			frappe.log_error(title=f"CA Firm: failed to create dashboard chart {chart['name']}")
