@@ -19,6 +19,8 @@
   "less_allowances",
   "column_break_2",
   "taxable_income",
+  "section_break_items",
+  "adjustment_items",
   "section_break_4",
   "applicable_rate",
   "column_break_3",
@@ -111,6 +113,18 @@
    "fieldtype": "Currency",
    "label": "Taxable Income",
    "description": "Accounting profit, adjusted for add-backs and allowances above"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Adjustment Items (by Head)",
+   "fieldname": "section_break_items",
+   "description": "Optional structured breakdown behind the Add Backs / Less Allowances narrative above. Linking an item to its Chart of Accounts Head lets 'Compute From Items' total the table straight into Taxable Income, and 'Flag to Audit' items get raised as a cross-reference against the linked Statutory Audit Engagement for the audit team's attention."
+  },
+  {
+   "fieldname": "adjustment_items",
+   "fieldtype": "Table",
+   "label": "Adjustment Items",
+   "options": "Tax Adjustment Item"
   },
   {
    "fieldtype": "Section Break",

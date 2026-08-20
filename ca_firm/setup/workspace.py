@@ -33,6 +33,11 @@ CHILD_WORKSPACES = [
 		("Agreements", [
 			("Client Engagement", "Client Engagement"),
 		]),
+		("Cross-Module Links", [
+			("Engagement Cross Reference", "Engagement Cross Reference"),
+			("Cross Module Linkages", "Cross Module Linkages", "Report"),
+			("Cross Reference Type", "Cross Reference Type"),
+		]),
 	]),
 	("Statutory Audit", "Statutory Audit", [
 		("Planning", [
@@ -100,9 +105,15 @@ CHILD_WORKSPACES = [
 			("Tax Engagement", "Tax Engagement"),
 			("Tax Return", "Tax Return"),
 			("Tax Computation", "Tax Computation"),
+			("Tax Notice", "Tax Notice"),
+		]),
+		("Reports", [
+			("Tax Filing Status", "Tax Filing Status", "Report"),
+			("Tax Notices Outstanding", "Tax Notices Outstanding", "Report"),
 		]),
 		("Setup", [
 			("Tax Return Type", "Tax Return Type"),
+			("Tax Notice Type", "Tax Notice Type"),
 			("Rate Schedule", "Rate Schedule"),
 		]),
 	]),

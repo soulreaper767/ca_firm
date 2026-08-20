@@ -69,6 +69,14 @@ SIMPLE_MASTERS = {
         "Monthly Management Accounts", "Quarterly Financial Statements", "Fixed Asset Register Update",
         "Other",
     ],
+    "Tax Notice Type": [
+        "Show Cause Notice", "Assessment Order", "Audit Notice", "Penalty Notice",
+        "Refund Order", "Notice for Information / Documents", "Recovery Notice", "Other",
+    ],
+    "Cross Reference Type": [
+        "Raises Audit Adjustment", "References Audit Finding", "Shares Financial Head",
+        "Escalation", "Depends On", "Supersedes", "Other",
+    ],
     "Rating Scale": ["Low", "Medium", "High", "Critical"],
     "Priority Level": ["Low", "Medium", "High", "Urgent"],
     "Concern Level": ["Low Concern", "Medium Concern", "High Concern"],
