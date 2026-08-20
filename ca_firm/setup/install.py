@@ -11,7 +11,7 @@ def after_migrate():
 
 def _run_setup():
 	from ca_firm.setup import (
-		custom_fields, dashboard, kanban, masters, native_permissions, print_formats, roles, workspace,
+		custom_fields, dashboard, kanban, masters, native_permissions, print_formats, roles, workflow, workspace,
 	)
 
 	# Each step commits on success and rolls back + logs on failure, so one
@@ -26,6 +26,7 @@ def _run_setup():
 		("dashboard", dashboard.create_all),
 		("kanban", kanban.create_kanban_boards),
 		("print_formats", print_formats.create_all),
+		("workflow", workflow.create_all),
 	]
 	for label, step in steps:
 		try:

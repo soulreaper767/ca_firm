@@ -75,6 +75,20 @@ CHILD_WORKSPACES = [
 			("Audit Report", "Audit Report"),
 			("Deliverable", "Deliverable"),
 		]),
+		("Team Management and Reports", [
+			("My Engagements Overview", "My Engagements Overview", "Report"),
+			("Team Allocation Overview", "Team Allocation Overview", "Report"),
+			("Staff Workload", "Staff Workload", "Report"),
+			("Daily Status Report", "Daily Status Report"),
+			("Team Assignment History", "Team Assignment History"),
+			("Lead Schedule", "Lead Schedule", "Report"),
+			("PBC Status", "PBC Status", "Report"),
+			("Materiality Summary", "Materiality Summary", "Report"),
+			("Risk Register", "Risk Register", "Report"),
+			("Audit Findings Register", "Audit Findings Register", "Report"),
+			("Checklist Completion Status", "Checklist Completion Status", "Report"),
+			("Engagement Status Report", "Engagement Status Report", "Report"),
+		]),
 	]),
 	("Tax", "Tax", [
 		("Tax", [("Tax Engagement", "Tax Engagement")]),
@@ -125,10 +139,14 @@ def _build_content_and_shortcuts(sections):
 			"type": "header",
 			"data": {"text": f"<span class=\"h4\"><b>{header}</b></span>", "col": 12},
 		})
-		for label, doctype in items:
+		for item in items:
+			# (label, link_to) for a DocType shortcut, or (label, link_to,
+			# "Report") for a Script Report shortcut.
+			label, link_to = item[0], item[1]
+			link_type = item[2] if len(item) > 2 else "DocType"
 			idx += 1
 			content.append({"id": f"shortcut-{idx}", "type": "shortcut", "data": {"shortcut_name": label, "col": 3}})
-			shortcuts.append({"label": label, "link_to": doctype, "type": "DocType", "doc_view": ""})
+			shortcuts.append({"label": label, "link_to": link_to, "type": link_type, "doc_view": ""})
 		idx += 1
 		content.append({"id": f"spacer-{idx}", "type": "spacer", "data": {"col": 12}})
 	return content, shortcuts
