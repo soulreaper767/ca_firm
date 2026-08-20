@@ -135,13 +135,21 @@ CHILD_WORKSPACES = [
 	("Review Engagements", "Review Engagements", [
 		("Review Engagements", [
 			("Review Engagement", "Review Engagement"),
+			("Review Materiality", "Review Materiality"),
 			("Review Procedure", "Review Procedure"),
+		]),
+		("Reports", [
+			("Review Matters Noted Register", "Review Matters Noted Register", "Report"),
 		]),
 	]),
 	("Certification Engagements", "Certification Engagements", [
 		("Certification Engagements", [
 			("Certification Engagement", "Certification Engagement"),
 			("Certification Procedure", "Certification Procedure"),
+			("Certificate Issued", "Certificate Issued"),
+		]),
+		("Reports", [
+			("Certificates Issued Register", "Certificates Issued Register", "Report"),
 		]),
 		("Setup", [
 			("Certificate Type", "Certificate Type"),
@@ -151,6 +159,9 @@ CHILD_WORKSPACES = [
 		("Inventory Audit", [
 			("Inventory Audit Engagement", "Inventory Audit Engagement"),
 			("Inventory Count Sheet", "Inventory Count Sheet"),
+		]),
+		("Reports", [
+			("Inventory Variance Summary", "Inventory Variance Summary", "Report"),
 		]),
 	]),
 	("Advisory", "Advisory", [

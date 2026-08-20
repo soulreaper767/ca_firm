@@ -8,6 +8,7 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "linked_head",
   "section_break_1",
   "count_date",
   "column_break_1",
@@ -42,6 +43,13 @@
    "reqd": 1,
    "in_list_view": 1,
    "in_standard_filter": 1
+  },
+  {
+   "fieldname": "linked_head",
+   "fieldtype": "Link",
+   "label": "Linked Head",
+   "options": "Chart of Accounts Head",
+   "description": "The Inventory head on the Trial Balance this count relates to, if any -- lets a material variance be flagged to the statutory auditor for that head"
   },
   {
    "fieldtype": "Section Break",
