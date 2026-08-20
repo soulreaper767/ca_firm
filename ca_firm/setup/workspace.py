@@ -2,88 +2,117 @@ import json
 
 import frappe
 
-WORKSPACE_NAME = "CA Firm"
+TOP_WORKSPACE = "CA Firm"
 
-# (section header, [(label, doctype), ...])
-SECTIONS = [
-	("Firm Profile", [
-		("Company", "Company"),
-		("Employee", "Employee"),
-		("Designation", "Designation"),
+# (workspace_name, module, [(section_header, [(label, doctype), ...]), ...])
+# Each becomes its own Workspace document nested under "CA Firm" via
+# parent_page, so it shows as a real main-menu item with its own sidebar
+# entry -- not just a section on one long page. Within a workspace, section
+# headers act as the sub-menu grouping (e.g. Statutory Audit's Planning/
+# Execution/Review split).
+CHILD_WORKSPACES = [
+	("Firm Profile", "CA Firm Setup", [
+		("Firm & Staff", [
+			("Company", "Company"),
+			("Employee", "Employee"),
+			("Designation", "Designation"),
+		]),
 	]),
-	("Client Onboarding", [
-		("Client Onboarding", "Client Onboarding"),
-		("Clients", "Customer"),
-		("Client Fee Arrangement", "Client Fee Arrangement"),
+	("Client Onboarding", "Client Management", [
+		("Onboarding", [
+			("Client Onboarding", "Client Onboarding"),
+			("Clients", "Customer"),
+			("Client Fee Arrangement", "Client Fee Arrangement"),
+		]),
 	]),
-	("Client Engagement", [
-		("Client Engagement", "Client Engagement"),
+	("Client Engagement", "Engagement Management", [
+		("Agreements", [
+			("Client Engagement", "Client Engagement"),
+		]),
 	]),
-	("Statutory Audit - Planning", [
-		("Statutory Audit Engagement", "Statutory Audit Engagement"),
-		("Materiality Workings", "Materiality Workings"),
-		("Understanding of the Entity", "Understanding of the Entity"),
-		("Internal Control Evaluation", "Internal Control Evaluation"),
-		("Risk Assessment", "Risk Assessment"),
-		("Fraud Risk Assessment", "Fraud Risk Assessment"),
-		("Going Concern Assessment", "Going Concern Assessment"),
-		("Audit Strategy and Plan", "Audit Strategy and Plan"),
-		("Audit Program Template", "Audit Program Template"),
-		("Audit Program", "Audit Program"),
-		("Sampling Worksheet", "Sampling Worksheet"),
-		("Analytical Procedure", "Analytical Procedure"),
+	("Statutory Audit", "Statutory Audit", [
+		("Planning", [
+			("Statutory Audit Engagement", "Statutory Audit Engagement"),
+			("Materiality Workings", "Materiality Workings"),
+			("Understanding of the Entity", "Understanding of the Entity"),
+			("Internal Control Evaluation", "Internal Control Evaluation"),
+			("Risk Assessment", "Risk Assessment"),
+			("Fraud Risk Assessment", "Fraud Risk Assessment"),
+			("Going Concern Assessment", "Going Concern Assessment"),
+			("Audit Strategy and Plan", "Audit Strategy and Plan"),
+			("Audit Program Template", "Audit Program Template"),
+			("Audit Program", "Audit Program"),
+			("Sampling Worksheet", "Sampling Worksheet"),
+			("Analytical Procedure", "Analytical Procedure"),
+		]),
+		("Execution", [
+			("Audit Working Paper", "Audit Working Paper"),
+			("Audit Procedure", "Audit Procedure"),
+			("CAAT Test Template", "CAAT Test Template"),
+			("CAAT Run", "CAAT Run"),
+			("Checklist Template", "Checklist Template"),
+			("Checklist Instance", "Checklist Instance"),
+			("Confirmation Request", "Confirmation Request"),
+			("Physical Verification", "Physical Verification"),
+			("Subsequent Events Review", "Subsequent Events Review"),
+			("Written Representation Letter", "Written Representation Letter"),
+			("Audit Query", "Audit Query"),
+			("Audit Finding", "Audit Finding"),
+		]),
+		("Review and Reporting", [
+			("Review Note", "Review Note"),
+			("Engagement Quality Control Review", "Engagement Quality Control Review"),
+			("Management Letter", "Management Letter"),
+			("Key Audit Matter", "Key Audit Matter"),
+			("Audit Report Template", "Audit Report Template"),
+			("Audit Opinion Paragraph", "Audit Opinion Paragraph"),
+			("Audit Report", "Audit Report"),
+			("Deliverable", "Deliverable"),
+		]),
 	]),
-	("Statutory Audit - Execution", [
-		("Audit Working Paper", "Audit Working Paper"),
-		("Audit Procedure", "Audit Procedure"),
-		("CAAT Test Template", "CAAT Test Template"),
-		("CAAT Run", "CAAT Run"),
-		("Checklist Template", "Checklist Template"),
-		("Checklist Instance", "Checklist Instance"),
-		("Confirmation Request", "Confirmation Request"),
-		("Physical Verification", "Physical Verification"),
-		("Subsequent Events Review", "Subsequent Events Review"),
-		("Written Representation Letter", "Written Representation Letter"),
-		("Audit Query", "Audit Query"),
-		("Audit Finding", "Audit Finding"),
+	("Tax", "Tax", [
+		("Tax", [("Tax Engagement", "Tax Engagement")]),
 	]),
-	("Statutory Audit - Review and Reporting", [
-		("Review Note", "Review Note"),
-		("Engagement Quality Control Review", "Engagement Quality Control Review"),
-		("Management Letter", "Management Letter"),
-		("Key Audit Matter", "Key Audit Matter"),
-		("Audit Report Template", "Audit Report Template"),
-		("Audit Opinion Paragraph", "Audit Opinion Paragraph"),
-		("Audit Report", "Audit Report"),
-		("Deliverable", "Deliverable"),
+	("Internal Audit", "Internal Audit", [
+		("Internal Audit", [("Internal Audit Engagement", "Internal Audit Engagement")]),
 	]),
-	("Other Assignment Modules", [
-		("Tax Engagement", "Tax Engagement"),
-		("Internal Audit Engagement", "Internal Audit Engagement"),
-		("Review Engagement", "Review Engagement"),
-		("Certification Engagement", "Certification Engagement"),
-		("Inventory Audit Engagement", "Inventory Audit Engagement"),
-		("Advisory Engagement", "Advisory Engagement"),
-		("Company Secretarial Engagement", "Company Secretarial Engagement"),
-		("Bookkeeping Engagement", "Bookkeeping Engagement"),
+	("Review Engagements", "Review Engagements", [
+		("Review Engagements", [("Review Engagement", "Review Engagement")]),
 	]),
-	("Regulatory and Standards", [
-		("Applicable Law", "Applicable Law"),
-		("Audit Standard", "Audit Standard"),
-		("Regulatory Requirement", "Regulatory Requirement"),
-		("Financial Statement Area", "Financial Statement Area"),
-		("Assertion", "Assertion"),
-		("Risk Category", "Risk Category"),
-		("Audit Procedure Type", "Audit Procedure Type"),
+	("Certification Engagements", "Certification Engagements", [
+		("Certification Engagements", [("Certification Engagement", "Certification Engagement")]),
+	]),
+	("Inventory Audit", "Inventory Audit", [
+		("Inventory Audit", [("Inventory Audit Engagement", "Inventory Audit Engagement")]),
+	]),
+	("Advisory", "Advisory", [
+		("Advisory", [("Advisory Engagement", "Advisory Engagement")]),
+	]),
+	("Company Secretarial", "Company Secretarial", [
+		("Company Secretarial", [("Company Secretarial Engagement", "Company Secretarial Engagement")]),
+	]),
+	("Bookkeeping and Accounting", "Bookkeeping and Accounting", [
+		("Bookkeeping", [("Bookkeeping Engagement", "Bookkeeping Engagement")]),
+	]),
+	("Regulatory and Standards", "CA Firm Setup", [
+		("Reference Library", [
+			("Applicable Law", "Applicable Law"),
+			("Audit Standard", "Audit Standard"),
+			("Regulatory Requirement", "Regulatory Requirement"),
+			("Financial Statement Area", "Financial Statement Area"),
+			("Assertion", "Assertion"),
+			("Risk Category", "Risk Category"),
+			("Audit Procedure Type", "Audit Procedure Type"),
+		]),
 	]),
 ]
 
 
-def _build_content_and_shortcuts():
+def _build_content_and_shortcuts(sections):
 	content = []
 	shortcuts = []
 	idx = 0
-	for header, items in SECTIONS:
+	for header, items in sections:
 		idx += 1
 		content.append({
 			"id": f"header-{idx}",
@@ -99,33 +128,50 @@ def _build_content_and_shortcuts():
 	return content, shortcuts
 
 
-def create_workspace():
-	# Rebuilt on every install/migrate so the workspace always matches the
-	# app's current module structure, rather than drifting from source once
-	# created (unlike master data, a stale workspace has no way to "catch up").
-	if frappe.db.exists("Workspace", WORKSPACE_NAME):
-		frappe.delete_doc("Workspace", WORKSPACE_NAME, force=True, ignore_permissions=True)
-	content, shortcuts = _build_content_and_shortcuts()
+def _make_workspace(name, module, sections, parent_page, sequence_id):
+	content, shortcuts = _build_content_and_shortcuts(sections)
 	doc = frappe.new_doc("Workspace")
-	doc.name = WORKSPACE_NAME
-	doc.label = WORKSPACE_NAME
-	doc.title = WORKSPACE_NAME
-	doc.module = "CA Firm Setup"
+	doc.name = name
+	doc.label = name
+	doc.title = name
+	doc.module = module
 	doc.public = 1
 	doc.is_hidden = 0
 	doc.icon = "list"
 	doc.indicator_color = "blue"
-	doc.sequence_id = 1.0
+	doc.parent_page = parent_page or ""
+	doc.sequence_id = sequence_id
 	doc.content = json.dumps(content)
 	for sc in shortcuts:
 		doc.append("shortcuts", sc)
 	doc.insert(ignore_permissions=True)
 
+
+def create_workspace():
+	# Rebuilt on every install/migrate so the workspace tree always matches
+	# the app's current module structure. Deleting the parent alone doesn't
+	# cascade to children in Frappe, so every workspace this app owns
+	# (parent + all children) is dropped and recreated together each time.
+	all_names = [TOP_WORKSPACE] + [name for name, _module, _sections in CHILD_WORKSPACES]
+	for name in all_names:
+		if frappe.db.exists("Workspace", name):
+			frappe.delete_doc("Workspace", name, force=True, ignore_permissions=True)
+
+	_make_workspace(
+		TOP_WORKSPACE, "CA Firm Setup",
+		[("CA Firm", [])],
+		parent_page=None, sequence_id=1.0,
+	)
+
+	for i, (name, module, sections) in enumerate(CHILD_WORKSPACES, start=1):
+		_make_workspace(name, module, sections, parent_page=TOP_WORKSPACE, sequence_id=float(i))
+
 	# Best-effort cache/sidebar-pin cleanup -- must never be allowed to raise
 	# past this point, since the caller commits per-step and a failure here
-	# would roll back the doc.insert() above along with it.
+	# would roll back the workspace inserts above along with it.
 	try:
-		frappe.delete_doc_if_exists("Workspace Sidebar", WORKSPACE_NAME, force=True)
+		for name in all_names:
+			frappe.delete_doc_if_exists("Workspace Sidebar", name, force=True)
 		frappe.clear_cache()
 	except Exception:
-		frappe.log_error(title="CA Firm: workspace cache/sidebar cleanup failed (workspace itself was created)")
+		frappe.log_error(title="CA Firm: workspace cache/sidebar cleanup failed (workspaces themselves were created)")
