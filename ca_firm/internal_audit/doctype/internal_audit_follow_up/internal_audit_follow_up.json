@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "follow_up_date",
+  "update_notes",
+  "status",
+  "followed_up_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "follow_up_date",
+   "fieldtype": "Date",
+   "label": "Follow-Up Date",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "update_notes",
+   "fieldtype": "Small Text",
+   "label": "Update",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nIn Progress\nClosed",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "followed_up_by",
+   "fieldtype": "Link",
+   "label": "Followed Up By",
+   "options": "Employee",
+   "in_list_view": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Internal Audit",
+ "name": "Internal Audit Follow Up",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

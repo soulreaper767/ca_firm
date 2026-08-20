@@ -9,6 +9,7 @@
   "naming_series",
   "engagement",
   "area_reviewed",
+  "linked_head",
   "observation",
   "risk_rating",
   "recommendation",
@@ -17,7 +18,9 @@
   "responsible_person",
   "column_break_1",
   "target_date",
-  "status"
+  "status",
+  "section_break_2",
+  "follow_ups"
  ],
  "fields": [
   {
@@ -45,6 +48,13 @@
    "label": "Area Reviewed",
    "reqd": 1,
    "in_list_view": 1
+  },
+  {
+   "fieldname": "linked_head",
+   "fieldtype": "Link",
+   "label": "Linked Head",
+   "options": "Chart of Accounts Head",
+   "description": "The Trial Balance head this observation affects, if any -- lets a material observation be escalated to the statutory auditor for the same head"
   },
   {
    "fieldname": "observation",
@@ -95,6 +105,17 @@
    "options": "Open\nIn Progress\nClosed",
    "default": "Open",
    "in_list_view": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Follow-Up History",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "follow_ups",
+   "fieldtype": "Table",
+   "label": "Follow-Ups",
+   "options": "Internal Audit Follow Up"
   }
  ],
  "index_web_pages_for_search": 1,

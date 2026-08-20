@@ -69,6 +69,12 @@ SIMPLE_MASTERS = {
         "Monthly Management Accounts", "Quarterly Financial Statements", "Fixed Asset Register Update",
         "Other",
     ],
+    "Internal Audit Area": [
+        "Revenue and Receivables", "Procurement and Payables", "Payroll and HR",
+        "Treasury and Cash Management", "Fixed Assets", "Inventory and Warehousing",
+        "IT General Controls", "Related Party Transactions", "Regulatory Compliance",
+        "Corporate Governance", "Other",
+    ],
     "Tax Notice Type": [
         "Show Cause Notice", "Assessment Order", "Audit Notice", "Penalty Notice",
         "Refund Order", "Notice for Information / Documents", "Recovery Notice", "Other",

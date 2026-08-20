@@ -120,7 +120,16 @@ CHILD_WORKSPACES = [
 	("Internal Audit", "Internal Audit", [
 		("Internal Audit", [
 			("Internal Audit Engagement", "Internal Audit Engagement"),
+			("Internal Audit Plan", "Internal Audit Plan"),
+			("Internal Audit Procedure", "Internal Audit Procedure"),
 			("Internal Audit Observation", "Internal Audit Observation"),
+		]),
+		("Reports", [
+			("Internal Audit Findings Register", "Internal Audit Findings Register", "Report"),
+			("Internal Audit Action Tracker", "Internal Audit Action Tracker", "Report"),
+		]),
+		("Setup", [
+			("Internal Audit Area", "Internal Audit Area"),
 		]),
 	]),
 	("Review Engagements", "Review Engagements", [
