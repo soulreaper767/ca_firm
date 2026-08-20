@@ -11,6 +11,9 @@
   "is_mandatory",
   "is_applicable",
   "is_complete",
+  "due_date",
+  "received_date",
+  "attachment",
   "remarks"
  ],
  "fields": [
@@ -46,6 +49,22 @@
    "fieldtype": "Check",
    "label": "Is Complete",
    "in_list_view": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date",
+   "description": "For PBC-type checklists: when this item is due from the client"
+  },
+  {
+   "fieldname": "received_date",
+   "fieldtype": "Date",
+   "label": "Received Date"
+  },
+  {
+   "fieldname": "attachment",
+   "fieldtype": "Attach",
+   "label": "Attachment"
   },
   {
    "fieldname": "remarks",

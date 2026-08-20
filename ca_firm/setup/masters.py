@@ -161,6 +161,42 @@ def create_audit_report_templates():
 		doc.insert(ignore_permissions=True)
 
 
+def create_fs_line_items():
+	# two passes so a line item can reference a parent seeded in the same run
+	for name, statement_type, classification, parent, seq, is_sub, fs_area in seed.FS_LINE_ITEMS:
+		if frappe.db.exists("FS Line Item", {"line_item_name": name}):
+			continue
+		doc = frappe.new_doc("FS Line Item")
+		doc.line_item_name = name
+		doc.statement_type = statement_type
+		doc.classification = classification
+		doc.sequence = seq
+		doc.is_subtotal = 1 if is_sub else 0
+		if fs_area:
+			doc.fs_area = fs_area
+		doc.insert(ignore_permissions=True)
+	for name, statement_type, classification, parent, seq, is_sub, fs_area in seed.FS_LINE_ITEMS:
+		if not parent:
+			continue
+		existing = frappe.db.get_value("FS Line Item", {"line_item_name": name}, "name")
+		parent_name = frappe.db.get_value("FS Line Item", {"line_item_name": parent}, "name")
+		if existing and parent_name:
+			frappe.db.set_value("FS Line Item", existing, "parent_line_item", parent_name)
+
+
+def create_coa_heads():
+	for head, fs_line, fs_area, nature in seed.COA_HEADS:
+		if frappe.db.exists("Chart of Accounts Head", head):
+			continue
+		fs_line_name = frappe.db.get_value("FS Line Item", {"line_item_name": fs_line}, "name")
+		if not fs_line_name:
+			continue
+		frappe.get_doc({
+			"doctype": "Chart of Accounts Head", "head_name": head, "fs_line_item": fs_line_name,
+			"fs_area": fs_area, "nature": nature,
+		}).insert(ignore_permissions=True)
+
+
 def create_all():
 	steps = [
 		create_simple_masters,
@@ -177,6 +213,8 @@ def create_all():
 		create_regulatory_requirements,
 		create_audit_opinion_paragraphs,
 		create_audit_report_templates,
+		create_fs_line_items,
+		create_coa_heads,
 	]
 	for step in steps:
 		try:

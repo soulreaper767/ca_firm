@@ -541,3 +541,53 @@ AUDIT_REPORT_TEMPLATES = [
         ],
     ),
 ]
+
+# (line_item_name, statement_type, classification, parent_line_item, sequence, is_subtotal, fs_area)
+FS_LINE_ITEMS = [
+    ("Property, Plant and Equipment", "Balance Sheet", "Asset - Non Current", None, 10, False, "Property, Plant and Equipment"),
+    ("Intangible Assets", "Balance Sheet", "Asset - Non Current", None, 20, False, "Intangible Assets"),
+    ("Long-term Investments", "Balance Sheet", "Asset - Non Current", None, 30, False, "Investments"),
+    ("Stock-in-Trade", "Balance Sheet", "Asset - Current", None, 110, False, "Inventory"),
+    ("Trade Debts", "Balance Sheet", "Asset - Current", None, 120, False, "Trade Receivables"),
+    ("Loans and Advances", "Balance Sheet", "Asset - Current", None, 130, False, None),
+    ("Other Receivables", "Balance Sheet", "Asset - Current", None, 140, False, "Trade Receivables"),
+    ("Cash and Bank Balances", "Balance Sheet", "Asset - Current", None, 150, False, "Cash and Bank Balances"),
+    ("Share Capital", "Balance Sheet", "Equity", None, 210, False, "Equity and Reserves"),
+    ("Reserves and Unappropriated Profit", "Balance Sheet", "Equity", None, 220, False, "Equity and Reserves"),
+    ("Long-term Borrowings", "Balance Sheet", "Liability - Non Current", None, 310, False, "Loans and Borrowings"),
+    ("Deferred Taxation", "Balance Sheet", "Liability - Non Current", None, 320, False, "Taxation - Current and Deferred"),
+    ("Trade and Other Payables", "Balance Sheet", "Liability - Current", None, 410, False, "Trade Payables"),
+    ("Short-term Borrowings", "Balance Sheet", "Liability - Current", None, 420, False, "Loans and Borrowings"),
+    ("Provision for Taxation", "Balance Sheet", "Liability - Current", None, 430, False, "Taxation - Current and Deferred"),
+    ("Revenue from Contracts with Customers", "Profit and Loss", "Income", None, 510, False, "Revenue"),
+    ("Cost of Sales", "Profit and Loss", "Expense", None, 520, False, "Purchases and Expenses"),
+    ("Administrative Expenses", "Profit and Loss", "Expense", None, 530, False, "Purchases and Expenses"),
+    ("Other Income and Other Expenses", "Profit and Loss", "Income", None, 540, False, "Other Income and Other Expenses"),
+    ("Finance Costs", "Profit and Loss", "Expense", None, 550, False, "Loans and Borrowings"),
+    ("Taxation", "Profit and Loss", "Expense", None, 560, False, "Taxation - Current and Deferred"),
+]
+
+# (head_name, fs_line_item, fs_area, nature)
+COA_HEADS = [
+    ("Local Sales", "Revenue from Contracts with Customers", "Revenue", "Credit"),
+    ("Export Sales", "Revenue from Contracts with Customers", "Revenue", "Credit"),
+    ("Raw Material Consumed", "Cost of Sales", "Purchases and Expenses", "Debit"),
+    ("Direct Labour", "Cost of Sales", "Purchases and Expenses", "Debit"),
+    ("Salaries, Wages and Benefits - Admin", "Administrative Expenses", "Employee Benefits and Payroll", "Debit"),
+    ("Depreciation - Owned Assets", "Administrative Expenses", "Property, Plant and Equipment", "Debit"),
+    ("Mark-up on Borrowings", "Finance Costs", "Loans and Borrowings", "Debit"),
+    ("Property, Plant and Equipment - Cost", "Property, Plant and Equipment", "Property, Plant and Equipment", "Debit"),
+    ("Accumulated Depreciation", "Property, Plant and Equipment", "Property, Plant and Equipment", "Credit"),
+    ("Raw Material and Finished Goods Stock", "Stock-in-Trade", "Inventory", "Debit"),
+    ("Trade Debtors - Local", "Trade Debts", "Trade Receivables", "Debit"),
+    ("Trade Debtors - Export", "Trade Debts", "Trade Receivables", "Debit"),
+    ("Cash in Hand", "Cash and Bank Balances", "Cash and Bank Balances", "Debit"),
+    ("Bank Accounts - Current", "Cash and Bank Balances", "Cash and Bank Balances", "Debit"),
+    ("Trade Creditors", "Trade and Other Payables", "Trade Payables", "Credit"),
+    ("Accrued Liabilities", "Trade and Other Payables", "Trade Payables", "Credit"),
+    ("Long-term Loan from Bank", "Long-term Borrowings", "Loans and Borrowings", "Credit"),
+    ("Running Finance", "Short-term Borrowings", "Loans and Borrowings", "Credit"),
+    ("Provision for Taxation - Current Year", "Provision for Taxation", "Taxation - Current and Deferred", "Credit"),
+    ("Issued, Subscribed and Paid-up Capital", "Share Capital", "Equity and Reserves", "Credit"),
+    ("Unappropriated Profit", "Reserves and Unappropriated Profit", "Equity and Reserves", "Credit"),
+]

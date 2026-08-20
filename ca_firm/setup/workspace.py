@@ -33,6 +33,10 @@ CHILD_WORKSPACES = [
 	("Statutory Audit", "Statutory Audit", [
 		("Planning", [
 			("Statutory Audit Engagement", "Statutory Audit Engagement"),
+			("Trial Balance", "Trial Balance"),
+			("Client Chart of Accounts Mapping", "Client Chart of Accounts Mapping"),
+			("Chart of Accounts Head", "Chart of Accounts Head"),
+			("FS Line Item", "FS Line Item"),
 			("Materiality Workings", "Materiality Workings"),
 			("Understanding of the Entity", "Understanding of the Entity"),
 			("Internal Control Evaluation", "Internal Control Evaluation"),
