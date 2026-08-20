@@ -8,6 +8,7 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "client",
   "tax_year",
   "section_break_1",
   "source_statutory_engagement",
@@ -56,6 +57,14 @@
    "reqd": 1,
    "in_list_view": 1,
    "in_standard_filter": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1
   },
   {
    "fieldname": "tax_year",

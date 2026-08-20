@@ -8,8 +8,10 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "client",
   "task_type",
   "linked_head",
+  "linked_account",
   "section_break_1",
   "period",
   "column_break_1",
@@ -40,6 +42,14 @@
    "in_standard_filter": 1
   },
   {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1
+  },
+  {
    "fieldname": "task_type",
    "fieldtype": "Link",
    "label": "Task Type",
@@ -53,6 +63,13 @@
    "label": "Linked Head",
    "options": "Chart of Accounts Head",
    "description": "The Trial Balance head this task's reconciling item or adjustment relates to, if any"
+  },
+  {
+   "fieldname": "linked_account",
+   "fieldtype": "Link",
+   "label": "Linked Account",
+   "options": "Client Chart of Accounts Mapping",
+   "description": "The client's own ledger account this task's reconciling item or adjustment relates to, if any"
   },
   {
    "fieldtype": "Section Break",

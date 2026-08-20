@@ -7,6 +7,7 @@
  "engine": "InnoDB",
  "field_order": [
   "head",
+  "linked_account",
   "description",
   "adjustment_type",
   "permanent_or_timing",
@@ -21,6 +22,14 @@
    "options": "Chart of Accounts Head",
    "in_list_view": 1,
    "description": "The Trial Balance head this adjustment relates to, if any"
+  },
+  {
+   "fieldname": "linked_account",
+   "fieldtype": "Link",
+   "label": "Linked Account",
+   "options": "Client Chart of Accounts Mapping",
+   "in_list_view": 1,
+   "description": "The client's own ledger account this adjustment relates to, if any"
   },
   {
    "fieldname": "description",

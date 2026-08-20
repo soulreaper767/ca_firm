@@ -8,8 +8,10 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "client",
   "area",
   "linked_head",
+  "linked_account",
   "procedure_performed",
   "control_tested",
   "test_result",
@@ -38,6 +40,14 @@
    "in_standard_filter": 1
   },
   {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1
+  },
+  {
    "fieldname": "area",
    "fieldtype": "Link",
    "label": "Area",
@@ -51,6 +61,13 @@
    "label": "Linked Head",
    "options": "Chart of Accounts Head",
    "description": "The Trial Balance head this process/control area feeds into, if any -- lets a control weakness here be traced to the financial statement figures it affects"
+  },
+  {
+   "fieldname": "linked_account",
+   "fieldtype": "Link",
+   "label": "Linked Account",
+   "options": "Client Chart of Accounts Mapping",
+   "description": "The client's own ledger account this control area feeds into, if any"
   },
   {
    "fieldname": "procedure_performed",

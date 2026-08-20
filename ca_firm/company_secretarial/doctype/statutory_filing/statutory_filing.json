@@ -8,8 +8,10 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "client",
   "filing_type",
   "linked_head",
+  "linked_account",
   "section_break_1",
   "due_date",
   "column_break_1",
@@ -39,6 +41,14 @@
    "in_standard_filter": 1
   },
   {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1
+  },
+  {
    "fieldname": "filing_type",
    "fieldtype": "Link",
    "label": "Filing Type",
@@ -52,6 +62,13 @@
    "label": "Linked Head",
    "options": "Chart of Accounts Head",
    "description": "The Trial Balance head this filing affects, if any -- e.g. a charge registration affecting a Liabilities head"
+  },
+  {
+   "fieldname": "linked_account",
+   "fieldtype": "Link",
+   "label": "Linked Account",
+   "options": "Client Chart of Accounts Mapping",
+   "description": "The client's own ledger account this filing affects, if any"
   },
   {
    "fieldtype": "Section Break",

@@ -8,7 +8,9 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "client",
   "linked_head",
+  "linked_account",
   "section_break_1",
   "count_date",
   "column_break_1",
@@ -45,11 +47,26 @@
    "in_standard_filter": 1
   },
   {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1
+  },
+  {
    "fieldname": "linked_head",
    "fieldtype": "Link",
    "label": "Linked Head",
    "options": "Chart of Accounts Head",
    "description": "The Inventory head on the Trial Balance this count relates to, if any -- lets a material variance be flagged to the statutory auditor for that head"
+  },
+  {
+   "fieldname": "linked_account",
+   "fieldtype": "Link",
+   "label": "Linked Account",
+   "options": "Client Chart of Accounts Mapping",
+   "description": "The client's own Inventory ledger account this count relates to, if any"
   },
   {
    "fieldtype": "Section Break",

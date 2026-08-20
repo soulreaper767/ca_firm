@@ -1,5 +1,9 @@
 frappe.ui.form.on("Tax Computation", {
 	refresh(frm) {
+		frm.set_query("linked_account", "adjustment_items", () => ({
+			filters: { client: frm.doc.client, is_group: 0 },
+		}));
+
 		if (frm.doc.source_statutory_engagement && !frm.doc.__islocal) {
 			frm.add_custom_button(__("Pull Accounting Profit from Audit"), () => {
 				frm.call("pull_accounting_profit_from_audit").then(() => frm.reload_doc());

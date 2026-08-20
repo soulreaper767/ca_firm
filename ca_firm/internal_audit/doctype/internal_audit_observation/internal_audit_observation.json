@@ -8,8 +8,10 @@
  "field_order": [
   "naming_series",
   "engagement",
+  "client",
   "area_reviewed",
   "linked_head",
+  "linked_account",
   "observation",
   "risk_rating",
   "recommendation",
@@ -43,6 +45,14 @@
    "in_standard_filter": 1
   },
   {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Customer",
+   "fetch_from": "engagement.client",
+   "read_only": 1
+  },
+  {
    "fieldname": "area_reviewed",
    "fieldtype": "Data",
    "label": "Area Reviewed",
@@ -55,6 +65,13 @@
    "label": "Linked Head",
    "options": "Chart of Accounts Head",
    "description": "The Trial Balance head this observation affects, if any -- lets a material observation be escalated to the statutory auditor for the same head"
+  },
+  {
+   "fieldname": "linked_account",
+   "fieldtype": "Link",
+   "label": "Linked Account",
+   "options": "Client Chart of Accounts Mapping",
+   "description": "The client's own ledger account this observation affects, if any"
   },
   {
    "fieldname": "observation",
