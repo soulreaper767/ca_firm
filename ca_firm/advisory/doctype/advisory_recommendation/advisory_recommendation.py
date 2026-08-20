@@ -4,21 +4,22 @@ from frappe.model.document import Document
 from ca_firm.utils.cross_reference import create_cross_reference
 
 
-class BookkeepingTask(Document):
+class AdvisoryRecommendation(Document):
 	@frappe.whitelist()
 	def escalate_to_audit(self):
-		"""A bookkeeping task that surfaces a reconciling item or year-end
-		adjustment against a specific head is worth flagging to the
-		statutory auditor for the same client and financial year, so the
-		figure they see in the Trial Balance has this context attached."""
+		"""An implemented advisory recommendation that affects a specific
+		head (e.g. a revised valuation methodology, a provisioning policy
+		change) is worth the statutory auditor knowing about for the same
+		client and financial year, since it may change what they expect
+		to see in that head."""
 		if not self.linked_head:
-			frappe.throw("Set a Linked Head before escalating this task.")
+			frappe.throw("Set a Linked Head before escalating this recommendation.")
 
 		client, financial_year = frappe.db.get_value(
-			"Bookkeeping Engagement", self.engagement, ["client", "financial_year"]
+			"Advisory Engagement", self.engagement, ["client", "financial_year"]
 		)
 		if not client:
-			frappe.throw("This task's engagement has no client set.")
+			frappe.throw("This recommendation's engagement has no client set.")
 
 		audit_engagement = frappe.db.get_value(
 			"Statutory Audit Engagement",
@@ -31,13 +32,14 @@ class BookkeepingTask(Document):
 			)
 
 		create_cross_reference(
-			source_doctype="Bookkeeping Task",
+			source_doctype="Advisory Recommendation",
 			source_name=self.name,
 			target_doctype="Statutory Audit Engagement",
 			target_name=audit_engagement,
 			relationship_type="Shares Financial Head",
 			client=client,
 			linked_head=self.linked_head,
-			remarks=f"Bookkeeping Task {self.name} ({self.task_type}) escalated for audit consideration.",
+			remarks=f"Advisory Recommendation {self.name} ({self.recommendation_area or ''}) "
+			f"escalated for audit consideration.",
 		)
 		frappe.msgprint(f"Escalated to Statutory Audit Engagement {audit_engagement}.")

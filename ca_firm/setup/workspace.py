@@ -165,12 +165,22 @@ CHILD_WORKSPACES = [
 		]),
 	]),
 	("Advisory", "Advisory", [
-		("Advisory", [("Advisory Engagement", "Advisory Engagement")]),
+		("Advisory", [
+			("Advisory Engagement", "Advisory Engagement"),
+			("Advisory Recommendation", "Advisory Recommendation"),
+		]),
+		("Reports", [
+			("Advisory Recommendations Tracker", "Advisory Recommendations Tracker", "Report"),
+		]),
 	]),
 	("Company Secretarial", "Company Secretarial", [
 		("Company Secretarial", [
 			("Company Secretarial Engagement", "Company Secretarial Engagement"),
 			("Statutory Filing", "Statutory Filing"),
+			("Statutory Register", "Statutory Register"),
+		]),
+		("Reports", [
+			("Statutory Filings Due", "Statutory Filings Due", "Report"),
 		]),
 		("Setup", [
 			("Statutory Filing Type", "Statutory Filing Type"),
@@ -181,6 +191,9 @@ CHILD_WORKSPACES = [
 			("Bookkeeping Engagement", "Bookkeeping Engagement"),
 			("Bookkeeping Task", "Bookkeeping Task"),
 		]),
+		("Reports", [
+			("Bookkeeping Task Status", "Bookkeeping Task Status", "Report"),
+		]),
 		("Setup", [
 			("Bookkeeping Task Type", "Bookkeeping Task Type"),
 		]),
@@ -188,6 +201,9 @@ CHILD_WORKSPACES = [
 	("General Assignments", "General Assignments", [
 		("General Assignments", [
 			("General Assignment", "General Assignment"),
+		]),
+		("Reports", [
+			("General Assignments Overview", "General Assignments Overview", "Report"),
 		]),
 	]),
 	("Regulatory and Standards", "CA Firm Setup", [

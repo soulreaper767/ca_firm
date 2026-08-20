@@ -10,6 +10,7 @@
   "client",
   "client_engagement",
   "assignment_description",
+  "linked_head",
   "section_break_1",
   "financial_year",
   "column_break_1",
@@ -60,6 +61,13 @@
    "label": "Assignment Description",
    "reqd": 1,
    "description": "What this assignment covers -- for anything not fitting the other assignment types"
+  },
+  {
+   "fieldname": "linked_head",
+   "fieldtype": "Link",
+   "label": "Linked Head",
+   "options": "Chart of Accounts Head",
+   "description": "The Trial Balance head this assignment relates to, if any -- for the rare generic assignment that surfaces something the statutory auditor should know about"
   },
   {
    "fieldtype": "Section Break",

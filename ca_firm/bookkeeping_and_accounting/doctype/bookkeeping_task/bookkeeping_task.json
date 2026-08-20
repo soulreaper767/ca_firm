@@ -9,6 +9,7 @@
   "naming_series",
   "engagement",
   "task_type",
+  "linked_head",
   "section_break_1",
   "period",
   "column_break_1",
@@ -45,6 +46,13 @@
    "options": "Bookkeeping Task Type",
    "reqd": 1,
    "in_list_view": 1
+  },
+  {
+   "fieldname": "linked_head",
+   "fieldtype": "Link",
+   "label": "Linked Head",
+   "options": "Chart of Accounts Head",
+   "description": "The Trial Balance head this task's reconciling item or adjustment relates to, if any"
   },
   {
    "fieldtype": "Section Break",
