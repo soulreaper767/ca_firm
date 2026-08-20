@@ -19,6 +19,17 @@ SECTIONS = [
 	("Client Engagement", [
 		("Client Engagement", "Client Engagement"),
 	]),
+	("Assignment Modules", [
+		("Statutory Audit Engagement", "Statutory Audit Engagement"),
+		("Tax Engagement", "Tax Engagement"),
+		("Internal Audit Engagement", "Internal Audit Engagement"),
+		("Review Engagement", "Review Engagement"),
+		("Certification Engagement", "Certification Engagement"),
+		("Inventory Audit Engagement", "Inventory Audit Engagement"),
+		("Advisory Engagement", "Advisory Engagement"),
+		("Company Secretarial Engagement", "Company Secretarial Engagement"),
+		("Bookkeeping Engagement", "Bookkeeping Engagement"),
+	]),
 ]
 
 
