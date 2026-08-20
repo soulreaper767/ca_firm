@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_no",
+  "particular",
+  "is_mandatory",
+  "is_applicable",
+  "is_complete",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_no",
+   "fieldtype": "Int",
+   "label": "Item No",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "particular",
+   "fieldtype": "Small Text",
+   "label": "Particular",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_mandatory",
+   "fieldtype": "Check",
+   "label": "Is Mandatory",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_applicable",
+   "fieldtype": "Check",
+   "label": "Is Applicable",
+   "in_list_view": 1,
+   "default": "1",
+   "description": "Auto-set from the client's profile when the checklist is generated; can be overridden"
+  },
+  {
+   "fieldname": "is_complete",
+   "fieldtype": "Check",
+   "label": "Is Complete",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "Checklist Instance Item",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

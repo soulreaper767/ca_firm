@@ -1,0 +1,285 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "engagement",
+  "fs_area",
+  "assertion",
+  "risk_category",
+  "risk_description",
+  "section_break_1",
+  "inherent_risk",
+  "column_break_1",
+  "control_risk",
+  "risk_of_material_misstatement",
+  "section_break_2",
+  "planned_response",
+  "section_break_3",
+  "identified_by",
+  "column_break_2",
+  "reviewed_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "RA-.YYYY.-.#####",
+   "default": "RA-.YYYY.-.#####",
+   "hidden": 0,
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "Statutory Audit Engagement",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "fs_area",
+   "fieldtype": "Link",
+   "label": "FS Area",
+   "options": "Financial Statement Area",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "assertion",
+   "fieldtype": "Link",
+   "label": "Assertion",
+   "options": "Assertion",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "risk_category",
+   "fieldtype": "Link",
+   "label": "Risk Category",
+   "options": "Risk Category"
+  },
+  {
+   "fieldname": "risk_description",
+   "fieldtype": "Small Text",
+   "label": "Risk Description",
+   "reqd": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "inherent_risk",
+   "fieldtype": "Link",
+   "label": "Inherent Risk",
+   "options": "Rating Scale",
+   "reqd": 1
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "control_risk",
+   "fieldtype": "Link",
+   "label": "Control Risk",
+   "options": "Rating Scale",
+   "reqd": 1
+  },
+  {
+   "fieldname": "risk_of_material_misstatement",
+   "fieldtype": "Link",
+   "label": "RMM",
+   "options": "Rating Scale",
+   "read_only": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Response",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "planned_response",
+   "fieldtype": "Text",
+   "label": "Planned Response"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "identified_by",
+   "fieldtype": "Link",
+   "label": "Identified By",
+   "options": "Employee"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_2"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "Employee"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "Risk Assessment",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "CA Firm Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Partner",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Job Incharge",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Supervisor",
+   "read": 1,
+   "write": 1,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Semi Senior",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Article Assistant",
+   "read": 1,
+   "write": 0,
+   "create": 0,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "autoname": "naming_series:"
+}

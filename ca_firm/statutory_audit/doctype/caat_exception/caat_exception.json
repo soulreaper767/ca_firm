@@ -1,0 +1,52 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "record_reference",
+  "exception_description",
+  "risk_level",
+  "followed_up"
+ ],
+ "fields": [
+  {
+   "fieldname": "record_reference",
+   "fieldtype": "Data",
+   "label": "Record Reference",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "exception_description",
+   "fieldtype": "Small Text",
+   "label": "Exception Description",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "risk_level",
+   "fieldtype": "Link",
+   "label": "Risk Level",
+   "options": "Rating Scale",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "followed_up",
+   "fieldtype": "Check",
+   "label": "Followed Up"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "CAAT Exception",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

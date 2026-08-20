@@ -1,0 +1,21 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2026-01-01 00:00:00.000000",
+ "disabled": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "module": "Statutory Audit",
+ "name": "Checklist Completion Status",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Checklist Instance",
+ "report_name": "Checklist Completion Status",
+ "report_type": "Script Report",
+ "roles": [
+  {"role": "CA Firm Partner"},
+  {"role": "CA Firm Manager"},
+  {"role": "CA Firm Job Incharge"},
+  {"role": "CA Firm Supervisor"}
+ ]
+}

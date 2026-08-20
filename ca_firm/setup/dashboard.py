@@ -13,6 +13,21 @@ NUMBER_CARDS = [
 		"document_type": "Client Engagement",
 		"filters": [["Client Engagement", "status", "in", ["Signed", "Active"]]],
 	},
+	{
+		"name": "Active Statutory Audits",
+		"document_type": "Statutory Audit Engagement",
+		"filters": [["Statutory Audit Engagement", "status", "not in", ["Completed", "Archived"]]],
+	},
+	{
+		"name": "Open Audit Findings",
+		"document_type": "Audit Finding",
+		"filters": [["Audit Finding", "status", "=", "Open"]],
+	},
+	{
+		"name": "Open Review Notes",
+		"document_type": "Review Note",
+		"filters": [["Review Note", "status", "=", "Open"]],
+	},
 ]
 
 GROUP_BY_CHARTS = [
@@ -27,6 +42,18 @@ GROUP_BY_CHARTS = [
 		"document_type": "Client Engagement",
 		"group_by_based_on": "status",
 		"type": "Bar",
+	},
+	{
+		"name": "Statutory Audits by Status",
+		"document_type": "Statutory Audit Engagement",
+		"group_by_based_on": "status",
+		"type": "Bar",
+	},
+	{
+		"name": "Audit Findings by Severity",
+		"document_type": "Audit Finding",
+		"group_by_based_on": "severity",
+		"type": "Donut",
 	},
 ]
 

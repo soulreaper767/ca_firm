@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "fs_area",
+  "control_description",
+  "control_type",
+  "frequency",
+  "design_effectiveness",
+  "walkthrough_performed",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "fs_area",
+   "fieldtype": "Link",
+   "label": "FS Area",
+   "options": "Financial Statement Area",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "control_description",
+   "fieldtype": "Small Text",
+   "label": "Control Description",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "control_type",
+   "fieldtype": "Select",
+   "label": "Control Type",
+   "options": "Preventive\nDetective",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "Frequency",
+   "options": "Transaction-level\nDaily\nWeekly\nMonthly\nQuarterly\nAnnual"
+  },
+  {
+   "fieldname": "design_effectiveness",
+   "fieldtype": "Select",
+   "label": "Design Effectiveness",
+   "options": "Effective\nPartially Effective\nIneffective\nNot Tested",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "walkthrough_performed",
+   "fieldtype": "Check",
+   "label": "Walkthrough Performed"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "Internal Control Item",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

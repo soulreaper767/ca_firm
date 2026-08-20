@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "event_date",
+  "event_description",
+  "event_type",
+  "financial_statement_impact",
+  "disclosure_required"
+ ],
+ "fields": [
+  {
+   "fieldname": "event_date",
+   "fieldtype": "Date",
+   "label": "Event Date",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "event_description",
+   "fieldtype": "Small Text",
+   "label": "Event Description",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Select",
+   "label": "Event Type",
+   "options": "Adjusting Event\nNon-Adjusting Event",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "financial_statement_impact",
+   "fieldtype": "Small Text",
+   "label": "Financial Statement Impact"
+  },
+  {
+   "fieldname": "disclosure_required",
+   "fieldtype": "Check",
+   "label": "Disclosure Required"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "Subsequent Event",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

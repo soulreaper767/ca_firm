@@ -15,11 +15,35 @@
   "period_start",
   "period_end",
   "section_break_2",
-  "engagement_partner",
+  "entity_type",
   "column_break_2",
-  "job_incharge",
+  "entity_size_category",
   "section_break_3",
+  "industry",
+  "column_break_3",
+  "is_listed_entity",
+  "is_public_interest_entity",
+  "section_break_4",
+  "engagement_partner",
+  "column_break_4",
+  "engagement_manager",
+  "job_incharge",
+  "section_break_5",
+  "is_eqcr_required",
+  "eqcr_partner",
+  "section_break_6",
+  "engagement_team",
+  "section_break_7",
+  "component_auditor_role",
+  "column_break_5",
+  "component_auditor_details",
+  "section_break_8",
+  "overall_audit_risk",
+  "section_break_9",
   "status",
+  "target_completion_date",
+  "actual_completion_date",
+  "section_break_10",
   "remarks"
  ],
  "fields": [
@@ -77,19 +101,82 @@
   },
   {
    "fieldtype": "Section Break",
-   "label": "Team",
+   "label": "Client Profile (for scoping applicable standards/checklists)",
    "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "entity_type",
+   "fieldtype": "Link",
+   "label": "Entity Type",
+   "options": "Entity Type",
+   "fetch_from": "client.entity_type",
+   "read_only": 1
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_2"
+  },
+  {
+   "fieldname": "entity_size_category",
+   "fieldtype": "Link",
+   "label": "Entity Size Category",
+   "options": "Entity Size Category",
+   "fetch_from": "client.entity_size_category",
+   "read_only": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "industry",
+   "fieldtype": "Link",
+   "label": "Industry",
+   "options": "Industry Type",
+   "fetch_from": "client.industry",
+   "read_only": 1
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_3"
+  },
+  {
+   "fieldname": "is_listed_entity",
+   "fieldtype": "Check",
+   "label": "Is Listed Entity",
+   "fetch_from": "client.is_listed_entity",
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_public_interest_entity",
+   "fieldtype": "Check",
+   "label": "Is Public Interest Entity",
+   "fetch_from": "client.is_public_interest_entity",
+   "read_only": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Team",
+   "fieldname": "section_break_4"
   },
   {
    "fieldname": "engagement_partner",
    "fieldtype": "Link",
    "label": "Engagement Partner",
    "options": "Employee",
+   "reqd": 1,
    "in_list_view": 1
   },
   {
    "fieldtype": "Column Break",
-   "fieldname": "column_break_2"
+   "fieldname": "column_break_4"
+  },
+  {
+   "fieldname": "engagement_manager",
+   "fieldtype": "Link",
+   "label": "Engagement Manager",
+   "options": "Employee"
   },
   {
    "fieldname": "job_incharge",
@@ -99,21 +186,98 @@
   },
   {
    "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_5"
+  },
+  {
+   "fieldname": "is_eqcr_required",
+   "fieldtype": "Check",
+   "label": "Is EQCR Required"
+  },
+  {
+   "fieldname": "eqcr_partner",
+   "fieldtype": "Link",
+   "label": "EQCR Partner",
+   "options": "Employee",
+   "depends_on": "is_eqcr_required"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Team Members",
+   "fieldname": "section_break_6"
+  },
+  {
+   "fieldname": "engagement_team",
+   "fieldtype": "Table",
+   "label": "Engagement Team",
+   "options": "Statutory Audit Team Member"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Group / Component Audit",
+   "fieldname": "section_break_7"
+  },
+  {
+   "fieldname": "component_auditor_role",
+   "fieldtype": "Link",
+   "label": "Component Auditor Role",
+   "options": "Component Auditor Role",
+   "default": "Not Applicable"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_5"
+  },
+  {
+   "fieldname": "component_auditor_details",
+   "fieldtype": "Small Text",
+   "label": "Component Auditor Details",
+   "depends_on": "eval:doc.component_auditor_role!='Not Applicable'"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Risk",
+   "fieldname": "section_break_8"
+  },
+  {
+   "fieldname": "overall_audit_risk",
+   "fieldtype": "Link",
+   "label": "Overall Audit Risk",
+   "options": "Rating Scale"
+  },
+  {
+   "fieldtype": "Section Break",
    "label": "Status",
-   "fieldname": "section_break_3"
+   "fieldname": "section_break_9"
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Not Started\nPlanning\nFieldwork\nReview\nCompleted",
-   "default": "Not Started",
+   "options": "Draft\nPlanning\nFieldwork\nManager Review\nPartner Review\nCompleted\nArchived",
+   "default": "Draft",
    "in_list_view": 1,
    "in_standard_filter": 1
   },
   {
+   "fieldname": "target_completion_date",
+   "fieldtype": "Date",
+   "label": "Target Completion Date"
+  },
+  {
+   "fieldname": "actual_completion_date",
+   "fieldtype": "Date",
+   "label": "Actual Completion Date",
+   "read_only": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Remarks",
+   "fieldname": "section_break_10"
+  },
+  {
    "fieldname": "remarks",
-   "fieldtype": "Small Text",
+   "fieldtype": "Text",
    "label": "Remarks"
   }
  ],
@@ -207,7 +371,7 @@
   {
    "role": "CA Firm Senior",
    "read": 1,
-   "write": 1,
+   "write": 0,
    "create": 0,
    "delete": 0,
    "submit": 0,
@@ -265,5 +429,6 @@
    "email": 1
   }
  ],
- "autoname": "naming_series:"
+ "autoname": "naming_series:",
+ "title_field": "financial_year"
 }

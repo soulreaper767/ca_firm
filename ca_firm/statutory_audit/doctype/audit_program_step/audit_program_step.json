@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "step_no",
+  "procedure_description",
+  "assertion",
+  "procedure_type",
+  "is_caat",
+  "is_complete",
+  "performed_by",
+  "workpaper_reference"
+ ],
+ "fields": [
+  {
+   "fieldname": "step_no",
+   "fieldtype": "Int",
+   "label": "Step No",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "procedure_description",
+   "fieldtype": "Small Text",
+   "label": "Procedure Description",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "assertion",
+   "fieldtype": "Link",
+   "label": "Assertion",
+   "options": "Assertion",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "procedure_type",
+   "fieldtype": "Link",
+   "label": "Procedure Type",
+   "options": "Audit Procedure Type",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_caat",
+   "fieldtype": "Check",
+   "label": "Is CAAT",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_complete",
+   "fieldtype": "Check",
+   "label": "Is Complete",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "performed_by",
+   "fieldtype": "Link",
+   "label": "Performed By",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "workpaper_reference",
+   "fieldtype": "Data",
+   "label": "Workpaper Reference"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "Audit Program Step",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

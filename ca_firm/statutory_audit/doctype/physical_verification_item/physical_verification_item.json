@@ -1,0 +1,59 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_description",
+  "book_quantity_value",
+  "physical_quantity_value",
+  "variance",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Small Text",
+   "label": "Item Description",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "book_quantity_value",
+   "fieldtype": "Currency",
+   "label": "Book Quantity Value",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "physical_quantity_value",
+   "fieldtype": "Currency",
+   "label": "Physical Quantity Value",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "variance",
+   "fieldtype": "Currency",
+   "label": "Variance",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Statutory Audit",
+ "name": "Physical Verification Item",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}
