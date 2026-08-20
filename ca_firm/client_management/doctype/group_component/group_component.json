@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "component_client",
+  "relationship_type",
+  "ownership_percent",
+  "is_audited_by_us",
+  "component_auditor_firm",
+  "component_materiality",
+  "significance",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "component_client",
+   "fieldtype": "Link",
+   "label": "Component Client",
+   "options": "Customer",
+   "reqd": 1,
+   "in_list_view": 1,
+   "description": "The subsidiary/associate/JV as its own Client record"
+  },
+  {
+   "fieldname": "relationship_type",
+   "fieldtype": "Link",
+   "label": "Relationship Type",
+   "options": "Group Relationship Type",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "ownership_percent",
+   "fieldtype": "Percent",
+   "label": "Ownership Percent",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "is_audited_by_us",
+   "fieldtype": "Check",
+   "label": "Is Audited By Us",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "component_auditor_firm",
+   "fieldtype": "Data",
+   "label": "Component Auditor Firm",
+   "depends_on": "eval:!doc.is_audited_by_us",
+   "description": "Name of the firm auditing this component, if not us"
+  },
+  {
+   "fieldname": "component_materiality",
+   "fieldtype": "Currency",
+   "label": "Component Materiality"
+  },
+  {
+   "fieldname": "significance",
+   "fieldtype": "Link",
+   "label": "Significance",
+   "options": "Component Significance",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Client Management",
+ "name": "Group Component",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 0,
+ "istable": 1
+}

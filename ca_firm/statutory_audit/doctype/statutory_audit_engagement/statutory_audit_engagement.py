@@ -57,3 +57,80 @@ class StatutoryAuditEngagement(Document):
 			"previous_role": previous_role,
 			"changed_by_user": frappe.session.user,
 		}).insert(ignore_permissions=True)
+
+	@frappe.whitelist()
+	def roll_forward(self, client_engagement, financial_year, period_start=None, period_end=None):
+		"""Create next year's engagement from this one, instead of starting a
+		blank form: team, EQCR/group settings and component auditor details
+		carry over as defaults (all editable on the new record), a fresh
+		Materiality Workings is pre-filled with the same benchmark/percentages
+		(the amount itself must be re-entered against the new year's figures),
+		and the current Risk Assessment rows are copied forward flagged for
+		reassessment -- ISA 315's expectation that prior-year understanding
+		informs, but does not replace, the current year's risk work."""
+		new_engagement = frappe.new_doc("Statutory Audit Engagement")
+		new_engagement.client = self.client
+		new_engagement.client_engagement = client_engagement
+		new_engagement.financial_year = financial_year
+		new_engagement.period_start = period_start
+		new_engagement.period_end = period_end
+		new_engagement.engagement_partner = self.engagement_partner
+		new_engagement.engagement_manager = self.engagement_manager
+		new_engagement.job_incharge = self.job_incharge
+		new_engagement.is_eqcr_required = self.is_eqcr_required
+		new_engagement.eqcr_partner = self.eqcr_partner
+		new_engagement.component_auditor_role = self.component_auditor_role
+		new_engagement.component_auditor_details = self.component_auditor_details
+		new_engagement.group_structure = self.group_structure
+		new_engagement.rolled_forward_from = self.name
+		new_engagement.status = "Draft"
+		for row in self.engagement_team:
+			new_engagement.append("engagement_team", {
+				"staff_member": row.staff_member,
+				"designation": row.designation,
+				"role_in_engagement": row.role_in_engagement,
+			})
+		new_engagement.insert(ignore_permissions=True, ignore_mandatory=True)
+
+		self._copy_materiality_basis(new_engagement.name)
+		self._copy_risk_assessments(new_engagement.name)
+		return new_engagement.name
+
+	def _copy_materiality_basis(self, new_engagement_name):
+		current = frappe.get_all(
+			"Materiality Workings", filters={"engagement": self.name, "is_current": 1},
+			fields=["benchmark", "materiality_percent", "performance_materiality_percent", "clearly_trivial_percent"],
+			limit=1,
+		)
+		if not current:
+			return
+		prior = current[0]
+		frappe.get_doc({
+			"doctype": "Materiality Workings",
+			"engagement": new_engagement_name,
+			"benchmark": prior.benchmark,
+			"benchmark_amount": 0,
+			"materiality_percent": prior.materiality_percent,
+			"performance_materiality_percent": prior.performance_materiality_percent,
+			"clearly_trivial_percent": prior.clearly_trivial_percent,
+			"rationale": "Carried forward from prior year engagement -- update the benchmark amount for the current year.",
+		}).insert(ignore_permissions=True, ignore_mandatory=True)
+
+	def _copy_risk_assessments(self, new_engagement_name):
+		prior_risks = frappe.get_all(
+			"Risk Assessment", filters={"engagement": self.name},
+			fields=["fs_area", "assertion", "risk_category", "risk_description",
+			        "inherent_risk", "control_risk", "planned_response"],
+		)
+		for row in prior_risks:
+			frappe.get_doc({
+				"doctype": "Risk Assessment",
+				"engagement": new_engagement_name,
+				"fs_area": row.fs_area,
+				"assertion": row.assertion,
+				"risk_category": row.risk_category,
+				"risk_description": f"{row.risk_description} (carried forward from prior year -- reassess)",
+				"inherent_risk": row.inherent_risk,
+				"control_risk": row.control_risk,
+				"planned_response": row.planned_response,
+			}).insert(ignore_permissions=True, ignore_mandatory=True)

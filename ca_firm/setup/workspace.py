@@ -24,6 +24,10 @@ CHILD_WORKSPACES = [
 			("Clients", "Customer"),
 			("Client Fee Arrangement", "Client Fee Arrangement"),
 		]),
+		("Client Records", [
+			("Permanent File Document", "Permanent File Document"),
+			("Group Structure", "Group Structure"),
+		]),
 	]),
 	("Client Engagement", "Engagement Management", [
 		("Agreements", [
@@ -63,6 +67,7 @@ CHILD_WORKSPACES = [
 			("Audit Query", "Audit Query"),
 			("Audit Finding", "Audit Finding"),
 			("Audit Adjustment", "Audit Adjustment"),
+			("Consolidation Adjustment", "Consolidation Adjustment"),
 		]),
 		("Review and Reporting", [
 			("Review Note", "Review Note"),
