@@ -51,6 +51,24 @@ SIMPLE_MASTERS = {
         "Unrealized Profit in Intercompany Inventory", "Investment in Subsidiary Elimination",
         "Goodwill on Consolidation", "Non-Controlling Interest", "Other",
     ],
+    "Tax Return Type": [
+        "Income Tax Return", "Sales Tax Return - Monthly", "Withholding Statement",
+        "Wealth Statement", "Advance Tax Estimate", "Other",
+    ],
+    "Certificate Type": [
+        "Turnover Certificate", "Net Worth Certificate", "Stock Statement Certificate",
+        "Debtors / Creditors Certificate", "Solvency Certificate", "Other",
+    ],
+    "Statutory Filing Type": [
+        "Annual Return (Form A/29)", "Return of Allotment (Form 3)", "Special Resolution (Form 45)",
+        "Change in Directors", "Change in Registered Office", "Board Meeting Minutes",
+        "AGM Minutes", "Other",
+    ],
+    "Bookkeeping Task Type": [
+        "Bank Reconciliation", "Sales Tax Return Preparation", "Payroll Processing",
+        "Monthly Management Accounts", "Quarterly Financial Statements", "Fixed Asset Register Update",
+        "Other",
+    ],
     "Rating Scale": ["Low", "Medium", "High", "Critical"],
     "Priority Level": ["Low", "Medium", "High", "Urgent"],
     "Concern Level": ["Low Concern", "Medium Concern", "High Concern"],

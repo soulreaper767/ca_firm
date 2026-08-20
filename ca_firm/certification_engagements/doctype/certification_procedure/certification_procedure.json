@@ -7,135 +7,70 @@
  "engine": "InnoDB",
  "field_order": [
   "naming_series",
-  "client",
-  "client_engagement",
-  "section_break_1",
-  "financial_year",
-  "column_break_1",
-  "period_start",
-  "period_end",
-  "section_break_2",
-  "engagement_partner",
-  "column_break_2",
-  "job_incharge",
-  "section_break_milestones",
-  "milestones",
-  "section_break_3",
-  "status",
-  "remarks"
+  "engagement",
+  "certificate_type",
+  "procedure_performed",
+  "finding",
+  "certified_amount",
+  "performed_by"
  ],
  "fields": [
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Naming Series",
-   "options": "ADV-.YYYY.-.#####",
-   "default": "ADV-.YYYY.-.#####",
+   "options": "CTP-.YYYY.-.#####",
+   "default": "CTP-.YYYY.-.#####",
    "hidden": 0,
    "no_copy": 1,
    "print_hide": 1
   },
   {
-   "fieldname": "client",
+   "fieldname": "engagement",
    "fieldtype": "Link",
-   "label": "Client",
-   "options": "Customer",
+   "label": "Engagement",
+   "options": "Certification Engagement",
    "reqd": 1,
    "in_list_view": 1,
    "in_standard_filter": 1
   },
   {
-   "fieldname": "client_engagement",
+   "fieldname": "certificate_type",
    "fieldtype": "Link",
-   "label": "Client Engagement",
-   "options": "Client Engagement",
+   "label": "Certificate Type",
+   "options": "Certificate Type",
    "reqd": 1,
    "in_list_view": 1
   },
   {
-   "fieldtype": "Section Break",
-   "label": "",
-   "fieldname": "section_break_1"
-  },
-  {
-   "fieldname": "financial_year",
-   "fieldtype": "Data",
-   "label": "Financial Year",
-   "description": "e.g. 2025-26"
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_1"
-  },
-  {
-   "fieldname": "period_start",
-   "fieldtype": "Date",
-   "label": "Period Start"
-  },
-  {
-   "fieldname": "period_end",
-   "fieldtype": "Date",
-   "label": "Period End"
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "Team",
-   "fieldname": "section_break_2"
-  },
-  {
-   "fieldname": "engagement_partner",
-   "fieldtype": "Link",
-   "label": "Engagement Partner",
-   "options": "Employee",
-   "in_list_view": 1
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_2"
-  },
-  {
-   "fieldname": "job_incharge",
-   "fieldtype": "Link",
-   "label": "Job Incharge",
-   "options": "Employee"
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "Milestones",
-   "fieldname": "section_break_milestones"
-  },
-  {
-   "fieldname": "milestones",
-   "fieldtype": "Table",
-   "label": "Milestones",
-   "options": "Advisory Milestone"
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "Status",
-   "fieldname": "section_break_3"
-  },
-  {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Not Started\nPlanning\nFieldwork\nReview\nCompleted",
-   "default": "Not Started",
-   "in_list_view": 1,
-   "in_standard_filter": 1
-  },
-  {
-   "fieldname": "remarks",
+   "fieldname": "procedure_performed",
    "fieldtype": "Small Text",
-   "label": "Remarks"
+   "label": "Procedure Performed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "finding",
+   "fieldtype": "Small Text",
+   "label": "Finding"
+  },
+  {
+   "fieldname": "certified_amount",
+   "fieldtype": "Currency",
+   "label": "Certified Amount"
+  },
+  {
+   "fieldname": "performed_by",
+   "fieldtype": "Link",
+   "label": "Performed By",
+   "options": "Employee"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
  "modified": "2026-01-01 00:00:00.000000",
  "modified_by": "Administrator",
- "module": "Advisory",
- "name": "Advisory Engagement",
+ "module": "Certification Engagements",
+ "name": "Certification Procedure",
  "owner": "Administrator",
  "sort_field": "modified",
  "sort_order": "DESC",
@@ -206,7 +141,7 @@
    "role": "CA Firm Supervisor",
    "read": 1,
    "write": 1,
-   "create": 0,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -221,7 +156,7 @@
    "role": "CA Firm Senior",
    "read": 1,
    "write": 1,
-   "create": 0,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -235,8 +170,8 @@
   {
    "role": "CA Firm Semi Senior",
    "read": 1,
-   "write": 0,
-   "create": 0,
+   "write": 1,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -250,8 +185,8 @@
   {
    "role": "CA Firm Article Assistant",
    "read": 1,
-   "write": 0,
-   "create": 0,
+   "write": 1,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,

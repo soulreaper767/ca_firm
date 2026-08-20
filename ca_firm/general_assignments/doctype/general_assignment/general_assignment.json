@@ -9,6 +9,7 @@
   "naming_series",
   "client",
   "client_engagement",
+  "assignment_description",
   "section_break_1",
   "financial_year",
   "column_break_1",
@@ -18,10 +19,11 @@
   "engagement_partner",
   "column_break_2",
   "job_incharge",
-  "section_break_milestones",
-  "milestones",
   "section_break_3",
+  "tasks",
+  "section_break_4",
   "status",
+  "target_completion_date",
   "remarks"
  ],
  "fields": [
@@ -29,8 +31,8 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Naming Series",
-   "options": "ADV-.YYYY.-.#####",
-   "default": "ADV-.YYYY.-.#####",
+   "options": "GEN-.YYYY.-.#####",
+   "default": "GEN-.YYYY.-.#####",
    "hidden": 0,
    "no_copy": 1,
    "print_hide": 1
@@ -53,6 +55,13 @@
    "in_list_view": 1
   },
   {
+   "fieldname": "assignment_description",
+   "fieldtype": "Small Text",
+   "label": "Assignment Description",
+   "reqd": 1,
+   "description": "What this assignment covers -- for anything not fitting the other assignment types"
+  },
+  {
    "fieldtype": "Section Break",
    "label": "",
    "fieldname": "section_break_1"
@@ -60,8 +69,7 @@
   {
    "fieldname": "financial_year",
    "fieldtype": "Data",
-   "label": "Financial Year",
-   "description": "e.g. 2025-26"
+   "label": "Financial Year"
   },
   {
    "fieldtype": "Column Break",
@@ -101,28 +109,32 @@
   },
   {
    "fieldtype": "Section Break",
-   "label": "Milestones",
-   "fieldname": "section_break_milestones"
+   "label": "Tasks",
+   "fieldname": "section_break_3"
   },
   {
-   "fieldname": "milestones",
+   "fieldname": "tasks",
    "fieldtype": "Table",
-   "label": "Milestones",
-   "options": "Advisory Milestone"
+   "label": "Tasks",
+   "options": "Assignment Task"
   },
   {
    "fieldtype": "Section Break",
    "label": "Status",
-   "fieldname": "section_break_3"
+   "fieldname": "section_break_4"
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Not Started\nPlanning\nFieldwork\nReview\nCompleted",
+   "options": "Not Started\nPlanning\nIn Progress\nReview\nCompleted",
    "default": "Not Started",
-   "in_list_view": 1,
-   "in_standard_filter": 1
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "target_completion_date",
+   "fieldtype": "Date",
+   "label": "Target Completion Date"
   },
   {
    "fieldname": "remarks",
@@ -134,8 +146,8 @@
  "links": [],
  "modified": "2026-01-01 00:00:00.000000",
  "modified_by": "Administrator",
- "module": "Advisory",
- "name": "Advisory Engagement",
+ "module": "General Assignments",
+ "name": "General Assignment",
  "owner": "Administrator",
  "sort_field": "modified",
  "sort_order": "DESC",
@@ -206,7 +218,7 @@
    "role": "CA Firm Supervisor",
    "read": 1,
    "write": 1,
-   "create": 0,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -221,7 +233,7 @@
    "role": "CA Firm Senior",
    "read": 1,
    "write": 1,
-   "create": 0,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -235,8 +247,8 @@
   {
    "role": "CA Firm Semi Senior",
    "read": 1,
-   "write": 0,
-   "create": 0,
+   "write": 1,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -250,8 +262,8 @@
   {
    "role": "CA Firm Article Assistant",
    "read": 1,
-   "write": 0,
-   "create": 0,
+   "write": 1,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,

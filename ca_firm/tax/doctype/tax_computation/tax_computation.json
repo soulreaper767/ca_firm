@@ -1,0 +1,332 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "creation": "2026-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "engagement",
+  "tax_year",
+  "section_break_1",
+  "source_statutory_engagement",
+  "section_break_2",
+  "accounting_profit",
+  "column_break_1",
+  "add_backs",
+  "section_break_3",
+  "less_allowances",
+  "column_break_2",
+  "taxable_income",
+  "section_break_4",
+  "applicable_rate",
+  "column_break_3",
+  "tax_liability",
+  "section_break_5",
+  "advance_tax_paid",
+  "column_break_4",
+  "withholding_tax_credit",
+  "tax_payable_or_refundable",
+  "section_break_6",
+  "prepared_by",
+  "column_break_5",
+  "reviewed_by"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "TXC-.YYYY.-.#####",
+   "default": "TXC-.YYYY.-.#####",
+   "hidden": 0,
+   "no_copy": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "engagement",
+   "fieldtype": "Link",
+   "label": "Engagement",
+   "options": "Tax Engagement",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "tax_year",
+   "fieldtype": "Data",
+   "label": "Tax Year",
+   "in_list_view": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Source (optional)",
+   "fieldname": "section_break_1"
+  },
+  {
+   "fieldname": "source_statutory_engagement",
+   "fieldtype": "Link",
+   "label": "Source Statutory Engagement",
+   "options": "Statutory Audit Engagement",
+   "description": "If this client also has a statutory audit for the same period, pull the audited accounting profit from there instead of re-entering it."
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Computation",
+   "fieldname": "section_break_2"
+  },
+  {
+   "fieldname": "accounting_profit",
+   "fieldtype": "Currency",
+   "label": "Accounting Profit"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_1"
+  },
+  {
+   "fieldname": "add_backs",
+   "fieldtype": "Text Editor",
+   "label": "Add Backs",
+   "description": "Inadmissible expenses / disallowances added back"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "less_allowances",
+   "fieldtype": "Text Editor",
+   "label": "Less Allowances",
+   "description": "Admissible allowances / exempt income deducted"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_2"
+  },
+  {
+   "fieldname": "taxable_income",
+   "fieldtype": "Currency",
+   "label": "Taxable Income",
+   "description": "Accounting profit, adjusted for add-backs and allowances above"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_4"
+  },
+  {
+   "fieldname": "applicable_rate",
+   "fieldtype": "Link",
+   "label": "Applicable Rate",
+   "options": "Rate Schedule",
+   "description": "Link the matching rate for this tax year"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_3"
+  },
+  {
+   "fieldname": "tax_liability",
+   "fieldtype": "Currency",
+   "label": "Tax Liability"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_5"
+  },
+  {
+   "fieldname": "advance_tax_paid",
+   "fieldtype": "Currency",
+   "label": "Advance Tax Paid"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_4"
+  },
+  {
+   "fieldname": "withholding_tax_credit",
+   "fieldtype": "Currency",
+   "label": "Withholding Tax Credit"
+  },
+  {
+   "fieldname": "tax_payable_or_refundable",
+   "fieldtype": "Currency",
+   "label": "Tax Payable Or Refundable",
+   "read_only": 1
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "",
+   "fieldname": "section_break_6"
+  },
+  {
+   "fieldname": "prepared_by",
+   "fieldtype": "Link",
+   "label": "Prepared By",
+   "options": "Employee"
+  },
+  {
+   "fieldtype": "Column Break",
+   "fieldname": "column_break_5"
+  },
+  {
+   "fieldname": "reviewed_by",
+   "fieldtype": "Link",
+   "label": "Reviewed By",
+   "options": "Employee"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Tax",
+ "name": "Tax Computation",
+ "owner": "Administrator",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "permissions": [
+  {
+   "role": "CA Firm Admin",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Partner",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Job Incharge",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Supervisor",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Senior",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Semi Senior",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "CA Firm Article Assistant",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "write": 1,
+   "create": 1,
+   "delete": 1,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "report": 1,
+   "export": 1,
+   "share": 1,
+   "print": 1,
+   "email": 1
+  }
+ ],
+ "autoname": "naming_series:"
+}

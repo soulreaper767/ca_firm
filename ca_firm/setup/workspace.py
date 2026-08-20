@@ -96,28 +96,68 @@ CHILD_WORKSPACES = [
 		]),
 	]),
 	("Tax", "Tax", [
-		("Tax", [("Tax Engagement", "Tax Engagement")]),
+		("Tax", [
+			("Tax Engagement", "Tax Engagement"),
+			("Tax Return", "Tax Return"),
+			("Tax Computation", "Tax Computation"),
+		]),
+		("Setup", [
+			("Tax Return Type", "Tax Return Type"),
+			("Rate Schedule", "Rate Schedule"),
+		]),
 	]),
 	("Internal Audit", "Internal Audit", [
-		("Internal Audit", [("Internal Audit Engagement", "Internal Audit Engagement")]),
+		("Internal Audit", [
+			("Internal Audit Engagement", "Internal Audit Engagement"),
+			("Internal Audit Observation", "Internal Audit Observation"),
+		]),
 	]),
 	("Review Engagements", "Review Engagements", [
-		("Review Engagements", [("Review Engagement", "Review Engagement")]),
+		("Review Engagements", [
+			("Review Engagement", "Review Engagement"),
+			("Review Procedure", "Review Procedure"),
+		]),
 	]),
 	("Certification Engagements", "Certification Engagements", [
-		("Certification Engagements", [("Certification Engagement", "Certification Engagement")]),
+		("Certification Engagements", [
+			("Certification Engagement", "Certification Engagement"),
+			("Certification Procedure", "Certification Procedure"),
+		]),
+		("Setup", [
+			("Certificate Type", "Certificate Type"),
+		]),
 	]),
 	("Inventory Audit", "Inventory Audit", [
-		("Inventory Audit", [("Inventory Audit Engagement", "Inventory Audit Engagement")]),
+		("Inventory Audit", [
+			("Inventory Audit Engagement", "Inventory Audit Engagement"),
+			("Inventory Count Sheet", "Inventory Count Sheet"),
+		]),
 	]),
 	("Advisory", "Advisory", [
 		("Advisory", [("Advisory Engagement", "Advisory Engagement")]),
 	]),
 	("Company Secretarial", "Company Secretarial", [
-		("Company Secretarial", [("Company Secretarial Engagement", "Company Secretarial Engagement")]),
+		("Company Secretarial", [
+			("Company Secretarial Engagement", "Company Secretarial Engagement"),
+			("Statutory Filing", "Statutory Filing"),
+		]),
+		("Setup", [
+			("Statutory Filing Type", "Statutory Filing Type"),
+		]),
 	]),
 	("Bookkeeping and Accounting", "Bookkeeping and Accounting", [
-		("Bookkeeping", [("Bookkeeping Engagement", "Bookkeeping Engagement")]),
+		("Bookkeeping", [
+			("Bookkeeping Engagement", "Bookkeeping Engagement"),
+			("Bookkeeping Task", "Bookkeeping Task"),
+		]),
+		("Setup", [
+			("Bookkeeping Task Type", "Bookkeeping Task Type"),
+		]),
+	]),
+	("General Assignments", "General Assignments", [
+		("General Assignments", [
+			("General Assignment", "General Assignment"),
+		]),
 	]),
 	("Regulatory and Standards", "CA Firm Setup", [
 		("Reference Library", [
@@ -133,6 +173,10 @@ CHILD_WORKSPACES = [
 ]
 
 
+def _workspace_route(name):
+	return name.lower().replace(" ", "-")
+
+
 def _build_content_and_shortcuts(sections):
 	content = []
 	shortcuts = []
@@ -145,13 +189,17 @@ def _build_content_and_shortcuts(sections):
 			"data": {"text": f"<span class=\"h4\"><b>{header}</b></span>", "col": 12},
 		})
 		for item in items:
-			# (label, link_to) for a DocType shortcut, or (label, link_to,
-			# "Report") for a Script Report shortcut.
+			# (label, link_to) for a DocType shortcut, (label, link_to,
+			# "Report") for a Script Report shortcut, or (label, url, "URL")
+			# to jump to another page (e.g. a sibling workspace).
 			label, link_to = item[0], item[1]
 			link_type = item[2] if len(item) > 2 else "DocType"
 			idx += 1
 			content.append({"id": f"shortcut-{idx}", "type": "shortcut", "data": {"shortcut_name": label, "col": 3}})
-			shortcuts.append({"label": label, "link_to": link_to, "type": link_type, "doc_view": ""})
+			if link_type == "URL":
+				shortcuts.append({"label": label, "url": link_to, "type": "URL"})
+			else:
+				shortcuts.append({"label": label, "link_to": link_to, "type": link_type, "doc_view": ""})
 		idx += 1
 		content.append({"id": f"spacer-{idx}", "type": "spacer", "data": {"col": 12}})
 	return content, shortcuts
@@ -186,9 +234,16 @@ def create_workspace():
 		if frappe.db.exists("Workspace", name):
 			frappe.delete_doc("Workspace", name, force=True, ignore_permissions=True)
 
+	# The parent's own content is a set of tiles linking to every child
+	# workspace -- otherwise landing on "CA Firm" itself shows nothing,
+	# since all the real shortcuts live on the children.
+	module_tiles = [
+		(name, f"/app/{_workspace_route(name)}", "URL")
+		for name, _module, _sections in CHILD_WORKSPACES
+	]
 	_make_workspace(
 		TOP_WORKSPACE, "CA Firm Setup",
-		[("CA Firm", [])],
+		[("Modules", module_tiles)],
 		parent_page=None, sequence_id=1.0,
 	)
 
