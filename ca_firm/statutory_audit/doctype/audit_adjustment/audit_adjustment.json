@@ -8,34 +8,20 @@
  "field_order": [
   "naming_series",
   "engagement",
-  "section_break_rev",
-  "revision_no",
-  "is_current",
-  "column_break_rev",
-  "supersedes",
-  "revision_trigger",
-  "revision_reason",
+  "description",
+  "source_finding",
   "section_break_1",
-  "benchmark",
-  "column_break_1",
-  "benchmark_amount",
+  "lines",
   "section_break_2",
-  "materiality_percent",
-  "column_break_2",
-  "overall_materiality",
+  "total_debit",
+  "column_break_1",
+  "total_credit",
+  "is_balanced",
   "section_break_3",
-  "performance_materiality_percent",
-  "column_break_3",
-  "performance_materiality",
+  "status",
   "section_break_4",
-  "clearly_trivial_percent",
-  "column_break_4",
-  "clearly_trivial_threshold",
-  "section_break_5",
-  "rationale",
-  "section_break_6",
   "prepared_by",
-  "column_break_5",
+  "column_break_2",
   "reviewed_by"
  ],
  "fields": [
@@ -43,8 +29,8 @@
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Naming Series",
-   "options": "MAT-.YYYY.-.#####",
-   "default": "MAT-.YYYY.-.#####",
+   "options": "ADJ-.YYYY.-.#####",
+   "default": "ADJ-.YYYY.-.#####",
    "hidden": 0,
    "no_copy": 1,
    "print_hide": 1
@@ -55,72 +41,32 @@
    "label": "Engagement",
    "options": "Statutory Audit Engagement",
    "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description",
+   "reqd": 1,
    "in_list_view": 1
   },
   {
-   "fieldtype": "Section Break",
-   "label": "Revision",
-   "fieldname": "section_break_rev",
-   "collapsible": 1
-  },
-  {
-   "fieldname": "revision_no",
-   "fieldtype": "Int",
-   "label": "Revision No",
-   "read_only": 1
-  },
-  {
-   "fieldname": "is_current",
-   "fieldtype": "Check",
-   "label": "Is Current",
-   "read_only": 1,
-   "default": "1",
-   "description": "Only one Materiality Workings per engagement is current at a time; superseded revisions are kept for audit trail"
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_rev"
-  },
-  {
-   "fieldname": "supersedes",
+   "fieldname": "source_finding",
    "fieldtype": "Link",
-   "label": "Supersedes",
-   "options": "Materiality Workings",
-   "read_only": 1
-  },
-  {
-   "fieldname": "revision_trigger",
-   "fieldtype": "Link",
-   "label": "Revision Trigger",
-   "options": "Revision Type",
-   "description": "Leave blank for the initial (planning-stage) materiality"
-  },
-  {
-   "fieldname": "revision_reason",
-   "fieldtype": "Small Text",
-   "label": "Revision Reason"
+   "label": "Source Finding",
+   "options": "Audit Finding"
   },
   {
    "fieldtype": "Section Break",
-   "label": "Benchmark",
+   "label": "Entry",
    "fieldname": "section_break_1"
   },
   {
-   "fieldname": "benchmark",
-   "fieldtype": "Select",
-   "label": "Benchmark",
-   "options": "Total Revenue\nProfit Before Tax\nTotal Assets\nTotal Equity\nTotal Expenses\nNet Profit\nGross Profit\nOther",
-   "reqd": 1
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_1"
-  },
-  {
-   "fieldname": "benchmark_amount",
-   "fieldtype": "Currency",
-   "label": "Benchmark Amount",
-   "reqd": 1
+   "fieldname": "lines",
+   "fieldtype": "Table",
+   "label": "Lines",
+   "options": "Audit Adjustment Line"
   },
   {
    "fieldtype": "Section Break",
@@ -128,78 +74,44 @@
    "fieldname": "section_break_2"
   },
   {
-   "fieldname": "materiality_percent",
-   "fieldtype": "Percent",
-   "label": "Materiality Percent",
-   "reqd": 1,
-   "default": "5"
+   "fieldname": "total_debit",
+   "fieldtype": "Currency",
+   "label": "Total Debit",
+   "read_only": 1
   },
   {
    "fieldtype": "Column Break",
-   "fieldname": "column_break_2"
+   "fieldname": "column_break_1"
   },
   {
-   "fieldname": "overall_materiality",
+   "fieldname": "total_credit",
    "fieldtype": "Currency",
-   "label": "Overall Materiality",
+   "label": "Total Credit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "is_balanced",
+   "fieldtype": "Check",
+   "label": "Is Balanced",
    "read_only": 1
   },
   {
    "fieldtype": "Section Break",
-   "label": "",
+   "label": "Status",
    "fieldname": "section_break_3"
   },
   {
-   "fieldname": "performance_materiality_percent",
-   "fieldtype": "Percent",
-   "label": "Performance Materiality Percent",
-   "default": "75"
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_3"
-  },
-  {
-   "fieldname": "performance_materiality",
-   "fieldtype": "Currency",
-   "label": "Performance Materiality",
-   "read_only": 1
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Proposed\nPassed by Management\nWaived by Management\nPosted",
+   "default": "Proposed",
+   "in_list_view": 1
   },
   {
    "fieldtype": "Section Break",
    "label": "",
    "fieldname": "section_break_4"
-  },
-  {
-   "fieldname": "clearly_trivial_percent",
-   "fieldtype": "Percent",
-   "label": "Clearly Trivial Percent",
-   "default": "5"
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_4"
-  },
-  {
-   "fieldname": "clearly_trivial_threshold",
-   "fieldtype": "Currency",
-   "label": "Clearly Trivial Threshold",
-   "read_only": 1
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "Rationale",
-   "fieldname": "section_break_5"
-  },
-  {
-   "fieldname": "rationale",
-   "fieldtype": "Text",
-   "label": "Rationale"
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "",
-   "fieldname": "section_break_6"
   },
   {
    "fieldname": "prepared_by",
@@ -209,7 +121,7 @@
   },
   {
    "fieldtype": "Column Break",
-   "fieldname": "column_break_5"
+   "fieldname": "column_break_2"
   },
   {
    "fieldname": "reviewed_by",
@@ -223,7 +135,7 @@
  "modified": "2026-01-01 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Statutory Audit",
- "name": "Materiality Workings",
+ "name": "Audit Adjustment",
  "owner": "Administrator",
  "sort_field": "modified",
  "sort_order": "DESC",
@@ -294,7 +206,7 @@
    "role": "CA Firm Supervisor",
    "read": 1,
    "write": 1,
-   "create": 0,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -308,8 +220,8 @@
   {
    "role": "CA Firm Senior",
    "read": 1,
-   "write": 0,
-   "create": 0,
+   "write": 1,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -323,8 +235,8 @@
   {
    "role": "CA Firm Semi Senior",
    "read": 1,
-   "write": 0,
-   "create": 0,
+   "write": 1,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
@@ -338,8 +250,8 @@
   {
    "role": "CA Firm Article Assistant",
    "read": 1,
-   "write": 0,
-   "create": 0,
+   "write": 1,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,

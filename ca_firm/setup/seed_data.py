@@ -31,6 +31,12 @@ SIMPLE_MASTERS = {
     "Billing Frequency": ["One-Time", "Per Engagement", "Monthly", "Quarterly", "Semi-Annually", "Annually"],
     "Fee Arrangement Status": ["Active", "Under Renegotiation", "Lapsed", "Terminated"],
     "Financial Year End Pattern": ["30 June", "31 December", "31 March", "Other"],
+    "Revision Type": [
+        "Materiality Revised - Down (More Conservative)", "Materiality Revised - Up",
+        "Sample Extended - Exceptions Exceeded Tolerable Rate", "Additional Procedures Added",
+        "Risk Assessment Revised", "Audit Program Modified", "Scope Expanded",
+        "Fraud Risk Identified", "Other",
+    ],
     "Rating Scale": ["Low", "Medium", "High", "Critical"],
     "Priority Level": ["Low", "Medium", "High", "Urgent"],
     "Concern Level": ["Low Concern", "Medium Concern", "High Concern"],

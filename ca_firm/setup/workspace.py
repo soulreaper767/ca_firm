@@ -62,10 +62,12 @@ CHILD_WORKSPACES = [
 			("Written Representation Letter", "Written Representation Letter"),
 			("Audit Query", "Audit Query"),
 			("Audit Finding", "Audit Finding"),
+			("Audit Adjustment", "Audit Adjustment"),
 		]),
 		("Review and Reporting", [
 			("Review Note", "Review Note"),
 			("Engagement Quality Control Review", "Engagement Quality Control Review"),
+			("Engagement Revision Log", "Engagement Revision Log"),
 			("Management Letter", "Management Letter"),
 			("Key Audit Matter", "Key Audit Matter"),
 			("Audit Report Template", "Audit Report Template"),

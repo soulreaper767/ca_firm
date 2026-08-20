@@ -8,43 +8,31 @@
  "field_order": [
   "naming_series",
   "engagement",
-  "section_break_rev",
-  "revision_no",
-  "is_current",
-  "column_break_rev",
-  "supersedes",
-  "revision_trigger",
-  "revision_reason",
   "section_break_1",
-  "benchmark",
+  "revision_date",
   "column_break_1",
-  "benchmark_amount",
+  "revision_type",
+  "trigger_finding",
+  "trigger_description",
   "section_break_2",
-  "materiality_percent",
-  "column_break_2",
-  "overall_materiality",
+  "before_state",
+  "after_state",
   "section_break_3",
-  "performance_materiality_percent",
-  "column_break_3",
-  "performance_materiality",
+  "reference_doctype",
+  "column_break_2",
+  "reference_name",
   "section_break_4",
-  "clearly_trivial_percent",
-  "column_break_4",
-  "clearly_trivial_threshold",
-  "section_break_5",
-  "rationale",
-  "section_break_6",
-  "prepared_by",
-  "column_break_5",
-  "reviewed_by"
+  "revised_by",
+  "column_break_3",
+  "approved_by"
  ],
  "fields": [
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
    "label": "Naming Series",
-   "options": "MAT-.YYYY.-.#####",
-   "default": "MAT-.YYYY.-.#####",
+   "options": "ERL-.YYYY.-.#####",
+   "default": "ERL-.YYYY.-.#####",
    "hidden": 0,
    "no_copy": 1,
    "print_hide": 1
@@ -55,167 +43,105 @@
    "label": "Engagement",
    "options": "Statutory Audit Engagement",
    "reqd": 1,
-   "in_list_view": 1
+   "in_list_view": 1,
+   "in_standard_filter": 1
   },
   {
    "fieldtype": "Section Break",
-   "label": "Revision",
-   "fieldname": "section_break_rev",
-   "collapsible": 1
-  },
-  {
-   "fieldname": "revision_no",
-   "fieldtype": "Int",
-   "label": "Revision No",
-   "read_only": 1
-  },
-  {
-   "fieldname": "is_current",
-   "fieldtype": "Check",
-   "label": "Is Current",
-   "read_only": 1,
-   "default": "1",
-   "description": "Only one Materiality Workings per engagement is current at a time; superseded revisions are kept for audit trail"
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_rev"
-  },
-  {
-   "fieldname": "supersedes",
-   "fieldtype": "Link",
-   "label": "Supersedes",
-   "options": "Materiality Workings",
-   "read_only": 1
-  },
-  {
-   "fieldname": "revision_trigger",
-   "fieldtype": "Link",
-   "label": "Revision Trigger",
-   "options": "Revision Type",
-   "description": "Leave blank for the initial (planning-stage) materiality"
-  },
-  {
-   "fieldname": "revision_reason",
-   "fieldtype": "Small Text",
-   "label": "Revision Reason"
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "Benchmark",
+   "label": "",
    "fieldname": "section_break_1"
   },
   {
-   "fieldname": "benchmark",
-   "fieldtype": "Select",
-   "label": "Benchmark",
-   "options": "Total Revenue\nProfit Before Tax\nTotal Assets\nTotal Equity\nTotal Expenses\nNet Profit\nGross Profit\nOther",
-   "reqd": 1
+   "fieldname": "revision_date",
+   "fieldtype": "Date",
+   "label": "Revision Date",
+   "default": "Today",
+   "in_list_view": 1
   },
   {
    "fieldtype": "Column Break",
    "fieldname": "column_break_1"
   },
   {
-   "fieldname": "benchmark_amount",
-   "fieldtype": "Currency",
-   "label": "Benchmark Amount",
-   "reqd": 1
+   "fieldname": "revision_type",
+   "fieldtype": "Link",
+   "label": "Revision Type",
+   "options": "Revision Type",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "trigger_finding",
+   "fieldtype": "Link",
+   "label": "Trigger Finding",
+   "options": "Audit Finding",
+   "description": "If this revision was prompted by a specific finding"
+  },
+  {
+   "fieldname": "trigger_description",
+   "fieldtype": "Small Text",
+   "label": "Trigger Description",
+   "description": "What was observed that prompted this change"
   },
   {
    "fieldtype": "Section Break",
-   "label": "",
+   "label": "What Changed",
    "fieldname": "section_break_2"
   },
   {
-   "fieldname": "materiality_percent",
-   "fieldtype": "Percent",
-   "label": "Materiality Percent",
-   "reqd": 1,
-   "default": "5"
+   "fieldname": "before_state",
+   "fieldtype": "Small Text",
+   "label": "Before State"
+  },
+  {
+   "fieldname": "after_state",
+   "fieldtype": "Small Text",
+   "label": "After State"
+  },
+  {
+   "fieldtype": "Section Break",
+   "label": "Source Record",
+   "fieldname": "section_break_3"
+  },
+  {
+   "fieldname": "reference_doctype",
+   "fieldtype": "Link",
+   "label": "Reference Doctype",
+   "options": "DocType",
+   "read_only": 1
   },
   {
    "fieldtype": "Column Break",
    "fieldname": "column_break_2"
   },
   {
-   "fieldname": "overall_materiality",
-   "fieldtype": "Currency",
-   "label": "Overall Materiality",
+   "fieldname": "reference_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Reference",
+   "options": "reference_doctype",
    "read_only": 1
   },
   {
    "fieldtype": "Section Break",
-   "label": "",
-   "fieldname": "section_break_3"
+   "label": "Sign-off",
+   "fieldname": "section_break_4"
   },
   {
-   "fieldname": "performance_materiality_percent",
-   "fieldtype": "Percent",
-   "label": "Performance Materiality Percent",
-   "default": "75"
+   "fieldname": "revised_by",
+   "fieldtype": "Link",
+   "label": "Revised By",
+   "options": "Employee"
   },
   {
    "fieldtype": "Column Break",
    "fieldname": "column_break_3"
   },
   {
-   "fieldname": "performance_materiality",
-   "fieldtype": "Currency",
-   "label": "Performance Materiality",
-   "read_only": 1
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "",
-   "fieldname": "section_break_4"
-  },
-  {
-   "fieldname": "clearly_trivial_percent",
-   "fieldtype": "Percent",
-   "label": "Clearly Trivial Percent",
-   "default": "5"
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_4"
-  },
-  {
-   "fieldname": "clearly_trivial_threshold",
-   "fieldtype": "Currency",
-   "label": "Clearly Trivial Threshold",
-   "read_only": 1
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "Rationale",
-   "fieldname": "section_break_5"
-  },
-  {
-   "fieldname": "rationale",
-   "fieldtype": "Text",
-   "label": "Rationale"
-  },
-  {
-   "fieldtype": "Section Break",
-   "label": "",
-   "fieldname": "section_break_6"
-  },
-  {
-   "fieldname": "prepared_by",
+   "fieldname": "approved_by",
    "fieldtype": "Link",
-   "label": "Prepared By",
-   "options": "Employee"
-  },
-  {
-   "fieldtype": "Column Break",
-   "fieldname": "column_break_5"
-  },
-  {
-   "fieldname": "reviewed_by",
-   "fieldtype": "Link",
-   "label": "Reviewed By",
-   "options": "Employee"
+   "label": "Approved By",
+   "options": "Employee",
+   "description": "Partner sign-off for significant methodology changes"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -223,7 +149,7 @@
  "modified": "2026-01-01 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Statutory Audit",
- "name": "Materiality Workings",
+ "name": "Engagement Revision Log",
  "owner": "Administrator",
  "sort_field": "modified",
  "sort_order": "DESC",
@@ -294,7 +220,7 @@
    "role": "CA Firm Supervisor",
    "read": 1,
    "write": 1,
-   "create": 0,
+   "create": 1,
    "delete": 0,
    "submit": 0,
    "cancel": 0,
