@@ -11,7 +11,8 @@ def after_migrate():
 
 def _run_setup():
 	from ca_firm.setup import (
-		custom_fields, dashboard, kanban, masters, native_permissions, print_formats, roles, workflow, workspace,
+		custom_fields, dashboard, kanban, masters, native_permissions, print_formats, roles, unblock_modules,
+		workflow, workspace,
 	)
 
 	# Each step commits on success and rolls back + logs on failure, so one
@@ -21,6 +22,7 @@ def _run_setup():
 		("roles", roles.create_roles),
 		("custom_fields", custom_fields.create_all),
 		("native_permissions", native_permissions.create_all),
+		("unblock_modules", unblock_modules.create_all),
 		("masters", masters.create_all),
 		("workspace", workspace.create_workspace),
 		("dashboard", dashboard.create_all),
