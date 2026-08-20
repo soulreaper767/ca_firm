@@ -6,6 +6,17 @@ app_publisher = "CA Firm"
 app_description = "Complete Statutory Audit Management for Chartered Accountancy Firms"
 app_email = "jwabdms@gmail.com"
 app_license = "MIT"
+app_logo_url = "/assets/ca_firm/images/ca-firm-logo.svg"
+
+# Apps screen tile (the grid shown at /apps and in the app switcher)
+add_to_apps_screen = [
+	{
+		"name": "ca_firm",
+		"logo": "/assets/ca_firm/images/ca-firm-logo.svg",
+		"title": "CA Firm",
+		"route": "/app/ca-firm",
+	}
+]
 
 # Installation
 # ------------
